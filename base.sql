@@ -1,4 +1,5 @@
-﻿CREATE DATABASE QuanLyKhachSan
+/*base query by Thang*/
+CREATE DATABASE QuanLyKhachSan
 GO
 
 USE QuanLyKhachSan
