@@ -59,6 +59,7 @@ CREATE TABLE CTHD
 (
 	ID INT IDENTITY PRIMARY KEY,
 	MaPhieu NVARCHAR(10) NOT NULL,
+  	MaHD NVARCHAR(10) NOT NULL,
 	SoNgayThue INT,
 	ThanhTien MONEY
 )
@@ -95,6 +96,7 @@ ALTER TABLE dbo.CTPhieuThuePhong ADD CONSTRAINT FK_CTPhieuThuePhong_PhieuThuePho
 
 -- Chi tiet hoa don --
 ALTER TABLE dbo.CTHD ADD CONSTRAINT FK_CTHD_PhieuThuePhong FOREIGN KEY(MaPhieu) REFERENCES  dbo.PhieuThuePhong(MaPhieu)
+ALTER TABLE dbo.CTHD ADD CONSTRAINT FK_CTHD_HoaDon FOREIGN KEY(MaHD) REFERENCES  dbo.HoaDon(MaHD)
 
 -- Bao cao doanh thu theo loai phong --
 ALTER TABLE dbo.BaoCaoDoanhThuTheoLoaiPhong ADD CONSTRAINT FK_BaoCaoDoanhThuTheoLoaiPhong_DanhMucPhong FOREIGN KEY(MaLoaiPhong) REFERENCES dbo.DanhMucPhong(MaLoaiPhong)
