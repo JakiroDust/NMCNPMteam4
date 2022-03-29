@@ -75,6 +75,15 @@ CREATE TABLE BaoCaoDoanhThuTheoLoaiPhong
 )
 GO	
 
+CREATE TABLE QuyDinh(
+    SoLuongPhong INT,
+    SoLuongKhach INT,
+    LoaiKhach VARCHAR(13),
+    DonGia FLOAT,
+    PhuThu FLOAT
+);
+   
+
 -- danh sach phong --
 ALTER TABLE dbo.DanhSachPhong ADD CONSTRAINT FK_DanhSachPhong_DanhMucPhong FOREIGN KEY(MaLoaiPhong) REFERENCES dbo.DanhMucPhong(MaLoaiPhong)
 
@@ -89,3 +98,6 @@ ALTER TABLE dbo.CTHD ADD CONSTRAINT FK_CTHD_PhieuThuePhong FOREIGN KEY(MaPhieu) 
 
 -- Bao cao doanh thu theo loai phong --
 ALTER TABLE dbo.BaoCaoDoanhThuTheoLoaiPhong ADD CONSTRAINT FK_BaoCaoDoanhThuTheoLoaiPhong_DanhMucPhong FOREIGN KEY(MaLoaiPhong) REFERENCES dbo.DanhMucPhong(MaLoaiPhong)
+
+-- Quy dinh --
+ALTER TABLE dbo.QuyDinh ADD CONSTRAINT FK_QuyDinh_CTPhieuThuePhong FOREIGN KEY(LoaiKhach) REFERENCES dbo.QuyDinh(LoaiKhach)
