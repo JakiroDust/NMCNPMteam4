@@ -76,7 +76,7 @@ CREATE TABLE BaoCaoDoanhThuTheoLoaiPhong
 )
 GO	
 
-CREATE TABLE QuyDinh(
+CREATE TABLE ThamSo(
     SoLuongPhong INT,
     SoLuongKhach INT,
     LoaiKhach VARCHAR(13),
