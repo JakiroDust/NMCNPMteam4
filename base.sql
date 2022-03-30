@@ -77,7 +77,6 @@ CREATE TABLE BaoCaoDoanhThuTheoLoaiPhong
 GO	
 
 CREATE TABLE ThamSo(
-    SoLuongPhong INT,
     SoLuongKhach INT,
     LoaiKhach VARCHAR(13),
     DonGia FLOAT,
