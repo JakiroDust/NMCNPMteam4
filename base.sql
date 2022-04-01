@@ -7,12 +7,21 @@ GO
 
 CREATE TABLE DanhMucPhong 
 (
-	MaLoaiPhong NVARCHAR(10) NOT NULL PRIMARY KEY,
-	TenLoaiPhong NVARCHAR(50),
-	DonGia MONEY,
+	MaPhong Int Identity primary key,
+	TenPhong NVARCHAR(10) NOT NULL,
+	MaLoaiPhong varchar(20),
 	GhiChu NVARCHAR(200)
 )
 GO	
+
+
+Create Table LoaiPhong
+(
+	MaLoaiPhong varchar(20) not null primary key,
+	DonGia MONEY
+)
+
+ALTER TABLE dbo.DanhMucPhong ADD CONSTRAINT FK_DanhMucPhong_LoaiPhong FOREIGN KEY(MaLoaiPhong) REFERENCES dbo.LoaiPhong(MaLoaiPhong)	
 
 CREATE TABLE DanhSachPhong 
 (
