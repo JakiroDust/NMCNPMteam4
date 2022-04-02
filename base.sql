@@ -84,7 +84,10 @@ CREATE TABLE ThamSo(
     TenThamSo NVARCHAR(13),
     GiaTriThamSo float
 );
-   
+Create table PhuThuKhach(
+	SoLuongKhach int not null,
+	PhuThu float
+);   
 
 
 
