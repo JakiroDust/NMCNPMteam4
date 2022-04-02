@@ -1,4 +1,5 @@
-
+use abc
+drop database QuanLyKhachSan
 CREATE DATABASE QuanLyKhachSan
 GO
 
@@ -71,11 +72,19 @@ GO
 
 CREATE TABLE BaoCaoDoanhThuTheoLoaiPhong 
 (
-	ID INT IDENTITY PRIMARY KEY,
+	MaBaoCaoDoanhThuTheoLoaiPhong INT IDENTITY PRIMARY KEY,
 	Thang SMALLINT,
 	Nam SMALLINT,
+	TatcadoanhThu MONEY,
+
+)
+Go
+Create table CT_BaoCaoDoanhThuTheoLoaiPhong
+(
+	MaCT_BaoCaoDoanhThuTheoLoaiPhong INT IDENTITY PRIMARY KEY,
+	MaBaoCaoDoanhThuTheoLoaiPhong INT,
 	MaLoaiPhong NVARCHAR(10) NOT NULL,
-	DoanhThu MONEY,
+	TongDoanhThuTheoLoaiPhong Money,
 	TyLe FLOAT
 )
 GO	
@@ -83,11 +92,13 @@ GO
 CREATE TABLE ThamSo(
     TenThamSo NVARCHAR(13),
     GiaTriThamSo float
-);
+)
+Go
 Create table PhuThuKhach(
 	SoLuongKhach int not null,
 	PhuThu float
-);   
+);
+   
 
 
 
@@ -102,7 +113,7 @@ ALTER TABLE dbo.CTHD ADD CONSTRAINT FK_CTHD_PhieuThuePhong FOREIGN KEY(MaPhieu) 
 ALTER TABLE dbo.CTHD ADD CONSTRAINT FK_CTHD_HoaDon FOREIGN KEY(MaHD) REFERENCES  dbo.HoaDon(MaHD)
 
 -- Bao cao doanh thu theo loai phong --
-ALTER TABLE dbo.BaoCaoDoanhThuTheoLoaiPhong ADD CONSTRAINT FK_BaoCaoDoanhThuTheoLoaiPhong_Phong FOREIGN KEY(MaLoaiPhong) REFERENCES dbo.LoaiPhong(MaLoaiPhong)
+ALTER TABLE dbo.CT_BaoCaoDoanhThuTheoLoaiPhong ADD CONSTRAINT FK_CT_BaoCaoDoanhThuTheoLoaiPhong_Phong FOREIGN KEY(MaLoaiPhong) REFERENCES dbo.LoaiPhong(MaLoaiPhong)
 
 -- Quy dinh --
 /*
