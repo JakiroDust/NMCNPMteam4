@@ -73,7 +73,7 @@ CREATE TABLE BaoCaoDoanhThuTheoLoaiPhong
 	MaBaoCaoDoanhThuTheoLoaiPhong INT IDENTITY PRIMARY KEY,
 	Thang SMALLINT,
 	Nam SMALLINT,
-	TatcadoanhThu MONEY,
+	TongTatCaDoanhThu MONEY,
 
 )
 Go
