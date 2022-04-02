@@ -1,41 +1,36 @@
-/*base query by Thang*/
+
 CREATE DATABASE QuanLyKhachSan
 GO
 
 USE QuanLyKhachSan
 GO
 
-CREATE TABLE DanhMucPhong 
+CREATE TABLE PHONG
 (
-	MaPhong Int Identity primary key,
-	TenPhong NVARCHAR(10) NOT NULL,
-	MaLoaiPhong varchar(20),
-	GhiChu NVARCHAR(200)
+	MaPhong NVARCHAR(10) NOT NULL PRIMARY KEY,
+	MaLoaiPhong nvarchar(10),
+	GhiChu NVARCHAR(200),
+	TinhTrang BIT --0: dang su dung|| 1: con trong
 )
+
 GO	
 
 
 Create Table LoaiPhong
 (
-	MaLoaiPhong varchar(20) not null primary key,
+	MaLoaiPhong nvarchar(10) not null primary key,
 	DonGia MONEY
 )
 
-ALTER TABLE dbo.DanhMucPhong ADD CONSTRAINT FK_DanhMucPhong_LoaiPhong FOREIGN KEY(MaLoaiPhong) REFERENCES dbo.LoaiPhong(MaLoaiPhong)	
+ALTER TABLE dbo.Phong ADD CONSTRAINT FK_Phong_LoaiPhong FOREIGN KEY(MaLoaiPhong) REFERENCES dbo.LoaiPhong(MaLoaiPhong)	
 
-CREATE TABLE DanhSachPhong 
-(
-	MaPhong NVARCHAR(10) NOT NULL PRIMARY KEY,
-	MaLoaiPhong NVARCHAR(10) NOT NULL,
-	DonGia MONEY,
-	TinhTrang BIT --0: dang su dung|| 1: con trong
-)
+
 GO	
 
 CREATE TABLE PhieuThuePhong 
 (
 	MaPhieu NVARCHAR(10) NOT NULL PRIMARY KEY,
-	MaPhong NVARCHAR(10) NOT NULL,
+	MaPhong NVARCHAR(10),
 	SoLuongKhach INT,
 	NgayBDThue DATE,
 	NgayKTThue DATE
@@ -93,11 +88,10 @@ CREATE TABLE ThamSo(
 );
    
 
--- danh sach phong --
-ALTER TABLE dbo.DanhSachPhong ADD CONSTRAINT FK_DanhSachPhong_DanhMucPhong FOREIGN KEY(MaLoaiPhong) REFERENCES dbo.DanhMucPhong(MaLoaiPhong)
+
 
 -- phieu thue phong --
-ALTER TABLE dbo.PhieuThuePhong ADD CONSTRAINT FK_PhieuThuePhong_DanhSachPhong FOREIGN KEY(MaPhong) REFERENCES dbo.DanhSachPhong(MaPhong)
+ALTER TABLE dbo.PhieuThuePhong ADD CONSTRAINT FK_PhieuThuePhong_Phong FOREIGN KEY(MaPhong) REFERENCES dbo.PHONG(MaPhong)
 
 -- Chi tiet phieu thue phong
 ALTER TABLE dbo.CTPhieuThuePhong ADD CONSTRAINT FK_CTPhieuThuePhong_PhieuThuePhong FOREIGN KEY(MaPhieu) REFERENCES dbo.PhieuThuePhong(MaPhieu)
@@ -107,7 +101,9 @@ ALTER TABLE dbo.CTHD ADD CONSTRAINT FK_CTHD_PhieuThuePhong FOREIGN KEY(MaPhieu) 
 ALTER TABLE dbo.CTHD ADD CONSTRAINT FK_CTHD_HoaDon FOREIGN KEY(MaHD) REFERENCES  dbo.HoaDon(MaHD)
 
 -- Bao cao doanh thu theo loai phong --
-ALTER TABLE dbo.BaoCaoDoanhThuTheoLoaiPhong ADD CONSTRAINT FK_BaoCaoDoanhThuTheoLoaiPhong_DanhMucPhong FOREIGN KEY(MaLoaiPhong) REFERENCES dbo.DanhMucPhong(MaLoaiPhong)
+ALTER TABLE dbo.BaoCaoDoanhThuTheoLoaiPhong ADD CONSTRAINT FK_BaoCaoDoanhThuTheoLoaiPhong_Phong FOREIGN KEY(MaLoaiPhong) REFERENCES dbo.LoaiPhong(MaLoaiPhong)
 
 -- Quy dinh --
-ALTER TABLE dbo.QuyDinh ADD CONSTRAINT FK_QuyDinh_CTPhieuThuePhong FOREIGN KEY(LoaiKhach) REFERENCES dbo.QuyDinh(LoaiKhach)
+/*
+ALTER TABLE dbo.ThamSo ADD CONSTRAINT FK_QuyDinh_CTPhieuThuePhong FOREIGN KEY(LoaiKhach) REFERENCES dbo.QuyDinh(LoaiKhach)
+*/
