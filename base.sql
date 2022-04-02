@@ -1,5 +1,3 @@
-use abc
-drop database QuanLyKhachSan
 CREATE DATABASE QuanLyKhachSan
 GO
 
@@ -38,7 +36,7 @@ CREATE TABLE PhieuThuePhong
 ) 
 GO	
 
-CREATE TABLE CTPhieuThuePhong
+CREATE TABLE CT_PhieuThuePhong
 (
 	ID INT IDENTITY PRIMARY KEY,
 	MaPhieu NVARCHAR(10) NOT NULL,
@@ -60,7 +58,7 @@ CREATE TABLE HoaDon
 )
 GO	
 
-CREATE TABLE CTHD
+CREATE TABLE CT_HoaDon
 (
 	ID INT IDENTITY PRIMARY KEY,
 	MaPhieu NVARCHAR(10) NOT NULL,
@@ -106,15 +104,15 @@ Create table PhuThuKhach(
 ALTER TABLE dbo.PhieuThuePhong ADD CONSTRAINT FK_PhieuThuePhong_Phong FOREIGN KEY(MaPhong) REFERENCES dbo.PHONG(MaPhong)
 
 -- Chi tiet phieu thue phong
-ALTER TABLE dbo.CTPhieuThuePhong ADD CONSTRAINT FK_CTPhieuThuePhong_PhieuThuePhong FOREIGN KEY(MaPhieu) REFERENCES dbo.PhieuThuePhong(MaPhieu)
+ALTER TABLE dbo.CT_PhieuThuePhong ADD CONSTRAINT FK_CT_PhieuThuePhong FOREIGN KEY(MaPhieu) REFERENCES dbo.PhieuThuePhong(MaPhieu)
 
 -- Chi tiet hoa don --
-ALTER TABLE dbo.CTHD ADD CONSTRAINT FK_CTHD_PhieuThuePhong FOREIGN KEY(MaPhieu) REFERENCES  dbo.PhieuThuePhong(MaPhieu)
-ALTER TABLE dbo.CTHD ADD CONSTRAINT FK_CTHD_HoaDon FOREIGN KEY(MaHD) REFERENCES  dbo.HoaDon(MaHD)
+ALTER TABLE dbo.CT_HoaDon ADD CONSTRAINT FK_CT_HoaDon_PhieuThuePhong FOREIGN KEY(MaPhieu) REFERENCES  dbo.PhieuThuePhong(MaPhieu)
+ALTER TABLE dbo.CT_HoaDon ADD CONSTRAINT FK_CT_HoaDon FOREIGN KEY(MaHD) REFERENCES  dbo.HoaDon(MaHD)
 
 -- Bao cao doanh thu theo loai phong --
 ALTER TABLE dbo.CT_BaoCaoDoanhThuTheoLoaiPhong ADD CONSTRAINT FK_CT_BaoCaoDoanhThuTheoLoaiPhong_Phong FOREIGN KEY(MaLoaiPhong) REFERENCES dbo.LoaiPhong(MaLoaiPhong)
-
+ALTER TABLE dbo.CT_BaoCaoDoanhThuTheoLoaiPhong ADD CONSTRAINT FK_CT_BaoCaoDoanhThuTheoLoaiPhong FOREIGN KEY(MaBaoCaoDoanhThuTheoLoaiPhong) REFERENCES dbo.BaoCaoDoanhThuTheoLoaiPhong(MaBaoCaoDoanhThuTheoLoaiPhong)
 -- Quy dinh --
 /*
 ALTER TABLE dbo.ThamSo ADD CONSTRAINT FK_QuyDinh_CTPhieuThuePhong FOREIGN KEY(LoaiKhach) REFERENCES dbo.QuyDinh(LoaiKhach)
