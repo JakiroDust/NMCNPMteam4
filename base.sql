@@ -81,10 +81,8 @@ CREATE TABLE BaoCaoDoanhThuTheoLoaiPhong
 GO	
 
 CREATE TABLE ThamSo(
-    SoLuongKhach INT,
-    LoaiKhach VARCHAR(13),
-    DonGia FLOAT,
-    PhuThu FLOAT
+    TenThamSo NVARCHAR(13),
+    GiaTriThamSo float
 );
    
 
