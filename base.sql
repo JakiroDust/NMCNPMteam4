@@ -28,7 +28,7 @@ GO
 
 CREATE TABLE PhieuThuePhong 
 (
-	MaPhieu NVARCHAR(10) NOT NULL PRIMARY KEY,
+	MaPhieuThuePhong NVARCHAR(10) NOT NULL PRIMARY KEY,
 	MaPhong NVARCHAR(10),
 	SoLuongKhach INT,
 	NgayBDThue DATE,
@@ -39,7 +39,7 @@ GO
 CREATE TABLE CT_PhieuThuePhong
 (
 	ID INT IDENTITY PRIMARY KEY,
-	MaPhieu NVARCHAR(10) NOT NULL,
+	MaPhieuThuePhong NVARCHAR(10) NOT NULL,
 	TenKH NVARCHAR(50),
 	LoaiKhach NVARCHAR(20),
 	CMND NVARCHAR(20),
@@ -61,8 +61,8 @@ GO
 CREATE TABLE CT_HoaDon
 (
 	ID INT IDENTITY PRIMARY KEY,
-	MaPhieu NVARCHAR(10) NOT NULL,
-  	MaHD NVARCHAR(10) NOT NULL,
+	MaPhieuThuePhong NVARCHAR(10) NOT NULL,
+  	MaHoaDon NVARCHAR(10) NOT NULL,
 	SoNgayThue INT,
 	ThanhTien MONEY
 )
@@ -104,11 +104,11 @@ Create table PhuThuKhach(
 ALTER TABLE dbo.PhieuThuePhong ADD CONSTRAINT FK_PhieuThuePhong_Phong FOREIGN KEY(MaPhong) REFERENCES dbo.PHONG(MaPhong)
 
 -- Chi tiet phieu thue phong
-ALTER TABLE dbo.CT_PhieuThuePhong ADD CONSTRAINT FK_CT_PhieuThuePhong FOREIGN KEY(MaPhieu) REFERENCES dbo.PhieuThuePhong(MaPhieu)
+ALTER TABLE dbo.CT_PhieuThuePhong ADD CONSTRAINT FK_CT_PhieuThuePhong FOREIGN KEY(MaPhieuThuePhong) REFERENCES dbo.PhieuThuePhong(MaPhieuThuePhong)
 
 -- Chi tiet hoa don --
-ALTER TABLE dbo.CT_HoaDon ADD CONSTRAINT FK_CT_HoaDon_PhieuThuePhong FOREIGN KEY(MaPhieu) REFERENCES  dbo.PhieuThuePhong(MaPhieu)
-ALTER TABLE dbo.CT_HoaDon ADD CONSTRAINT FK_CT_HoaDon FOREIGN KEY(MaHD) REFERENCES  dbo.HoaDon(MaHD)
+ALTER TABLE dbo.CT_HoaDon ADD CONSTRAINT FK_CT_HoaDon_PhieuThuePhong FOREIGN KEY(MaPhieuThuePhong) REFERENCES  dbo.PhieuThuePhong(MaPhieuThuePhong)
+ALTER TABLE dbo.CT_HoaDon ADD CONSTRAINT FK_CT_HoaDon FOREIGN KEY(MaHoaDon) REFERENCES  dbo.HoaDon(MaHoaDon)
 
 -- Bao cao doanh thu theo loai phong --
 ALTER TABLE dbo.CT_BaoCaoDoanhThuTheoLoaiPhong ADD CONSTRAINT FK_CT_BaoCaoDoanhThuTheoLoaiPhong_Phong FOREIGN KEY(MaLoaiPhong) REFERENCES dbo.LoaiPhong(MaLoaiPhong)
