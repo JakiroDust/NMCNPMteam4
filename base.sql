@@ -83,7 +83,7 @@ Create table CT_BaoCaoDoanhThuTheoLoaiPhong
 	MaBaoCaoDoanhThuTheoLoaiPhong INT,
 	MaLoaiPhong NVARCHAR(10) NOT NULL,
 	TongDoanhThuTheoLoaiPhong Money,
-	TyLe FLOAT
+	TiLe FLOAT
 )
 GO	
 
