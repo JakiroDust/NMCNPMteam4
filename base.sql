@@ -75,7 +75,7 @@ CREATE TABLE CT_HOADON
 )
 GO	
 
-CREATE TABLE BAOCAODOANHTHU 
+CREATE TABLE BAOCAODOANHTHUTHEOLOAIPHONG
 (
 	MaBaoCaoDoanhThuTheoLoaiPhong INT IDENTITY PRIMARY KEY,
 	Thang SMALLINT,
@@ -88,7 +88,7 @@ GO
 Create table CT_BAOCAODOANHTHUTHEOLOAIPHONG
 (
 	MaCT_BaoCaoDoanhThuTheoLoaiPhong INT IDENTITY PRIMARY KEY,
-	MaBaoCaoDoanhThu INT,
+	MaBaoCaoDoanhThuTheoLoaiPhong INT,
 	MaLoaiPhong NVARCHAR(10) NOT NULL,
 	TongDoanhThu Money,
 	TiLe FLOAT
@@ -101,7 +101,7 @@ CREATE TABLE THAMSO(
 )
 GO
 
-Create table PhuThuKhach(
+Create table PHUTHUKHACH(
 	SoLuongKhach int not null,
 	PhuThu float
 )
