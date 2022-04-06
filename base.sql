@@ -28,6 +28,7 @@ CREATE TABLE PHIEUTHUEPHONG
 	MaPhong NVARCHAR(10),
 	SoLuongKhach INT,
 	NgayBDThue DATE,
+	NgayKTThue DATE,
 	DonGiaSan MONEY
 ) 
 GO	
