@@ -88,7 +88,8 @@ Create table CT_BAOCAODOANHTHUTHEOLOAIPHONG
 (
 	MaCT_BaoCaoDoanhThuTheoLoaiPhong INT IDENTITY PRIMARY KEY,
 	MaBaoCaoDoanhThuTheoLoaiPhong INT,
-	MaLoaiPhong NVARCHAR(10) NOT NULL,
+	MaLoaiPhong int
+	,
 	TongDoanhThu Money,
 	TiLe FLOAT
 )
