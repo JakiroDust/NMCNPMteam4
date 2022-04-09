@@ -6,7 +6,7 @@ GO
 
 CREATE TABLE PHONG
 (
-	MaPhong NVARCHAR(10) identity NOT NULL PRIMARY KEY,
+	MaPhong int identity NOT NULL PRIMARY KEY,
 	TenPhong Nvarchar(10) not null,
 	MaLoaiPhong INT,
 	GhiChu NVARCHAR(200),
@@ -27,7 +27,7 @@ GO
 CREATE TABLE PHIEUTHUEPHONG 
 (
 	MaPhieuThuePhong INT IDENTITY NOT NULL PRIMARY KEY,
-	MaPhong NVARCHAR(10),
+	MaPhong int,
 	SoLuongKhach INT,
 	NgayBDThue DATE,
 	NgayKTThue DATE,
