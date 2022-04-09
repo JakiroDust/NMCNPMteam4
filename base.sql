@@ -4,7 +4,7 @@ GO
 USE QuanLyKhachSan
 GO
 
-CCREATE TABLE PHONG
+CREATE TABLE PHONG
 (
 	MaPhong NVARCHAR(10) identity NOT NULL PRIMARY KEY,
 	TenPhong Nvarchar(10) not null,
