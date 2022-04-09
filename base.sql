@@ -8,7 +8,7 @@ CCREATE TABLE PHONG
 (
 	MaPhong NVARCHAR(10) identity NOT NULL PRIMARY KEY,
 	TenPhong Nvarchar(10) not null,
-	MaLoaiPhong nvarchar(10),
+	MaLoaiPhong INT,
 	GhiChu NVARCHAR(200),
 	TinhTrang BIT --0: dang su dung|| 1: con trong
 )
@@ -17,7 +17,7 @@ GO
 
 Create Table LOAIPHONG
 (
-	MaLoaiPhong nvarchar(10) not null primary key,
+	MaLoaiPhong  INT IDENTITY not null primary key,
 	TenLoaiPhong nVarchar(10) not null,
 	DonGia MONEY
 )
