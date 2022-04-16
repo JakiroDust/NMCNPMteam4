@@ -124,6 +124,7 @@ ALTER TABLE dbo.CT_HOADON ADD CONSTRAINT FK_CT_HOADON FOREIGN KEY(MaHoaDon) REFE
 ALTER TABLE dbo.CT_BAOCAODOANHTHUTHEOLOAIPHONG ADD CONSTRAINT FK_CT_BAOCAODOANHTHUTHEOLOAIPHONG_LOAIPHONG FOREIGN KEY(MaLoaiPhong) REFERENCES dbo.LOAIPHONG(MaLoaiPhong)
 ALTER TABLE dbo.CT_BAOCAODOANHTHUTHEOLOAIPHONG ADD CONSTRAINT FK_CT_BAOCAODOANHTHUTHEOLOAIPHONG_BAOCAODOANHTHUTHEOLOAIPHONG FOREIGN KEY(MaBaoCaoDoanhThuTheoLoaiPhong) REFERENCES dbo.BAOCAODOANHTHUTHEOLOAIPHONG(MaBaoCaoDoanhThuTheoLoaiPhong)
 
+--TRIGGER--
 CREATE TRIGGER INSERT_PHIEUTHUEPHONG
 ON dbo.PHIEUTHUEPHONG
 FOR INSERT, UPDATE
@@ -156,4 +157,90 @@ BEGIN
 		PRINT 'ERROR!, VUOT QUA SO KHACH KHAI BAO TRONG PHIEU'
 	END
 END
+GO
+
+--STORED PROCEDURE--
+
+--cap nhat tinh trang phong khi thoi han phieu thue phong ket thuc--
+CREATE PROC USP_UPDATE_LISTPHONG
+AS
+	DECLARE @RowsToProcess int,
+			@CurrentRow int,
+			@MaPhong int
+	DECLARE @tempTable TABLE (RowID int not null PRIMARY KEY IDENTITY(1,1), column1 int)
+
+	INSERT INTO @tempTable (column1) SELECT MaPhong FROM PHIEUTHUEPHONG WHERE NgayKTThue >= GETDATE()
+
+	UPDATE PHONG SET TinhTrang = 1
+
+	SET @RowsToProcess = @@ROWCOUNT
+	SET @CurrentRow = 0
+	WHILE @CurrentRow <= @RowsToProcess
+	BEGIN
+		SELECT @MaPhong = column1 FROM @tempTable WHERE RowID = @CurrentRow
+		Print @MaPhong
+		UPDATE PHONG SET TinhTrang = 0 WHERE MaPhong = @MaPhong
+		SET @CurrentRow = @CurrentRow+1
+	END	
+GO
+
+--Tinh gia tri cua cthd dong thoi cap nhat tong tien cua hoa don--
+CREATE PROC USP_INSERT_CT_HOADON
+	@MaHoaDon int,
+	@MaPhieuThuePhong int
+AS
+	IF ((SELECT COUNT(*) FROM PHIEUTHUEPHONG WHERE MaPhieuThuePhong = @MaPhieuThuePhong) > 0)
+	BEGIN
+		DECLARE @SoNgayThue int,
+		@DonGiaSan money,
+		@ThanhTien money,
+		@SoKhachNuocNgoai int,
+		@SoLuongKhach int,
+		@PhuThu float
+
+		SELECT @SoNgayThue = DATEDIFF(day, NgayBDThue, NgayKTThue), @DonGiaSan = DonGiaSan
+		FROM PHIEUTHUEPHONG
+		WHERE MaPhieuThuePhong = @MaPhieuThuePhong
+
+		SELECT @SoLuongKhach = COUNT(*)
+		FROM CT_PHIEUTHUEPHONG
+		WHERE MaPhieuThuePhong = @MaPhieuThuePhong
+
+		SELECT @SoKhachNuocNgoai = COUNT(*)
+		FROM CT_PHIEUTHUEPHONG
+		WHERE MaPhieuThuePhong = @MaPhieuThuePhong
+		AND LoaiKhach = 'Nuoc ngoai'
+
+		SET @ThanhTien = @SoNgayThue * @DonGiaSan
+
+		IF ((SELECT COUNT(*) FROM PHUTHUKHACH WHERE SoLuongKhach = @SoLuongKhach) > 0)
+		BEGIN
+			SELECT @PhuThu = PhuThu
+			FROM PHUTHUKHACH
+			WHERE SoLuongKhach = @SoLuongKhach
+			SET @ThanhTien = @ThanhTien * @PhuThu
+		END	
+
+		IF (@SoKhachNuocNgoai > 0)
+		BEGIN 		
+			SET @ThanhTien = @ThanhTien * 1.5
+		END
+
+		INSERT INTO dbo.CT_HOADON (MaPhieuThuePhong, MaHoaDon, SoNgayThue, ThanhTien) VALUES (@MaPhieuThuePhong, @MaHoaDon, @SoNgayThue, @ThanhTien)
+		UPDATE HOADON SET TriGia = TriGia + @ThanhTien WHERE MaHoaDon = @MaHoaDon
+	END
+GO
+
+--cap nhat tong tien cua hoa don--
+CREATE PROC USP_DELETE_CT_HOADON
+	@MaHoaDon int,
+	@MaPhieuThuePhong int
+AS
+	DECLARE @ThanhTien money
+	IF ((SELECT COUNT(*) FROM CT_HOADON WHERE MaPhieuThuePhong = @MaPhieuThuePhong) > 0)
+	BEGIN
+		SELECT @ThanhTien = ThanhTien FROM CT_HOADON WHERE MaPhieuThuePhong = @MaPhieuThuePhong
+		DELETE FROM CT_HOADON WHERE MaPhieuThuePhong = @MaPhieuThuePhong
+		UPDATE HOADON SET TriGia = TriGia - @ThanhTien WHERE MaHoaDon = @MaHoaDon
+	END
 GO
