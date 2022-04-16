@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using QuanLyKhachSan.DTO;
 
 namespace QuanLyKhachSan.DAO
 {
@@ -23,12 +25,21 @@ namespace QuanLyKhachSan.DAO
 
         private HoaDonDAO() { }
 
-        public bool LapHoaDon(string tenKH, string diaChi, string sDT, decimal triGia, DateTime ngayHD)
+        public bool LapHoaDon(string diaChi = "null", string sDT = "null", string tenKH = "null")
         {
-            string query = $"INSERT INTO dbo.HOADON(TenKH,DiaChi,SDT,TriGia,NgayHD)VALUES(N'{tenKH}',N'{diaChi}',N'{sDT}','{triGia}','{ngayHD}')";
+            string query = $"INSERT INTO dbo.HOADON(TenKH,DiaChi,SDT,TriGia,NgayHD)VALUES(N'{tenKH}',N'{diaChi}',N'{sDT}',0,GETDATE())";
             int result = DataProvider.Instance.ExecuteNonQuery(query);
 
             return result > 0;
+        }
+
+        public HoaDon LayMaHDVuaLap()
+        {
+            DataTable data = DataProvider.Instance.ExecuteQuery("SELECT TOP 1 * FROM HOADON ORDER BY MaHoaDon DESC");
+            DataRow row = data.Rows[0];
+
+            HoaDon hd = new HoaDon(row);
+            return hd;
         }
     }
 }

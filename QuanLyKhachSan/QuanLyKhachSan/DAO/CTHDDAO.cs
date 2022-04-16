@@ -29,7 +29,7 @@ namespace QuanLyKhachSan.DAO
         {
             List<CT_HoaDon> list = new List<CT_HoaDon>();
 
-            DataTable date = DataProvider.Instance.ExecuteQuery("SELECT * FROM dbo.CTHD WHERE MaHD = N'" + maHD + "'");
+            DataTable date = DataProvider.Instance.ExecuteQuery("SELECT * FROM dbo.CT_HOADON WHERE MaHoaDon = N'" + maHD + "'");
             foreach (DataRow item in date.Rows)
             {
                 CT_HoaDon info = new CT_HoaDon(item);
@@ -38,17 +38,16 @@ namespace QuanLyKhachSan.DAO
             return list;
         }
 
-        public bool ThemCTHD(int maHD, int maPhieu, int soNgayThue, double thanhTien)
+        public bool ThemCTHD(int maHD, int maPhieuThuePhong)
         {
-            string query = "INSERT INTO dbo.CTHD(MaHD,MaPhieu,SoNgayThue,ThanhTien)VALUES(" + maHD + "," + maPhieu + "," + soNgayThue + "," + thanhTien + ")";
-            int result = DataProvider.Instance.ExecuteNonQuery(query);
+            int result = DataProvider.Instance.ExecuteNonQuery($"EXEC USP_INSERT_CT_HOADON @MaHoaDon = {maHD}, @MaPhieuThuePhong = {maPhieuThuePhong}");
 
             return result > 0;
         }
 
-        public bool XoaCTHD(int maHD)
+        public bool XoaCTHD(int maHD, int maPhieuThuePhong)
         {
-            int result = DataProvider.Instance.ExecuteNonQuery("DELETE FROM dbo.CTHD WHERE MaHD = " + maHD);
+            int result = DataProvider.Instance.ExecuteNonQuery($"EXEC USP_DELETE_CT_HOADON @MaHoaDon = {maHD}, @MaPhieuThuePhong = {maPhieuThuePhong}");
 
             return result > 0;
         }

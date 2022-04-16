@@ -9,7 +9,7 @@ namespace QuanLyKhachSan.DTO
 {
     public class Phong
     {
-        public Phong(string maPhong, string maLoaiPhong, string ghiChu, bool tinhTrang)
+        public Phong(int maPhong, string maLoaiPhong, string ghiChu, bool tinhTrang)
         {
             this.MaPhong = maPhong;
             this.MaLoaiPhong = maLoaiPhong;
@@ -19,18 +19,18 @@ namespace QuanLyKhachSan.DTO
 
         public Phong(DataRow row)
         {
-            this.MaPhong = row["MaPhong"].ToString();
+            this.MaPhong = (int)row["MaPhong"];
             this.MaLoaiPhong = row["MaLoaiPhong"].ToString();
             this.GhiChu = row["GhiChu"].ToString();
             this.TinhTrang = (bool)row["TinhTrang"];
         }
 
-        private string maPhong;
+        private int maPhong;
         private string maLoaiPhong;
         private string ghiChu;
         private bool tinhTrang;
 
-        public string MaPhong { get => maPhong; set => maPhong = value; }
+        public int MaPhong { get => maPhong; set => maPhong = value; }
         public string MaLoaiPhong { get => maLoaiPhong; set => maLoaiPhong = value; }
         public string GhiChu { get => ghiChu; set => ghiChu = value; }
         public bool TinhTrang { get => tinhTrang; set => tinhTrang = value; }

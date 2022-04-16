@@ -50,14 +50,9 @@ namespace QuanLyKhachSan.DAO
             return room;
         }
 
-        public void CapNhatPhongTheoMaPhong(string maPhong)
+        public void CapNhatDanhSachPhong()
         {
-            bool TinhTrang = true;
-            if ((int)DataProvider.Instance.ExecuteScalar($"select count(*) from PHIEUTHUEPHONG where NgayKTThue >= GETDATE() and MaPhong = '{maPhong}'") > 0)
-            {
-                TinhTrang = false;
-            }
-            DataProvider.Instance.ExecuteNonQuery($"UPDATE dbo.PHONG SET TinhTrang = '{TinhTrang}' WHERE MaPhong = N'{maPhong}'");
-        }     
+            DataProvider.Instance.ExecuteQuery("EXEC USP_UPDATE_LISTPHONG");
+        }
     }
 }
