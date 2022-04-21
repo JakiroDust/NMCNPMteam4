@@ -18,17 +18,11 @@ namespace QuanLyKhachSan
     public partial class frmLapPhieuThuePhong : Form
     {
         private List<string> listPTP = new List<string>();
-        private bool flag = false;
 
         public frmLapPhieuThuePhong()
         {
             InitializeComponent();
             LoadDanhSachPhong();
-
-            //Setting để hiện tổng tiền format vi-VN
-            CultureInfo culture = new CultureInfo("vi-VN");
-
-            Thread.CurrentThread.CurrentCulture = culture;
         }
 
 
@@ -128,16 +122,9 @@ namespace QuanLyKhachSan
             }
             else
             {
-                /*if (lvCTPhieuThuePhong.Items.Count < 3)
-                {*/
-                    frmThanhvien frm = new frmThanhvien(maphieu);
-                    frm.ShowDialog();
-                    CTPhieuThuePhong(tbMaPhong.Text);
-                /*}
-                else
-                {
-                    MessageBox.Show("Mỗi phòng chỉ tối đa 3 người!");
-                }*/
+                frmThanhvien frm = new frmThanhvien(maphieu);
+                frm.ShowDialog();
+                CTPhieuThuePhong(tbMaPhong.Text);
             }
         }
 
@@ -177,26 +164,10 @@ namespace QuanLyKhachSan
 
             if (maPhieu != string.Empty)
             {
-                for (int i = 0; i < lvCTHoaDon.Items.Count; i++)
-                {
-                    if (lvCTHoaDon.Items[i].SubItems[1].Text == maPhong)
-                    {
-                        lvCTHoaDon.Items.RemoveAt(i);
-
-                        for (int j = 0; j < lvCTHoaDon.Items.Count; j++)
-                        {
-                            lvCTHoaDon.Items[j].Text = (j + 1).ToString();
-                        }
-
-                        break;
-                    }
-                }
-
                 if (XoaPhieuThuePhongTheoMaPhieu(maPhieu))
                 {
                     PhongDAO.Instance.CapNhatDanhSachPhong();
                     tbMaPhieu.Text = "";
-                    tbThanhTien.Text = "";
                     lvCTPhieuThuePhong.Items.Clear();
                     LoadDanhSachPhong();
 
@@ -204,55 +175,12 @@ namespace QuanLyKhachSan
                 }
             }
         }
-
-        private void btnLuu_Click(object sender, EventArgs e)
+        private void btnThanhToan_Click(object sender, EventArgs e)
         {
-            Phong room = PhongDAO.Instance.LayThongTinPhongTheoMaPhong(tbMaPhong.Text);
-
-            ListViewItem item = new ListViewItem((lvCTHoaDon.Items.Count + 1).ToString());
-
-            LoaiPhong loaiphong = LoaiPhongDAO.Instance.LayThongTinLoaiPhongTheoMaLoaiPhong(room.MaLoaiPhong);
-
-            item.SubItems.Add(tbMaPhong.Text);
-            item.SubItems.Add(dtpEnd.Value.Subtract(dtpStart.Value).TotalDays.ToString());
-            item.SubItems.Add(loaiphong.DonGia.ToString());
-            item.SubItems.Add(tbThanhTien.Text);
-
-            lvCTHoaDon.Items.Add(item);        
-        }
-
-        private void btLapHoaDon_Click(object sender, EventArgs e)
-        {
-            if (tbTen.Text != string.Empty && tbDiaChi.Text != string.Empty && tbSDT.Text != string.Empty)
-            {
-                if (flag == false)
-                {
-                    if (HoaDonDAO.Instance.LapHoaDon(tbDiaChi.Text, tbSDT.Text, tbTen.Text) == true)
-                    {
-                        HoaDon hoaDon = HoaDonDAO.Instance.LayMaHDVuaLap();
-                        foreach (string maPTP in listPTP)
-                        {
-                            CTHDDAO.Instance.ThemCTHD(hoaDon.MaHoaDon, int.Parse(maPTP));
-                        }
-                        List<CT_HoaDon> cthd = CTHDDAO.Instance.LayDanhSachCTHDTheoMaHD(hoaDon.MaHoaDon.ToString());
-                        foreach (CT_HoaDon ct in cthd)
-                        {
-                            PhieuThuePhong ptp = PhieuThuePhongDAO.Instance.LayPhieuThuePhongTheoMaPhieu(ct.MaPhieuThuePhong.ToString());
-                            ListViewItem item = new ListViewItem((lvCTHoaDon.Items.Count + 1).ToString());
-
-                            item.SubItems.Add(ptp.MaPhong.ToString());
-                            item.SubItems.Add(ct.SoNgayThue.ToString());
-                            item.SubItems.Add(ptp.DonGiaSan.ToString());
-                            item.SubItems.Add(ct.ThanhTien.ToString());
-
-                            lvCTHoaDon.Items.Add(item);
-                        }
-                        tbTongTien.Text = hoaDon.TriGia.ToString("c");
-                        flag = true;
-                    }
-                }            
-            }
+            frmThanhToan frm = new frmThanhToan(listPTP);
+            frm.ShowDialog();
         }
         #endregion
+
     }
 }

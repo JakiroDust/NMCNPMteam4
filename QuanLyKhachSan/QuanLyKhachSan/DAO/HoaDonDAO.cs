@@ -33,7 +33,7 @@ namespace QuanLyKhachSan.DAO
             return result > 0;
         }
 
-        public HoaDon LayMaHDVuaLap()
+        public HoaDon LayHoaDonVuaLap()
         {
             DataTable data = DataProvider.Instance.ExecuteQuery("SELECT TOP 1 * FROM HOADON ORDER BY MaHoaDon DESC");
             DataRow row = data.Rows[0];

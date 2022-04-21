@@ -24,3 +24,4 @@ D:\Documents\Nam_2\Ky_2\SE104.M22-NMCNPM\NMCNPMteam4\QuanLyKhachSan\QuanLyKhachS
 D:\Documents\Nam_2\Ky_2\SE104.M22-NMCNPM\NMCNPMteam4\QuanLyKhachSan\QuanLyKhachSan\obj\Debug\QuanLyKhachSan.csproj.CoreCompileInputs.cache
 D:\Documents\Nam_2\Ky_2\SE104.M22-NMCNPM\NMCNPMteam4\QuanLyKhachSan\QuanLyKhachSan\obj\Debug\QuanLyKhachSan.exe
 D:\Documents\Nam_2\Ky_2\SE104.M22-NMCNPM\NMCNPMteam4\QuanLyKhachSan\QuanLyKhachSan\obj\Debug\QuanLyKhachSan.pdb
+D:\Documents\Nam_2\Ky_2\SE104.M22-NMCNPM\NMCNPMteam4\QuanLyKhachSan\QuanLyKhachSan\obj\Debug\QuanLyKhachSan.frmThanhToan.resources
