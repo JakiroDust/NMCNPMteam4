@@ -142,7 +142,7 @@ BEGIN
 END
 GO
 
-ALTER TRIGGER INSERT_CT_PHIEUTHUEPHONG
+CREATE TRIGGER INSERT_CT_PHIEUTHUEPHONG
 ON dbo.CT_PHIEUTHUEPHONG	
 FOR INSERT, UPDATE
 AS 
@@ -184,7 +184,7 @@ AS
 	END	
 GO
 
---Tinh gia tri cua cthd dong thoi cap nhat tong tien cua hoa don--
+--Tinh gia tri cua cthd dong thoi cap nhat tong tien cua hoa don khi them cthd--
 CREATE PROC USP_INSERT_CT_HOADON
 	@MaHoaDon int,
 	@MaPhieuThuePhong int
@@ -231,7 +231,7 @@ AS
 	END
 GO
 
---cap nhat tong tien cua hoa don--
+--cap nhat tong tien cua hoa don khi xoa cthd--
 CREATE PROC USP_DELETE_CT_HOADON
 	@MaHoaDon int,
 	@MaPhieuThuePhong int
