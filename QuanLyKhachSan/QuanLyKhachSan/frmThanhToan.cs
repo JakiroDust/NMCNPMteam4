@@ -66,7 +66,7 @@ namespace QuanLyKhachSan
 
         private void btnThanhToan_Click(object sender, EventArgs e)
         {
-
+            this.Close();
         }
     }
 }

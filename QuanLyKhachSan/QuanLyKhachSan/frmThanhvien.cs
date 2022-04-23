@@ -17,6 +17,7 @@ namespace QuanLyKhachSan
         public frmThanhvien(string maphieu)
         {
             InitializeComponent();
+            LoadDanhSachLoaiKhachVaoComboBox(cbLoaiKhach);
             tbMaPhieu.Text = maphieu;
         }
 
@@ -54,9 +55,10 @@ namespace QuanLyKhachSan
             this.Close();
         }
 
-        private void frmThanhvien_Load(object sender, EventArgs e)
+        void LoadDanhSachLoaiKhachVaoComboBox(ComboBox cb)
         {
-            this.lOAIKHACHTableAdapter.Fill(this.quanLyKhachSanDataSet.LOAIKHACH);
+            cb.DataSource = LoaiKhachDAO.Instance.LoadDanhSachLoaiKhach();
+            cb.DisplayMember = "TenLoaiKhach";
         }
     }
 }

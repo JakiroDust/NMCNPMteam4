@@ -50,6 +50,7 @@
     <Compile Include="DAO\DataProvider.cs" />
     <Compile Include="DAO\HoaDonDAO.cs" />
     <Compile Include="DAO\CT_PhieuThuePhongDAO.cs" />
+    <Compile Include="DAO\LoaiKhachDAO.cs" />
     <Compile Include="DAO\LoaiPhongDAO.cs" />
     <Compile Include="DAO\PhieuThuePhongDAO.cs" />
     <Compile Include="DAO\PhongDAO.cs" />
@@ -72,6 +73,12 @@
     <Compile Include="frmLapPhieuThuePhong.Designer.cs">
       <DependentUpon>frmLapPhieuThuePhong.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmSuaThanhVien.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSuaThanhVien.Designer.cs">
+      <DependentUpon>frmSuaThanhVien.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmThanhToan.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -86,16 +93,14 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="QuanLyKhachSanDataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>QuanLyKhachSanDataSet.xsd</DependentUpon>
-    </Compile>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmLapPhieuThuePhong.resx">
       <DependentUpon>frmLapPhieuThuePhong.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSuaThanhVien.resx">
+      <DependentUpon>frmSuaThanhVien.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmThanhToan.resx">
       <DependentUpon>frmThanhToan.cs</DependentUpon>
@@ -121,17 +126,6 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <None Include="QuanLyKhachSanDataSet.xsc">
-      <DependentUpon>QuanLyKhachSanDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="QuanLyKhachSanDataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>QuanLyKhachSanDataSet.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="QuanLyKhachSanDataSet.xss">
-      <DependentUpon>QuanLyKhachSanDataSet.xsd</DependentUpon>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

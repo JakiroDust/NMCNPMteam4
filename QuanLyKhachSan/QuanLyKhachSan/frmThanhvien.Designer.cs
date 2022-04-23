@@ -37,6 +37,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.cbLoaiKhach = new System.Windows.Forms.ComboBox();
+            this.lOAIKHACHBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tbDiaChi = new System.Windows.Forms.TextBox();
             this.tbCMND = new System.Windows.Forms.TextBox();
             this.tbMaPhieu = new System.Windows.Forms.TextBox();
@@ -47,15 +48,10 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.quanLyKhachSanDataSet = new QuanLyKhachSan.QuanLyKhachSanDataSet();
-            this.lOAIKHACHBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.lOAIKHACHTableAdapter = new QuanLyKhachSan.QuanLyKhachSanDataSetTableAdapters.LOAIKHACHTableAdapter();
             this.panel1.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.quanLyKhachSanDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lOAIKHACHBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -136,14 +132,11 @@
             // 
             // cbLoaiKhach
             // 
-            this.cbLoaiKhach.DataSource = this.lOAIKHACHBindingSource;
-            this.cbLoaiKhach.DisplayMember = "LoaiKhach";
             this.cbLoaiKhach.FormattingEnabled = true;
             this.cbLoaiKhach.Location = new System.Drawing.Point(458, 98);
             this.cbLoaiKhach.Name = "cbLoaiKhach";
             this.cbLoaiKhach.Size = new System.Drawing.Size(108, 24);
             this.cbLoaiKhach.TabIndex = 1;
-            this.cbLoaiKhach.ValueMember = "LoaiKhach";
             // 
             // tbDiaChi
             // 
@@ -230,20 +223,6 @@
             this.label2.TabIndex = 0;
             this.label2.Text = "Thông tin chi tiết";
             // 
-            // quanLyKhachSanDataSet
-            // 
-            this.quanLyKhachSanDataSet.DataSetName = "QuanLyKhachSanDataSet3";
-            this.quanLyKhachSanDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // lOAIKHACHBindingSource
-            // 
-            this.lOAIKHACHBindingSource.DataMember = "LOAIKHACH";
-            this.lOAIKHACHBindingSource.DataSource = this.quanLyKhachSanDataSet;
-            // 
-            // lOAIKHACHTableAdapter
-            // 
-            this.lOAIKHACHTableAdapter.ClearBeforeFill = true;
-            // 
             // frmThanhvien
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -253,15 +232,12 @@
             this.Name = "frmThanhvien";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Thêm người";
-            this.Load += new System.EventHandler(this.frmThanhvien_Load);
             this.panel1.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.quanLyKhachSanDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lOAIKHACHBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -286,8 +262,6 @@
         private System.Windows.Forms.Button btnHuy;
         private System.Windows.Forms.TextBox tbMaPhieu;
         private System.Windows.Forms.Label label4;
-        private QuanLyKhachSanDataSet quanLyKhachSanDataSet;
         private System.Windows.Forms.BindingSource lOAIKHACHBindingSource;
-        private QuanLyKhachSanDataSetTableAdapters.LOAIKHACHTableAdapter lOAIKHACHTableAdapter;
     }
 }

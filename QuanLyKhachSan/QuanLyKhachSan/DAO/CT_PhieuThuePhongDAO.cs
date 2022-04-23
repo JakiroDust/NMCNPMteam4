@@ -25,7 +25,7 @@ namespace QuanLyKhachSan.DAO
 
         private CT_PhieuThuePhongDAO() { }
 
-        public List<CT_PhieuThuePhong> LayDanhSachKhachHangTheoMaPhieu(string maPhieu)
+        /*public List<CT_PhieuThuePhong> LayDanhSachKhachHangTheoMaPhieu(string maPhieu)
         {
             List<CT_PhieuThuePhong> listCT = new List<CT_PhieuThuePhong>();
 
@@ -38,6 +38,19 @@ namespace QuanLyKhachSan.DAO
             }
 
             return listCT;
+        }*/
+
+        public DataTable LayDanhSachKhachHangTheoMaPhieu(string maPhieu)
+        {
+            if (maPhieu == string.Empty)
+                maPhieu = "null";
+
+            List<CT_PhieuThuePhong> listCT = new List<CT_PhieuThuePhong>();
+            string query = $"EXEC USP_GET_CT_PHIEUTHUEPHONG_BY_MAPHIEUTHUEPHONG @MaPhieuThuePhong = {maPhieu}";
+
+            DataTable data = DataProvider.Instance.ExecuteQuery(query);
+
+            return data;
         }
 
         public bool ThemKhachHang(string maPhieuThuePhong, string tenKH, string loaiKhach, string CMND, string diaChi)
@@ -50,6 +63,13 @@ namespace QuanLyKhachSan.DAO
         public bool XoaKhachHang(string maPhieu)
         {
             int result = DataProvider.Instance.ExecuteNonQuery("DELETE FROM dbo.CT_PHIEUTHUEPHONG WHERE MaPhieuThuePhong = " + maPhieu);
+
+            return result > 0;
+        }
+        public bool SuaKhachHang(string maCTPTP, string tenKH, string loaiKhach, string CMND, string diaChi)
+        {
+            string query = $"update CT_PHIEUTHUEPHONG set TenKH = N'{tenKH}', LoaiKhach = N'{loaiKhach}', CMND = N'{CMND}', DiaChi = N'{diaChi}' Where MaCTPTP = N'{maCTPTP}'";
+            int result = DataProvider.Instance.ExecuteNonQuery(query);
 
             return result > 0;
         }

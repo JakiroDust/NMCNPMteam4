@@ -31,11 +31,7 @@
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.flpRoom = new System.Windows.Forms.FlowLayoutPanel();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.lvCTPhieuThuePhong = new System.Windows.Forms.ListView();
-            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.dgvCTPhieuThuePhong = new System.Windows.Forms.DataGridView();
             this.panel3 = new System.Windows.Forms.Panel();
             this.btnXoaPhieu = new System.Windows.Forms.Button();
             this.dtpEnd = new System.Windows.Forms.DateTimePicker();
@@ -45,7 +41,6 @@
             this.tbMaPhieu = new System.Windows.Forms.TextBox();
             this.tbMaPhong = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -54,10 +49,12 @@
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnThanhToan = new System.Windows.Forms.Button();
+            this.btnSua = new System.Windows.Forms.Button();
             this.btnThem = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1.SuspendLayout();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCTPhieuThuePhong)).BeginInit();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -70,7 +67,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 25);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1049, 591);
+            this.tabPage1.Size = new System.Drawing.Size(1180, 597);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Lập phiếu thuê phòng";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -78,62 +75,36 @@
             // flpRoom
             // 
             this.flpRoom.AutoScroll = true;
-            this.flpRoom.Dock = System.Windows.Forms.DockStyle.Left;
+            this.flpRoom.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flpRoom.Location = new System.Drawing.Point(3, 3);
             this.flpRoom.Name = "flpRoom";
-            this.flpRoom.Size = new System.Drawing.Size(594, 585);
+            this.flpRoom.Size = new System.Drawing.Size(627, 591);
             this.flpRoom.TabIndex = 0;
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.lvCTPhieuThuePhong);
+            this.panel2.Controls.Add(this.dgvCTPhieuThuePhong);
             this.panel2.Controls.Add(this.panel3);
             this.panel2.Controls.Add(this.panel1);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel2.Location = new System.Drawing.Point(605, 3);
+            this.panel2.Location = new System.Drawing.Point(630, 3);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(441, 585);
+            this.panel2.Size = new System.Drawing.Size(547, 591);
             this.panel2.TabIndex = 3;
             // 
-            // lvCTPhieuThuePhong
+            // dgvCTPhieuThuePhong
             // 
-            this.lvCTPhieuThuePhong.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader1,
-            this.columnHeader2,
-            this.columnHeader3,
-            this.columnHeader4});
-            this.lvCTPhieuThuePhong.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lvCTPhieuThuePhong.GridLines = true;
-            this.lvCTPhieuThuePhong.HideSelection = false;
-            this.lvCTPhieuThuePhong.Location = new System.Drawing.Point(0, 273);
-            this.lvCTPhieuThuePhong.Name = "lvCTPhieuThuePhong";
-            this.lvCTPhieuThuePhong.Size = new System.Drawing.Size(441, 220);
-            this.lvCTPhieuThuePhong.TabIndex = 2;
-            this.lvCTPhieuThuePhong.UseCompatibleStateImageBehavior = false;
-            this.lvCTPhieuThuePhong.View = System.Windows.Forms.View.Details;
-            // 
-            // columnHeader1
-            // 
-            this.columnHeader1.Text = "Tên khách hàng";
-            this.columnHeader1.Width = 100;
-            // 
-            // columnHeader2
-            // 
-            this.columnHeader2.Text = "Loại khách";
-            this.columnHeader2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.columnHeader2.Width = 80;
-            // 
-            // columnHeader3
-            // 
-            this.columnHeader3.Text = "CMND";
-            this.columnHeader3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.columnHeader3.Width = 70;
-            // 
-            // columnHeader4
-            // 
-            this.columnHeader4.Text = "Địa chỉ";
-            this.columnHeader4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.columnHeader4.Width = 100;
+            this.dgvCTPhieuThuePhong.AllowUserToAddRows = false;
+            this.dgvCTPhieuThuePhong.AllowUserToDeleteRows = false;
+            this.dgvCTPhieuThuePhong.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvCTPhieuThuePhong.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvCTPhieuThuePhong.Location = new System.Drawing.Point(0, 273);
+            this.dgvCTPhieuThuePhong.Name = "dgvCTPhieuThuePhong";
+            this.dgvCTPhieuThuePhong.ReadOnly = true;
+            this.dgvCTPhieuThuePhong.RowHeadersWidth = 51;
+            this.dgvCTPhieuThuePhong.RowTemplate.Height = 24;
+            this.dgvCTPhieuThuePhong.Size = new System.Drawing.Size(547, 226);
+            this.dgvCTPhieuThuePhong.TabIndex = 4;
             // 
             // panel3
             // 
@@ -145,7 +116,6 @@
             this.panel3.Controls.Add(this.tbMaPhieu);
             this.panel3.Controls.Add(this.tbMaPhong);
             this.panel3.Controls.Add(this.label3);
-            this.panel3.Controls.Add(this.dateTimePicker1);
             this.panel3.Controls.Add(this.label5);
             this.panel3.Controls.Add(this.label4);
             this.panel3.Controls.Add(this.label2);
@@ -155,13 +125,13 @@
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel3.Location = new System.Drawing.Point(0, 0);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(441, 273);
+            this.panel3.Size = new System.Drawing.Size(547, 273);
             this.panel3.TabIndex = 1;
             // 
             // btnXoaPhieu
             // 
             this.btnXoaPhieu.BackColor = System.Drawing.Color.OrangeRed;
-            this.btnXoaPhieu.Location = new System.Drawing.Point(355, 211);
+            this.btnXoaPhieu.Location = new System.Drawing.Point(448, 211);
             this.btnXoaPhieu.Name = "btnXoaPhieu";
             this.btnXoaPhieu.Size = new System.Drawing.Size(65, 47);
             this.btnXoaPhieu.TabIndex = 4;
@@ -172,14 +142,14 @@
             // dtpEnd
             // 
             this.dtpEnd.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpEnd.Location = new System.Drawing.Point(318, 67);
+            this.dtpEnd.Location = new System.Drawing.Point(407, 67);
             this.dtpEnd.Name = "dtpEnd";
             this.dtpEnd.Size = new System.Drawing.Size(102, 22);
             this.dtpEnd.TabIndex = 1;
             // 
             // btnLapPhieu
             // 
-            this.btnLapPhieu.Location = new System.Drawing.Point(169, 148);
+            this.btnLapPhieu.Location = new System.Drawing.Point(242, 148);
             this.btnLapPhieu.Name = "btnLapPhieu";
             this.btnLapPhieu.Size = new System.Drawing.Size(75, 42);
             this.btnLapPhieu.TabIndex = 2;
@@ -190,21 +160,21 @@
             // dtpStart
             // 
             this.dtpStart.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpStart.Location = new System.Drawing.Point(318, 39);
+            this.dtpStart.Location = new System.Drawing.Point(407, 39);
             this.dtpStart.Name = "dtpStart";
             this.dtpStart.Size = new System.Drawing.Size(102, 22);
             this.dtpStart.TabIndex = 0;
             // 
             // tbSoLuongKhach
             // 
-            this.tbSoLuongKhach.Location = new System.Drawing.Point(335, 100);
+            this.tbSoLuongKhach.Location = new System.Drawing.Point(424, 100);
             this.tbSoLuongKhach.Name = "tbSoLuongKhach";
             this.tbSoLuongKhach.Size = new System.Drawing.Size(85, 22);
             this.tbSoLuongKhach.TabIndex = 3;
             // 
             // tbMaPhieu
             // 
-            this.tbMaPhieu.Location = new System.Drawing.Point(169, 208);
+            this.tbMaPhieu.Location = new System.Drawing.Point(238, 208);
             this.tbMaPhieu.Name = "tbMaPhieu";
             this.tbMaPhieu.ReadOnly = true;
             this.tbMaPhieu.Size = new System.Drawing.Size(85, 22);
@@ -221,24 +191,16 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(151, 242);
+            this.label3.Location = new System.Drawing.Point(214, 245);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(146, 16);
             this.label3.TabIndex = 9;
             this.label3.Text = "Danh sách khách hàng:";
             // 
-            // dateTimePicker1
-            // 
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker1.Location = new System.Drawing.Point(446, 23);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(115, 22);
-            this.dateTimePicker1.TabIndex = 8;
-            // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(230, 72);
+            this.label5.Location = new System.Drawing.Point(319, 72);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(67, 16);
             this.label5.TabIndex = 5;
@@ -247,7 +209,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(230, 41);
+            this.label4.Location = new System.Drawing.Point(319, 41);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(59, 16);
             this.label4.TabIndex = 5;
@@ -256,7 +218,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(289, 10);
+            this.label2.Location = new System.Drawing.Point(378, 10);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(71, 16);
             this.label2.TabIndex = 5;
@@ -265,7 +227,7 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(230, 103);
+            this.label12.Location = new System.Drawing.Point(319, 103);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(102, 16);
             this.label12.TabIndex = 0;
@@ -274,7 +236,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(91, 211);
+            this.label7.Location = new System.Drawing.Point(156, 211);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(65, 16);
             this.label7.TabIndex = 0;
@@ -292,16 +254,17 @@
             // panel1
             // 
             this.panel1.Controls.Add(this.btnThanhToan);
+            this.panel1.Controls.Add(this.btnSua);
             this.panel1.Controls.Add(this.btnThem);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 493);
+            this.panel1.Location = new System.Drawing.Point(0, 499);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(441, 92);
+            this.panel1.Size = new System.Drawing.Size(547, 92);
             this.panel1.TabIndex = 3;
             // 
             // btnThanhToan
             // 
-            this.btnThanhToan.Location = new System.Drawing.Point(271, 27);
+            this.btnThanhToan.Location = new System.Drawing.Point(424, 27);
             this.btnThanhToan.Name = "btnThanhToan";
             this.btnThanhToan.Size = new System.Drawing.Size(75, 42);
             this.btnThanhToan.TabIndex = 1;
@@ -309,9 +272,19 @@
             this.btnThanhToan.UseVisualStyleBackColor = true;
             this.btnThanhToan.Click += new System.EventHandler(this.btnThanhToan_Click);
             // 
+            // btnSua
+            // 
+            this.btnSua.Location = new System.Drawing.Point(149, 26);
+            this.btnSua.Name = "btnSua";
+            this.btnSua.Size = new System.Drawing.Size(75, 43);
+            this.btnSua.TabIndex = 0;
+            this.btnSua.Text = "Sửa";
+            this.btnSua.UseVisualStyleBackColor = true;
+            this.btnSua.Click += new System.EventHandler(this.btnSua_Click);
+            // 
             // btnThem
             // 
-            this.btnThem.Location = new System.Drawing.Point(98, 26);
+            this.btnThem.Location = new System.Drawing.Point(57, 26);
             this.btnThem.Name = "btnThem";
             this.btnThem.Size = new System.Drawing.Size(75, 43);
             this.btnThem.TabIndex = 0;
@@ -322,10 +295,11 @@
             // tabControl1
             // 
             this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Location = new System.Drawing.Point(2, 1);
+            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1057, 620);
+            this.tabControl1.Size = new System.Drawing.Size(1188, 626);
             this.tabControl1.TabIndex = 0;
             this.tabControl1.Tag = "";
             // 
@@ -333,12 +307,13 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1064, 626);
+            this.ClientSize = new System.Drawing.Size(1188, 626);
             this.Controls.Add(this.tabControl1);
             this.Name = "frmLapPhieuThuePhong";
             this.Text = "Lập phiếu thuê phòng";
             this.tabPage1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCTPhieuThuePhong)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.panel1.ResumeLayout(false);
@@ -351,11 +326,6 @@
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.FlowLayoutPanel flpRoom;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.ListView lvCTPhieuThuePhong;
-        private System.Windows.Forms.ColumnHeader columnHeader1;
-        private System.Windows.Forms.ColumnHeader columnHeader2;
-        private System.Windows.Forms.ColumnHeader columnHeader3;
-        private System.Windows.Forms.ColumnHeader columnHeader4;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Button btnXoaPhieu;
         private System.Windows.Forms.DateTimePicker dtpEnd;
@@ -365,7 +335,6 @@
         private System.Windows.Forms.TextBox tbMaPhieu;
         private System.Windows.Forms.TextBox tbMaPhong;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label2;
@@ -376,5 +345,7 @@
         private System.Windows.Forms.Button btnThanhToan;
         private System.Windows.Forms.Button btnThem;
         private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.Button btnSua;
+        private System.Windows.Forms.DataGridView dgvCTPhieuThuePhong;
     }
 }

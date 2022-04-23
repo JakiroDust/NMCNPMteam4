@@ -54,26 +54,11 @@ namespace QuanLyKhachSan
             }
         }
 
-        
-
         void CTPhieuThuePhong(string maPhong)
         {
-            lvCTPhieuThuePhong.Items.Clear();
-
             string maPhieu = tbMaPhieu.Text;
-
-            List<CT_PhieuThuePhong> listKhachHang = CT_PhieuThuePhongDAO.Instance.LayDanhSachKhachHangTheoMaPhieu(maPhieu);
-            /*tbThanhTien.Text = LoadTongTien().ToString("c");*/
-
-            foreach (CT_PhieuThuePhong item in listKhachHang)
-            {
-                ListViewItem lvKhachHang = new ListViewItem(item.TenKH.ToString());
-                lvKhachHang.SubItems.Add(item.LoaiKhach.ToString());
-                lvKhachHang.SubItems.Add(item.CMND.ToString());
-                lvKhachHang.SubItems.Add(item.DiaChi.ToString());
-
-                lvCTPhieuThuePhong.Items.Add(lvKhachHang);
-            }
+            
+            dgvCTPhieuThuePhong.DataSource = CT_PhieuThuePhongDAO.Instance.LayDanhSachKhachHangTheoMaPhieu(maPhieu);
         }     
 
         bool XoaPhieuThuePhongTheoMaPhieu(string maPhieu)
@@ -168,19 +153,26 @@ namespace QuanLyKhachSan
                 {
                     PhongDAO.Instance.CapNhatDanhSachPhong();
                     tbMaPhieu.Text = "";
-                    lvCTPhieuThuePhong.Items.Clear();
                     LoadDanhSachPhong();
 
                     listPTP.Remove(maPhieu);
                 }
             }
         }
+
+        private void btnSua_Click(object sender, EventArgs e)
+        {
+            frmSuaThanhVien frm = new frmSuaThanhVien(dgvCTPhieuThuePhong.DataSource, tbMaPhong.Text, tbMaPhieu.Text);
+            frm.ShowDialog();
+            
+        }
+
         private void btnThanhToan_Click(object sender, EventArgs e)
         {
             frmThanhToan frm = new frmThanhToan(listPTP);
             frm.ShowDialog();
+            CTPhieuThuePhong(tbMaPhong.Text);
         }
         #endregion
-
     }
 }

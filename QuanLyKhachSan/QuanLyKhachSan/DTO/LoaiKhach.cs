@@ -10,12 +10,12 @@ namespace QuanLyKhachSan.DTO
     public class LoaiKhach
     {
         private string tenLoaiKhach;
-        private float heSo;
+        private double heSo;
 
         public string TenLoaiKhach { get => tenLoaiKhach; set => tenLoaiKhach = value; }
-        public float HeSo { get => heSo; set => heSo = value; }
+        public double HeSo { get => heSo; set => heSo = value; }
 
-        public LoaiKhach(string tenloaikhach, float heso)
+        public LoaiKhach(string tenloaikhach, double heso)
         {
             this.TenLoaiKhach= tenloaikhach;
             this.HeSo= heso;
@@ -23,8 +23,8 @@ namespace QuanLyKhachSan.DTO
 
         public LoaiKhach (DataRow rows)
         {
-            this.TenLoaiKhach = rows["TenLoaiKhach"].ToString();
-            this.HeSo = (float)rows["HeSo"];
+            this.TenLoaiKhach = rows["LoaiKhach"].ToString();
+            this.HeSo = (double)rows["HeSo"];
         }
     }
 }
