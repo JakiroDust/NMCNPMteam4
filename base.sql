@@ -100,7 +100,7 @@ CREATE TABLE THAMSO(
 )
 GO
 
-Create table PHUTHUKHACH(
+CREATE TABLE PHUTHUKHACH(
 	SoLuongKhach int not null,
 	PhuThu float
 )
@@ -160,6 +160,17 @@ END
 GO
 
 --STORED PROCEDURE--
+
+--lay thong tin ct_phieuthuephong--
+CREATE PROC USP_GET_CT_PHIEUTHUEPHONG_BY_MAPHIEUTHUEPHONG
+@MaPhieuThuePhong int
+AS
+BEGIN
+	SELECT MaCTPTP AS [ID], TenKH AS [Tên khách hàng], LoaiKhach AS [Loại khách], CMND AS [CMND], DiaChi AS [Địa chỉ]
+	FROM CT_PHIEUTHUEPHONG
+	WHERE MaPhieuThuePhong = @MaPhieuThuePhong
+END
+GO
 
 --cap nhat tinh trang phong khi thoi han phieu thue phong ket thuc--
 CREATE PROC USP_UPDATE_LISTPHONG
