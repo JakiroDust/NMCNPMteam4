@@ -73,5 +73,16 @@ namespace QuanLyKhachSan.DAO
             PhieuThuePhong ptp = new PhieuThuePhong(data.Rows[0]);
             return ptp;
         }
+
+        public List<string> LayDanhSachPhieuChuaThanhToan() {
+            List<string> list = new List<string>();
+
+            DataTable data = DataProvider.Instance.ExecuteQuery("SELECT MaPhieuThuePhong FROM PHIEUTHUEPHONG WHERE MaPhieuThuePhong not in (SELECT MaPhieuThuePhong FROM CT_HOADON)");
+
+            foreach (DataRow row in data.Rows) {
+                list.Add(row["MaPhieuThuePhong"].ToString());
+            }
+            return list;
+        }
     }
 }

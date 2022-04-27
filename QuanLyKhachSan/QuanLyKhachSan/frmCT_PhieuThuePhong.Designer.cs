@@ -1,6 +1,6 @@
 ﻿namespace QuanLyKhachSan
 {
-    partial class frmSuaThanhVien
+    partial class frmCT_PhieuThuePhong
     {
         /// <summary>
         /// Required designer variable.
@@ -34,22 +34,23 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.tbThoat = new System.Windows.Forms.Button();
+            this.tbSua = new System.Windows.Forms.Button();
             this.cbLoaiKhach = new System.Windows.Forms.ComboBox();
+            this.tbID = new System.Windows.Forms.TextBox();
             this.tbDiaChi = new System.Windows.Forms.TextBox();
             this.tbCMND = new System.Windows.Forms.TextBox();
             this.tbMaPhong = new System.Windows.Forms.TextBox();
             this.tbMaPhieu = new System.Windows.Forms.TextBox();
             this.tbTenKH = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.tbID = new System.Windows.Forms.TextBox();
-            this.tbSua = new System.Windows.Forms.Button();
-            this.tbThoat = new System.Windows.Forms.Button();
+            this.btThem = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDanhSachKhachHang)).BeginInit();
@@ -110,6 +111,7 @@
             // 
             // panel3
             // 
+            this.panel3.Controls.Add(this.btThem);
             this.panel3.Controls.Add(this.tbThoat);
             this.panel3.Controls.Add(this.tbSua);
             this.panel3.Controls.Add(this.cbLoaiKhach);
@@ -132,6 +134,26 @@
             this.panel3.Size = new System.Drawing.Size(353, 439);
             this.panel3.TabIndex = 4;
             // 
+            // tbThoat
+            // 
+            this.tbThoat.Location = new System.Drawing.Point(244, 376);
+            this.tbThoat.Name = "tbThoat";
+            this.tbThoat.Size = new System.Drawing.Size(75, 44);
+            this.tbThoat.TabIndex = 3;
+            this.tbThoat.Text = "Thoát";
+            this.tbThoat.UseVisualStyleBackColor = true;
+            this.tbThoat.Click += new System.EventHandler(this.tbThoat_Click);
+            // 
+            // tbSua
+            // 
+            this.tbSua.Location = new System.Drawing.Point(115, 376);
+            this.tbSua.Name = "tbSua";
+            this.tbSua.Size = new System.Drawing.Size(75, 44);
+            this.tbSua.TabIndex = 3;
+            this.tbSua.Text = "Sửa";
+            this.tbSua.UseVisualStyleBackColor = true;
+            this.tbSua.Click += new System.EventHandler(this.tbSua_Click);
+            // 
             // cbLoaiKhach
             // 
             this.cbLoaiKhach.FormattingEnabled = true;
@@ -139,6 +161,14 @@
             this.cbLoaiKhach.Name = "cbLoaiKhach";
             this.cbLoaiKhach.Size = new System.Drawing.Size(170, 24);
             this.cbLoaiKhach.TabIndex = 2;
+            // 
+            // tbID
+            // 
+            this.tbID.Location = new System.Drawing.Point(157, 114);
+            this.tbID.Name = "tbID";
+            this.tbID.ReadOnly = true;
+            this.tbID.Size = new System.Drawing.Size(170, 22);
+            this.tbID.TabIndex = 1;
             // 
             // tbDiaChi
             // 
@@ -176,6 +206,15 @@
             this.tbTenKH.Name = "tbTenKH";
             this.tbTenKH.Size = new System.Drawing.Size(170, 22);
             this.tbTenKH.TabIndex = 1;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(32, 120);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(23, 16);
+            this.label8.TabIndex = 0;
+            this.label8.Text = "ID:";
             // 
             // label5
             // 
@@ -231,41 +270,15 @@
             this.label2.TabIndex = 0;
             this.label2.Text = "Tên khách hàng:";
             // 
-            // label8
+            // btThem
             // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(32, 120);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(23, 16);
-            this.label8.TabIndex = 0;
-            this.label8.Text = "ID:";
-            // 
-            // tbID
-            // 
-            this.tbID.Location = new System.Drawing.Point(157, 114);
-            this.tbID.Name = "tbID";
-            this.tbID.Size = new System.Drawing.Size(170, 22);
-            this.tbID.TabIndex = 1;
-            // 
-            // tbSua
-            // 
-            this.tbSua.Location = new System.Drawing.Point(65, 376);
-            this.tbSua.Name = "tbSua";
-            this.tbSua.Size = new System.Drawing.Size(75, 44);
-            this.tbSua.TabIndex = 3;
-            this.tbSua.Text = "Sửa";
-            this.tbSua.UseVisualStyleBackColor = true;
-            this.tbSua.Click += new System.EventHandler(this.tbSua_Click);
-            // 
-            // tbThoat
-            // 
-            this.tbThoat.Location = new System.Drawing.Point(219, 376);
-            this.tbThoat.Name = "tbThoat";
-            this.tbThoat.Size = new System.Drawing.Size(75, 44);
-            this.tbThoat.TabIndex = 3;
-            this.tbThoat.Text = "Thoát";
-            this.tbThoat.UseVisualStyleBackColor = true;
-            this.tbThoat.Click += new System.EventHandler(this.tbThoat_Click);
+            this.btThem.Location = new System.Drawing.Point(26, 376);
+            this.btThem.Name = "btThem";
+            this.btThem.Size = new System.Drawing.Size(75, 44);
+            this.btThem.TabIndex = 4;
+            this.btThem.Text = "Thêm";
+            this.btThem.UseVisualStyleBackColor = true;
+            this.btThem.Click += new System.EventHandler(this.btThem_Click);
             // 
             // frmSuaThanhVien
             // 
@@ -309,5 +322,6 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Button tbThoat;
         private System.Windows.Forms.Button tbSua;
+        private System.Windows.Forms.Button btThem;
     }
 }

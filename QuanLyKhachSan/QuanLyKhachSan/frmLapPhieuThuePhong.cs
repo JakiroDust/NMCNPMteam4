@@ -17,8 +17,6 @@ namespace QuanLyKhachSan
 {
     public partial class frmLapPhieuThuePhong : Form
     {
-        private List<string> listPTP = new List<string>();
-
         public frmLapPhieuThuePhong()
         {
             InitializeComponent();
@@ -54,7 +52,7 @@ namespace QuanLyKhachSan
             }
         }
 
-        void CTPhieuThuePhong(string maPhong)
+        void CTPhieuThuePhong()
         {
             string maPhieu = tbMaPhieu.Text;
             
@@ -95,22 +93,7 @@ namespace QuanLyKhachSan
                 dtpStart.Value = DateTime.Now;
                 dtpEnd.Value = DateTime.Now;
             }
-            CTPhieuThuePhong(maPhong);
-        }
-
-        private void btnThem_Click(object sender, EventArgs e)
-        {
-            string maphieu = tbMaPhieu.Text;
-            if (maphieu == string.Empty)
-            {
-                MessageBox.Show("Vui lòng lập phiếu trước tiên!");
-            }
-            else
-            {
-                frmThanhvien frm = new frmThanhvien(maphieu);
-                frm.ShowDialog();
-                CTPhieuThuePhong(tbMaPhong.Text);
-            }
+            CTPhieuThuePhong();
         }
 
         private void btnLapPhieu_Click(object sender, EventArgs e)
@@ -127,8 +110,6 @@ namespace QuanLyKhachSan
                         PhongDAO.Instance.CapNhatDanhSachPhong();
                         flpRoom.Controls.Clear();
                         LoadDanhSachPhong();
-
-                        listPTP.Add(tbMaPhieu.Text);
                     }
                     else
                         MessageBox.Show("Lập phiếu thuê không thành công!");
@@ -140,6 +121,21 @@ namespace QuanLyKhachSan
             {
                 MessageBox.Show(ex.Message);
             }          
+        }
+
+        private void btnSua_Click(object sender, EventArgs e)
+        {
+            string maphieu = tbMaPhieu.Text;
+            if (maphieu == string.Empty)
+            {
+                MessageBox.Show("Vui lòng lập phiếu trước tiên!");
+            }
+            else
+            {
+                frmCT_PhieuThuePhong frm = new frmCT_PhieuThuePhong(dgvCTPhieuThuePhong.DataSource, tbMaPhong.Text, tbMaPhieu.Text);
+                frm.ShowDialog();
+                CTPhieuThuePhong();
+            }
         }
 
         private void btnXoaPhieu_Click(object sender, EventArgs e)
@@ -154,24 +150,16 @@ namespace QuanLyKhachSan
                     PhongDAO.Instance.CapNhatDanhSachPhong();
                     tbMaPhieu.Text = "";
                     LoadDanhSachPhong();
-
-                    listPTP.Remove(maPhieu);
                 }
             }
         }
 
-        private void btnSua_Click(object sender, EventArgs e)
-        {
-            frmSuaThanhVien frm = new frmSuaThanhVien(dgvCTPhieuThuePhong.DataSource, tbMaPhong.Text, tbMaPhieu.Text);
-            frm.ShowDialog();
-            
-        }
 
         private void btnThanhToan_Click(object sender, EventArgs e)
         {
-            frmThanhToan frm = new frmThanhToan(listPTP);
+            frmThanhToan frm = new frmThanhToan();
             frm.ShowDialog();
-            CTPhieuThuePhong(tbMaPhong.Text);
+            CTPhieuThuePhong();
         }
         #endregion
     }

@@ -17,12 +17,10 @@ namespace QuanLyKhachSan
     public partial class frmThanhToan : Form
     {
         private bool flag = false;
-        private List<string> listPTP = new List<string>();
 
-        public frmThanhToan(List<string> list)
+        public frmThanhToan()
         {
             InitializeComponent();
-            listPTP = list;
 
             //Setting để hiện tổng tiền format vi-VN
             CultureInfo culture = new CultureInfo("vi-VN");
@@ -39,6 +37,8 @@ namespace QuanLyKhachSan
                     if (HoaDonDAO.Instance.LapHoaDon(tbDiaChi.Text, tbSDT.Text, tbTen.Text) == true)
                     {
                         HoaDon hoaDon = HoaDonDAO.Instance.LayHoaDonVuaLap();
+                        List<string> listPTP = PhieuThuePhongDAO.Instance.LayDanhSachPhieuChuaThanhToan();
+
                         foreach (string maPTP in listPTP)
                         {
                             CTHDDAO.Instance.ThemCTHD(hoaDon.MaHoaDon, int.Parse(maPTP));

@@ -18,7 +18,6 @@ D:\Documents\Nam_2\Ky_2\SE104.M22-NMCNPM\NMCNPMteam4\QuanLyKhachSan\QuanLyKhachS
 D:\Documents\Nam_2\Ky_2\SE104.M22-NMCNPM\NMCNPMteam4\QuanLyKhachSan\QuanLyKhachSan\obj\Debug\QuanLyKhachSan.csproj.SuggestedBindingRedirects.cache
 D:\Documents\Nam_2\Ky_2\SE104.M22-NMCNPM\NMCNPMteam4\QuanLyKhachSan\QuanLyKhachSan\obj\Debug\QuanLyKhachSan.Form1.resources
 D:\Documents\Nam_2\Ky_2\SE104.M22-NMCNPM\NMCNPMteam4\QuanLyKhachSan\QuanLyKhachSan\obj\Debug\QuanLyKhachSan.frmLapPhieuThuePhong.resources
-D:\Documents\Nam_2\Ky_2\SE104.M22-NMCNPM\NMCNPMteam4\QuanLyKhachSan\QuanLyKhachSan\obj\Debug\QuanLyKhachSan.frmThanhvien.resources
 D:\Documents\Nam_2\Ky_2\SE104.M22-NMCNPM\NMCNPMteam4\QuanLyKhachSan\QuanLyKhachSan\obj\Debug\QuanLyKhachSan.Properties.Resources.resources
 D:\Documents\Nam_2\Ky_2\SE104.M22-NMCNPM\NMCNPMteam4\QuanLyKhachSan\QuanLyKhachSan\obj\Debug\QuanLyKhachSan.csproj.GenerateResource.cache
 D:\Documents\Nam_2\Ky_2\SE104.M22-NMCNPM\NMCNPMteam4\QuanLyKhachSan\QuanLyKhachSan\obj\Debug\QuanLyKhachSan.csproj.CoreCompileInputs.cache

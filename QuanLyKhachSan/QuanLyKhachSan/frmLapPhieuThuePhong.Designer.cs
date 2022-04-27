@@ -50,7 +50,6 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnThanhToan = new System.Windows.Forms.Button();
             this.btnSua = new System.Windows.Forms.Button();
-            this.btnThem = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -255,7 +254,6 @@
             // 
             this.panel1.Controls.Add(this.btnThanhToan);
             this.panel1.Controls.Add(this.btnSua);
-            this.panel1.Controls.Add(this.btnThem);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel1.Location = new System.Drawing.Point(0, 499);
             this.panel1.Name = "panel1";
@@ -264,7 +262,7 @@
             // 
             // btnThanhToan
             // 
-            this.btnThanhToan.Location = new System.Drawing.Point(424, 27);
+            this.btnThanhToan.Location = new System.Drawing.Point(418, 27);
             this.btnThanhToan.Name = "btnThanhToan";
             this.btnThanhToan.Size = new System.Drawing.Size(75, 42);
             this.btnThanhToan.TabIndex = 1;
@@ -274,23 +272,13 @@
             // 
             // btnSua
             // 
-            this.btnSua.Location = new System.Drawing.Point(149, 26);
+            this.btnSua.Location = new System.Drawing.Point(91, 26);
             this.btnSua.Name = "btnSua";
             this.btnSua.Size = new System.Drawing.Size(75, 43);
             this.btnSua.TabIndex = 0;
             this.btnSua.Text = "Sửa";
             this.btnSua.UseVisualStyleBackColor = true;
             this.btnSua.Click += new System.EventHandler(this.btnSua_Click);
-            // 
-            // btnThem
-            // 
-            this.btnThem.Location = new System.Drawing.Point(57, 26);
-            this.btnThem.Name = "btnThem";
-            this.btnThem.Size = new System.Drawing.Size(75, 43);
-            this.btnThem.TabIndex = 0;
-            this.btnThem.Text = "Thêm";
-            this.btnThem.UseVisualStyleBackColor = true;
-            this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
             // 
             // tabControl1
             // 
@@ -343,7 +331,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button btnThanhToan;
-        private System.Windows.Forms.Button btnThem;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.Button btnSua;
         private System.Windows.Forms.DataGridView dgvCTPhieuThuePhong;
