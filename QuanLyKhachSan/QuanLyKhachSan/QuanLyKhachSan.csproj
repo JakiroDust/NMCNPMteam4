@@ -73,11 +73,11 @@
     <Compile Include="frmLapPhieuThuePhong.Designer.cs">
       <DependentUpon>frmLapPhieuThuePhong.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmSuaThanhVien.cs">
+    <Compile Include="frmCT_PhieuThuePhong.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmSuaThanhVien.Designer.cs">
-      <DependentUpon>frmSuaThanhVien.cs</DependentUpon>
+    <Compile Include="frmCT_PhieuThuePhong.Designer.cs">
+      <DependentUpon>frmCT_PhieuThuePhong.cs</DependentUpon>
     </Compile>
     <Compile Include="frmThanhToan.cs">
       <SubType>Form</SubType>
@@ -93,8 +93,8 @@
     <EmbeddedResource Include="frmLapPhieuThuePhong.resx">
       <DependentUpon>frmLapPhieuThuePhong.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmSuaThanhVien.resx">
-      <DependentUpon>frmSuaThanhVien.cs</DependentUpon>
+    <EmbeddedResource Include="frmCT_PhieuThuePhong.resx">
+      <DependentUpon>frmCT_PhieuThuePhong.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmThanhToan.resx">
       <DependentUpon>frmThanhToan.cs</DependentUpon>

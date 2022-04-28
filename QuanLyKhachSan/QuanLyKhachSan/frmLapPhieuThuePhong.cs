@@ -161,6 +161,11 @@ namespace QuanLyKhachSan
             frm.ShowDialog();
             CTPhieuThuePhong();
         }
+
+        private void dtpStart_ValueChanged(object sender, EventArgs e)
+        {
+            dtpEnd.MinDate = dtpStart.Value;
+        }
         #endregion
     }
 }

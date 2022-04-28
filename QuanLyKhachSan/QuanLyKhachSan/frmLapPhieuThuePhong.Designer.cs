@@ -163,6 +163,7 @@
             this.dtpStart.Name = "dtpStart";
             this.dtpStart.Size = new System.Drawing.Size(102, 22);
             this.dtpStart.TabIndex = 0;
+            this.dtpStart.ValueChanged += new System.EventHandler(this.dtpStart_ValueChanged);
             // 
             // tbSoLuongKhach
             // 
