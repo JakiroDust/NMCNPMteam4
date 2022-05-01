@@ -30,6 +30,7 @@ namespace QuanLyKhachSan.DAO
 
         public List<Phong> LoadDanhSachPhong()
         {
+            CapNhatDanhSachPhong();
             List<Phong> roomList = new List<Phong>();
 
             DataTable data = DataProvider.Instance.ExecuteQuery("SELECT * FROM PHONG");

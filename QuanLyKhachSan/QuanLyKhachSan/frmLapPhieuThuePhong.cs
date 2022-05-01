@@ -34,7 +34,7 @@ namespace QuanLyKhachSan
             {
                 Button btn = new Button() { Width = PhongDAO.RoomWidth, Height = PhongDAO.RoomHeight};
                 LoaiPhong loaiphong = LoaiPhongDAO.Instance.LayThongTinLoaiPhongTheoMaLoaiPhong(item.MaLoaiPhong);
-                btn.Text = item.MaPhong + Environment.NewLine + "Tình trạng: " + item.TinhTrang + Environment.NewLine + "Đơn giá: " + loaiphong.DonGia.ToString();
+                btn.Text = item.MaPhong + Environment.NewLine + "Loại phòng: " + loaiphong.TenLoaiPhong + Environment.NewLine + "Đơn giá: " + loaiphong.DonGia.ToString();
                 btn.Click += btn_Click;
                 btn.Tag = item;
 
