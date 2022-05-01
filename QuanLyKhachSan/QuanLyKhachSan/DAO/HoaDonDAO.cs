@@ -33,6 +33,14 @@ namespace QuanLyKhachSan.DAO
             return result > 0;
         }
 
+        public bool CapNhatThongTinHoaDon(string diaChi, string sDT, string tenKH, int maHD)
+        {
+            string query = $"update HOADON set TenKH = '{tenKH}', DiaChi = '{diaChi}', SDT = '{sDT}' where MaHoaDon = {maHD}";
+            int result = DataProvider.Instance.ExecuteNonQuery(query);
+
+            return result > 0;
+        }
+
         public HoaDon LayHoaDonVuaLap()
         {
             DataTable data = DataProvider.Instance.ExecuteQuery("SELECT TOP 1 * FROM HOADON ORDER BY MaHoaDon DESC");
@@ -40,6 +48,13 @@ namespace QuanLyKhachSan.DAO
 
             HoaDon hd = new HoaDon(row);
             return hd;
+        }
+
+        public bool XoaHoaDonTheoMaHD(int maHD)
+        {
+            int result = DataProvider.Instance.ExecuteNonQuery($"DELETE FROM HOADON WHERE MaHoaDon = {maHD}");
+
+            return result > 0;
         }
     }
 }

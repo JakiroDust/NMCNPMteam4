@@ -129,11 +129,11 @@
             // 
             // btLapHoaDon
             // 
-            this.btLapHoaDon.Location = new System.Drawing.Point(382, 125);
+            this.btLapHoaDon.Location = new System.Drawing.Point(343, 126);
             this.btLapHoaDon.Name = "btLapHoaDon";
-            this.btLapHoaDon.Size = new System.Drawing.Size(102, 42);
+            this.btLapHoaDon.Size = new System.Drawing.Size(144, 42);
             this.btLapHoaDon.TabIndex = 2;
-            this.btLapHoaDon.Text = "Lập hóa đơn";
+            this.btLapHoaDon.Text = "Nhập thông tin";
             this.btLapHoaDon.UseVisualStyleBackColor = true;
             this.btLapHoaDon.Click += new System.EventHandler(this.btLapHoaDon_Click);
             // 
