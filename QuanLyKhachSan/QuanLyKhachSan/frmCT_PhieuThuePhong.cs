@@ -14,23 +14,30 @@ namespace QuanLyKhachSan
 {
     public partial class frmCT_PhieuThuePhong : Form
     {
-        public frmCT_PhieuThuePhong(object dataSource, string maPhong, string maPhieu)
+        readonly BindingSource CTPTP = new BindingSource();
+
+        public frmCT_PhieuThuePhong(string maPhong, string maPhieu)
         {
+
             InitializeComponent();
-            dgvDanhSachKhachHang.DataSource = dataSource;
+
+            dgvDanhSachKhachHang.DataSource = CTPTP;
+
+            LoadCTPhieuThuePhong();
             tbMaPhong.Text = maPhong;
             tbMaPhieu.Text = maPhieu;
+            LoadCTPhieuThuePhong();
             LoadDanhSachLoaiKhachVaoComboBox(cbLoaiKhach);
             ThemBindingVaoDanhSach();
-        }
+        }     
 
         void ThemBindingVaoDanhSach()
         {
-            tbID.DataBindings.Add(new Binding("Text", dgvDanhSachKhachHang.DataSource, "ID", true));
-            tbTenKH.DataBindings.Add(new Binding("Text", dgvDanhSachKhachHang.DataSource, "Tên khách hàng", true));
-            cbLoaiKhach.DataBindings.Add(new Binding("Text", dgvDanhSachKhachHang.DataSource, "Loại khách", true));
-            tbCMND.DataBindings.Add(new Binding("Text", dgvDanhSachKhachHang.DataSource, "CMND", true));
-            tbDiaChi.DataBindings.Add(new Binding("Text", dgvDanhSachKhachHang.DataSource, "Địa chỉ", true));
+            tbID.DataBindings.Add(new Binding("Text", dgvDanhSachKhachHang.DataSource, "ID", true, DataSourceUpdateMode.Never));
+            tbTenKH.DataBindings.Add(new Binding("Text", dgvDanhSachKhachHang.DataSource, "Tên khách hàng", true, DataSourceUpdateMode.Never));
+            cbLoaiKhach.DataBindings.Add(new Binding("Text", dgvDanhSachKhachHang.DataSource, "Loại khách", true, DataSourceUpdateMode.Never));
+            tbCMND.DataBindings.Add(new Binding("Text", dgvDanhSachKhachHang.DataSource, "CMND", true, DataSourceUpdateMode.Never));
+            tbDiaChi.DataBindings.Add(new Binding("Text", dgvDanhSachKhachHang.DataSource, "Địa chỉ", true, DataSourceUpdateMode.Never));
         }
 
         void LoadDanhSachLoaiKhachVaoComboBox(ComboBox cb)
@@ -54,7 +61,7 @@ namespace QuanLyKhachSan
                     if (CT_PhieuThuePhongDAO.Instance.ThemKhachHang(MaPhieu, TenKH, LoaiKhach, CMND, DiaChi))
                     {
                         MessageBox.Show("Thêm khách hàng thành công!");
-                        CTPhieuThuePhong();
+                        LoadCTPhieuThuePhong();
                     }
                     else
                     {
@@ -79,11 +86,19 @@ namespace QuanLyKhachSan
             if (CT_PhieuThuePhongDAO.Instance.SuaKhachHang(id, name, loaiKhach, cMND, diaChi))
             {
                 MessageBox.Show("Sua khach hang thanh cong!");
-                CTPhieuThuePhong();
-
+                LoadCTPhieuThuePhong();
             }
             else
                 MessageBox.Show("Sua khach hang khong thanh cong!");
+        }
+
+        private void btnXoa_Click(object sender, EventArgs e)
+        {
+            if (CT_PhieuThuePhongDAO.Instance.XoaKhachHangTheoID(tbID.Text))
+            {
+                MessageBox.Show("Xoa khach hang thanh cong!");
+                LoadCTPhieuThuePhong();
+            }
         }
 
         private void tbThoat_Click(object sender, EventArgs e)
@@ -91,11 +106,10 @@ namespace QuanLyKhachSan
             this.Close();
         }
 
-        void CTPhieuThuePhong()
+        void LoadCTPhieuThuePhong()
         {
-            string maPhieu = tbMaPhieu.Text;
-
-            dgvDanhSachKhachHang.DataSource = CT_PhieuThuePhongDAO.Instance.LayDanhSachKhachHangTheoMaPhieu(maPhieu);
+            CTPTP.DataSource = CT_PhieuThuePhongDAO.Instance.LayDanhSachKhachHangTheoMaPhieu(tbMaPhieu.Text);
         }
+
     }
 }

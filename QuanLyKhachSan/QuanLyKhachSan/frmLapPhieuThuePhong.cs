@@ -60,9 +60,8 @@ namespace QuanLyKhachSan
         }     
 
         bool XoaPhieuThuePhongTheoMaPhieu(string maPhieu)
-        {
-            CT_PhieuThuePhongDAO.Instance.XoaKhachHang(maPhieu);
-            if (PhieuThuePhongDAO.Instance.XoaPhieuThuePhong(maPhieu))
+        { 
+            if (CT_PhieuThuePhongDAO.Instance.XoaKhachHangTheoPhieuThuePhong(maPhieu) && PhieuThuePhongDAO.Instance.XoaPhieuThuePhong(maPhieu))
             {
                 MessageBox.Show("Xóa phiếu thành công!");
                 return true;
@@ -132,7 +131,7 @@ namespace QuanLyKhachSan
             }
             else
             {
-                frmCT_PhieuThuePhong frm = new frmCT_PhieuThuePhong(dgvCTPhieuThuePhong.DataSource, tbMaPhong.Text, tbMaPhieu.Text);
+                frmCT_PhieuThuePhong frm = new frmCT_PhieuThuePhong(tbMaPhong.Text, tbMaPhieu.Text);
                 frm.ShowDialog();
                 CTPhieuThuePhong();
             }
@@ -140,7 +139,6 @@ namespace QuanLyKhachSan
 
         private void btnXoaPhieu_Click(object sender, EventArgs e)
         {
-            string maPhong = tbMaPhong.Text;
             string maPhieu = tbMaPhieu.Text;
 
             if (maPhieu != string.Empty)
