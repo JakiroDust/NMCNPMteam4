@@ -10,7 +10,7 @@ CREATE TABLE PHONG
 	TenPhong Nvarchar(10) not null,
 	MaLoaiPhong INT,
 	GhiChu NVARCHAR(200),
-	TinhTrang BIT --0: dang su dung|| 1: con trong
+	TinhTrang BIT DEFAULT 1 --0: dang su dung|| 1: con trong
 )
 GO	
 
