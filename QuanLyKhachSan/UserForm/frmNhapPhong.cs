@@ -26,7 +26,7 @@ namespace QuanLyKhachSan
         
         public void bindDataComboBox()
         {
-            String query = "Select * from LOAIPHONG";
+            String query = "Select * from LOAIPHONG order by TenLoaiPhong asc";
             DataTable a = new DataTable();
             
             a = DataProvider.Instance.ExecuteQuery(query);
@@ -95,16 +95,36 @@ namespace QuanLyKhachSan
 
         private void btnXoa_Click(object sender, EventArgs e)
         {
-            deletePhong();
-            MessageBox.Show("Xoá Thành công");
-            loadRoom();
+            if (tbPhong.Text == "")
+            {
+                MessageBox.Show("Xoá Thất Bại!!. Phòng không được để trống");
+            }
+            else
+            {
+                deletePhong();
+                MessageBox.Show("Xoá Thành công");
+                loadRoom();
+            }
+
         }
 
         private void btnSua_Click(object sender, EventArgs e)
         {
-            updatePhong();
-            MessageBox.Show("Sửa Thành công");
-            loadRoom();
+            if (tbPhong.Text == "")
+            {
+                MessageBox.Show("Sửa Thất Bại!!. Phòng không được để trống");
+            }
+            else if (!checkDuplicate())
+            {
+                MessageBox.Show("Sửa Thất Bại!!. Tên phòng bị trùng");
+            }
+            else
+            {
+                updatePhong();
+                MessageBox.Show("Sửa Thành công");
+                loadRoom();
+            }
+
         }
 
         private void dgv_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -130,6 +150,16 @@ namespace QuanLyKhachSan
             string query = "select DonGia from LOAIPHONG where  TenLoaiPhong = '" + cbLoaiPhong.Text + "'";
             Object a = DataProvider.Instance.ExecuteScalar(query);
             txtDonGia.Text = a.ToString();
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dgv_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }
