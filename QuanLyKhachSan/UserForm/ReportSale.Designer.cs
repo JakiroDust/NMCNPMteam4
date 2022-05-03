@@ -34,11 +34,6 @@ namespace QuanLyKhachSan
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.contextMenuStrip2 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.contextMenuStrip3 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.exportReport = new System.Windows.Forms.Button();
             this.searchYearreport = new System.Windows.Forms.NumericUpDown();
             this.searchMonthreport = new System.Windows.Forms.NumericUpDown();
@@ -46,38 +41,15 @@ namespace QuanLyKhachSan
             this.button1 = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.dgvReport = new System.Windows.Forms.DataGridView();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.searchYearreport)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchMonthreport)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvReport)).BeginInit();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // menuStrip1
-            // 
-            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(800, 24);
-            this.menuStrip1.TabIndex = 0;
-            this.menuStrip1.Text = "menuStrip1";
-            // 
-            // contextMenuStrip1
-            // 
-            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
-            // 
-            // contextMenuStrip2
-            // 
-            this.contextMenuStrip2.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.contextMenuStrip2.Name = "contextMenuStrip2";
-            this.contextMenuStrip2.Size = new System.Drawing.Size(61, 4);
-            // 
-            // contextMenuStrip3
-            // 
-            this.contextMenuStrip3.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.contextMenuStrip3.Name = "contextMenuStrip3";
-            this.contextMenuStrip3.Size = new System.Drawing.Size(61, 4);
             // 
             // exportReport
             // 
@@ -135,6 +107,7 @@ namespace QuanLyKhachSan
             0,
             0,
             0});
+            this.searchMonthreport.ValueChanged += new System.EventHandler(this.searchMonthreport_ValueChanged_1);
             // 
             // label1
             // 
@@ -147,7 +120,7 @@ namespace QuanLyKhachSan
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(343, 30);
+            this.button1.Location = new System.Drawing.Point(348, 30);
             this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(115, 29);
@@ -169,6 +142,7 @@ namespace QuanLyKhachSan
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(800, 85);
             this.panel1.TabIndex = 6;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // dgvReport
             // 
@@ -188,19 +162,50 @@ namespace QuanLyKhachSan
             this.dgvReport.RowHeadersVisible = false;
             this.dgvReport.RowHeadersWidth = 51;
             this.dgvReport.RowTemplate.Height = 29;
-            this.dgvReport.Size = new System.Drawing.Size(800, 345);
+            this.dgvReport.Size = new System.Drawing.Size(800, 316);
             this.dgvReport.TabIndex = 5;
             this.dgvReport.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvReport_CellContentClick_1);
+            // 
+            // panel2
+            // 
+            this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel2.Controls.Add(this.label3);
+            this.panel2.Controls.Add(this.label2);
+            this.panel2.Location = new System.Drawing.Point(0, 426);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(798, 27);
+            this.panel2.TabIndex = 7;
+            // 
+            // label3
+            // 
+            this.label3.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(392, 1);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(57, 20);
+            this.label3.TabIndex = 2;
+            this.label3.Text = "oke123";
+            this.label3.Click += new System.EventHandler(this.label3_Click);
+            // 
+            // label2
+            // 
+            this.label2.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(271, 1);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(117, 20);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "Tổng doanh thu:";
             // 
             // ReportSale
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.panel2);
             this.Controls.Add(this.dgvReport);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.menuStrip1);
-            this.MainMenuStrip = this.menuStrip1;
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "ReportSale";
             this.Text = "ReportSale";
@@ -210,17 +215,13 @@ namespace QuanLyKhachSan
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvReport)).EndInit();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.MenuStrip menuStrip1;
-        private ContextMenuStrip contextMenuStrip1;
-        private ContextMenuStrip contextMenuStrip2;
-        private ContextMenuStrip contextMenuStrip3;
         private DataGridViewTextBoxColumn accessibleDescriptionDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn accessibleNameDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn accessibleRoleDataGridViewTextBoxColumn;
@@ -244,6 +245,9 @@ namespace QuanLyKhachSan
         private Button button1;
         private Panel panel1;
         private DataGridView dgvReport;
+        private Panel panel2;
+        private Label label3;
+        private Label label2;
     }
 }
 

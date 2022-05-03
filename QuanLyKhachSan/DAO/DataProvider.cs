@@ -5,7 +5,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using System.Windows.Forms;
 namespace QuanLyKhachSan.DAO
 {
     public class DataProvider
@@ -66,7 +66,7 @@ namespace QuanLyKhachSan.DAO
                 connection.Open();
 
                 SqlCommand command = new SqlCommand(query, connection);
-
+                SqlCommand dateformat = new SqlCommand("set dateformat dmy", connection);
                 if (parameter != null)
                 {
                     string[] listPara = query.Split(' ');
@@ -80,7 +80,9 @@ namespace QuanLyKhachSan.DAO
                         }
                     }
                 }
+               dateformat.ExecuteNonQuery();
                 data = command.ExecuteNonQuery();
+
 
                 connection.Close();
             }

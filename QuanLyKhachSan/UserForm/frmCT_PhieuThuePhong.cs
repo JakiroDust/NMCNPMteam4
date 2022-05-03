@@ -111,5 +111,9 @@ namespace QuanLyKhachSan
             CTPTP.DataSource = CT_PhieuThuePhongDAO.Instance.LayDanhSachKhachHangTheoMaPhieu(tbMaPhieu.Text);
         }
 
+        private void label6_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -10,8 +10,9 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using QuanLyKhachSan.DAO;
 
-namespace HotelManagement
+namespace QuanLyKhachSan
 {
     public partial class FormMainMenu : Form
     {
@@ -22,6 +23,7 @@ namespace HotelManagement
         public FormMainMenu()
         {
             InitializeComponent();
+
             _leftBorderBtn = new Panel();
             _leftBorderBtn.Size = new Size(7, 60);
             panelMenu.Controls.Add(_leftBorderBtn);
@@ -101,9 +103,18 @@ namespace HotelManagement
 
         private void btnDashboard_Click(object sender, EventArgs e)
         {
-            ActivateButton(sender, RgbColors.Color1);
-            OpenChildForm(InsertRoomForm.GetInstance);
-        }
+            
+            try
+            {
+                OpenChildForm(new frmNhapPhong());
+                ActivateButton(sender, RgbColors.Color1);
+            }
+
+            catch(IndexOutOfRangeException errr)
+            {
+                MessageBox.Show("Mời bạn tạo loại phòng trước");
+            }
+            }
 
         private void btnOrder_Click(object sender, EventArgs e)
         {
@@ -114,13 +125,13 @@ namespace HotelManagement
         private void btnProduct_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, RgbColors.Color3);
-            OpenChildForm(frmLapPhieuThuePhong.GetInstance);
+            OpenChildForm(new frmLapPhieuThuePhong());
         }
 
         private void btnCustomer_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, RgbColors.Color4);
-///            OpenChildForm(new FormCustomers());
+        OpenChildForm(new frmThanhToan());
         }
 
         private void btnMarketing_Click(object sender, EventArgs e)
