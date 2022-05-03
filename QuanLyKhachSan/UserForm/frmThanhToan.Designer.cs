@@ -85,6 +85,7 @@
             this.lvCTHoaDon.TabIndex = 4;
             this.lvCTHoaDon.UseCompatibleStateImageBehavior = false;
             this.lvCTHoaDon.View = System.Windows.Forms.View.Details;
+            this.lvCTHoaDon.SelectedIndexChanged += new System.EventHandler(this.lvCTHoaDon_SelectedIndexChanged);
             // 
             // ColumnHeader
             // 
@@ -129,15 +130,16 @@
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(835, 230);
             this.panel8.TabIndex = 3;
+            this.panel8.Paint += new System.Windows.Forms.PaintEventHandler(this.panel8_Paint);
             // 
             // btLapHoaDon
             // 
-            this.btLapHoaDon.Location = new System.Drawing.Point(382, 156);
+            this.btLapHoaDon.Location = new System.Drawing.Point(343, 158);
             this.btLapHoaDon.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btLapHoaDon.Name = "btLapHoaDon";
-            this.btLapHoaDon.Size = new System.Drawing.Size(102, 52);
+            this.btLapHoaDon.Size = new System.Drawing.Size(144, 52);
             this.btLapHoaDon.TabIndex = 2;
-            this.btLapHoaDon.Text = "Lập hóa đơn";
+            this.btLapHoaDon.Text = "Nhập thông tin";
             this.btLapHoaDon.UseVisualStyleBackColor = true;
             this.btLapHoaDon.Click += new System.EventHandler(this.btLapHoaDon_Click);
             // 
@@ -174,6 +176,7 @@
             this.tbTen.Name = "tbTen";
             this.tbTen.Size = new System.Drawing.Size(184, 27);
             this.tbTen.TabIndex = 0;
+            this.tbTen.TextChanged += new System.EventHandler(this.tbTen_TextChanged);
             // 
             // label10
             // 
@@ -245,7 +248,6 @@
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(835, 102);
             this.panel6.TabIndex = 2;
-            this.panel6.Paint += new System.Windows.Forms.PaintEventHandler(this.panel6_Paint);
             // 
             // label8
             // 

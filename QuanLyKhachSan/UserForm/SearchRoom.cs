@@ -40,13 +40,13 @@ namespace QuanLyKhachSan
         {
             DataTable target = DataProvider.Instance.ExecuteQuery("select PHONG.TenPhong as 'Phòng',LOAIPHONG.TenLoaiPhong as 'Loại Phòng',LOAIPHONG.DonGia as 'Đơn Giá',PHONG.TinhTrang as 'boolTinhTrang' from PHONG,LOAIPHONG where PHONG.MaLoaiPhong=LoaiPhong.MaLoaiPhong");
             target.Columns.Add("Tình Trạng");
-            foreach(DataRow row in target.Rows)
+            foreach (DataRow row in target.Rows)
             {
-                if((bool)row["boolTinhTrang"]==true)
+                if ((bool)row["boolTinhTrang"] == true)
                 {
                     row["Tình Trạng"] = "Trống";
 
-                }   
+                }
                 else
                     row["Tình Trạng"] = "Đầy";
             }

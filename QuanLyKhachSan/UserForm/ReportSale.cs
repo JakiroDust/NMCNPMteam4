@@ -224,9 +224,11 @@ namespace QuanLyKhachSan
         }
         private void ReportSalebaseonType()
         {
-            dgvReport.DataSource = DataProvider.Instance.ExecuteQuery("select TenLoaiPhong as 'Loại Phòng',DoanhThu as 'Doanh Thu',TiLe as 'Tỉ Lệ (%)' from ReportMonthlybaseonType(" + searchMonthreport.Value + "," + searchYearreport.Value + ")");
-      
-    }
+            dgvReport.DataSource = DataProvider.Instance.ExecuteQuery($"declare @temp int;select @temp=MaBaoCaoDoanhThuTheoLoaiPhong from BAOCAODOANHTHUTHEOLOAIPHONG where  Thang={searchMonthreport.Text} and Nam={searchYearreport.Text};select TenLoaiPhong as 'Loại Phòng',TongDoanhThu  as 'Doanh Thu',TiLe*100 as 'Tỉ Lệ (%)' from CT_BAOCAODOANHTHUTHEOLOAIPHONG,LOAIPHONG where MaBaoCaoDoanhThuTheoLoaiPhong=@temp and CT_BAOCAODOANHTHUTHEOLOAIPHONG.MaLoaiPhong=LOAIPHONG.MaLoaiPhong;");
+            Object getTotalSale = DataProvider.Instance.ExecuteScalar($"select TongTatCaDoanhThu from BAOCAODOANHTHUTHEOLOAIPHONG where Thang={searchMonthreport.Text} and Nam={searchYearreport.Text}");
+            float TotalSale = Convert.ToSingle(getTotalSale);
+            label3.Text = TotalSale.ToString();
+        }
         private void button1_Click_3(object sender, EventArgs e)
         {
             ReportSalebaseonType();
@@ -244,6 +246,21 @@ namespace QuanLyKhachSan
         }
 
         private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void searchMonthreport_ValueChanged_1(object sender, EventArgs e)
         {
 
         }
