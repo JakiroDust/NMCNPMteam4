@@ -94,7 +94,7 @@ namespace QuanLyKhachSan
 
         private void cbSearchRoomType_Load()
         {
-            DataTable target = DataProvider.Instance.ExecuteQuery("select TenLoaiPhong from LOAIPHONG");
+            DataTable target = DataProvider.Instance.ExecuteQuery("select TenLoaiPhong from LOAIPHONG order by TenLoaiPhong asc");
 
             target.Rows.InsertAt(target.NewRow(), 0);/// ADD a blank row
             cbSearchRoomType.DataSource = target;
@@ -119,6 +119,11 @@ namespace QuanLyKhachSan
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void checkedListBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }

@@ -87,6 +87,10 @@ namespace QuanLyKhachSan
         {
             if (!flag)
                 MessageBox.Show("Vui long nhap thong tin thanh toan");
+            else
+            {
+                Close();
+            }    
 
         }
 
@@ -109,7 +113,7 @@ namespace QuanLyKhachSan
             {
                 HoaDon hoaDon = HoaDonDAO.Instance.LayHoaDonVuaLap();
                 if (!HoaDonDAO.Instance.XoaHoaDonTheoMaHD(hoaDon.MaHoaDon))
-                    MessageBox.Show("Co loi xay ra");
+                    MessageBox.Show("Co loi xay ra");   
             }
         }
 
@@ -124,6 +128,11 @@ namespace QuanLyKhachSan
         }
 
         private void panel8_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void panel6_Paint(object sender, PaintEventArgs e)
         {
 
         }

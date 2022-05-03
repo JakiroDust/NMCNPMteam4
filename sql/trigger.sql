@@ -288,10 +288,16 @@ create or alter trigger DELETE_CT_BAOCAODOANHTHUTHEOTHANG_BAOCAODOANHTHU
 on CT_BAOCAODOANHTHUTHEOLOAIPHONG
 for delete
 AS
-DECLARE @ThanhTien money,@MaBaoCao int
+DECLARE @ThanhTien money,@TongDoanhThu money,@MaBaoCao int
 select @ThanhTien=TongDoanhThu,@MaBaoCao=MaBaoCaoDoanhThuTheoLoaiPhong from deleted
 update BAOCAODOANHTHUTHEOLOAIPHONG
-set TongTatCaDoanhThu=TongTatCaDoanhThu-@ThanhTien
+set @TongDoanhThu=TongTatCaDoanhThu-@ThanhTien,TongTatCaDoanhThu=TongTatCaDoanhThu-@ThanhTien
+where MaBaoCaoDoanhThuTheoLoaiPhong=@MaBaoCao
+update CT_BAOCAODOANHTHUTHEOLOAIPHONG
+set TiLe= case
+when @TongDoanhThu=0 then 0
+else TongDoanhThu/@TongDoanhThu
+end
 where MaBaoCaoDoanhThuTheoLoaiPhong=@MaBaoCao
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 go 

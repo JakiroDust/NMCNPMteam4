@@ -61,7 +61,7 @@ namespace QuanLyKhachSan
 
         bool XoaPhieuThuePhongTheoMaPhieu(string maPhieu)
         { 
-            if (CT_PhieuThuePhongDAO.Instance.XoaKhachHangTheoPhieuThuePhong(maPhieu) && PhieuThuePhongDAO.Instance.XoaPhieuThuePhong(maPhieu))
+            if (PhieuThuePhongDAO.Instance.XoaPhieuThuePhong(maPhieu))
             {
                 MessageBox.Show("Xóa phiếu thành công!");
                 return true;
