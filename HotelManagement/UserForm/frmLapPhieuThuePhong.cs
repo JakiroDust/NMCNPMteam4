@@ -27,6 +27,7 @@ namespace QuanLyKhachSan
         #region Method
         void LoadDanhSachPhong()
         {
+            PhongDAO.Instance.CapNhatDanhSachPhong();
             flpRoom.Controls.Clear();
             List<Phong> roomList = PhongDAO.Instance.LoadDanhSachPhong();
 
