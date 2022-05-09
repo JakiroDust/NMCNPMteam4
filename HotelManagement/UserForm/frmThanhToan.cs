@@ -116,25 +116,5 @@ namespace QuanLyKhachSan
                     MessageBox.Show("Co loi xay ra");   
             }
         }
-
-        private void lvCTHoaDon_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void tbTen_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panel8_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void panel6_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
     }
 }

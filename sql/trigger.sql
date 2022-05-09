@@ -99,11 +99,12 @@ AS
 
 		SET @ThanhTien = @SoNgayThue * @DonGiaSan
 
-		IF ((SELECT COUNT(*) FROM PHUTHUKHACH WHERE SoLuongKhach = @SoLuongKhach) > 0)
+		IF ((SELECT COUNT(*) FROM PHUTHUKHACH WHERE SoLuongKhach >= @SoLuongKhach) > 0)
 		BEGIN
-			SELECT @PhuThu = PhuThu
+			SELECT Top 1 @PhuThu = PhuThu
 			FROM PHUTHUKHACH
-			WHERE SoLuongKhach = @SoLuongKhach
+			WHERE SoLuongKhach >= @SoLuongKhach
+			ORDER BY SoLuongKhach ASC
 			SET @ThanhTien = @ThanhTien * @PhuThu
 		END	
 
