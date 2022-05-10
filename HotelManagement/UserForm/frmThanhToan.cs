@@ -28,20 +28,20 @@ namespace QuanLyKhachSan
             Thread.CurrentThread.CurrentCulture = culture;
             LapHoaDon();
         }
-            private static frmThanhToan instance;
-            public static frmThanhToan GetInstance
+        private static frmThanhToan instance;
+        public static frmThanhToan GetInstance
+        {
+            get
             {
-                get
+                if (instance == null || instance.IsDisposed)
                 {
-                    if (instance == null || instance.IsDisposed)
-                    {
-                        instance = new frmThanhToan();
-                    }
-                    return instance;
+                    instance = new frmThanhToan();
                 }
+                return instance;
             }
+        }
 
-            private void LapHoaDon()
+        private void LapHoaDon()
         {
             if (HoaDonDAO.Instance.LapHoaDon())
             {

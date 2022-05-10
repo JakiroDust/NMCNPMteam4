@@ -301,7 +301,6 @@
             this.label6.Size = new System.Drawing.Size(77, 20);
             this.label6.TabIndex = 0;
             this.label6.Text = "Mã phòng";
-            this.label6.Click += new System.EventHandler(this.label6_Click);
             // 
             // label2
             // 

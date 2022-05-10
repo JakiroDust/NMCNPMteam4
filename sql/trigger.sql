@@ -12,7 +12,7 @@ BEGIN
 	if (@SoLuongKhach > @SoKhachToiDa)
 	BEGIN
 		ROLLBACK TRAN
-		PRINT 'ERROR!, VUOT QUA SO KHACH TOI DA'
+		PRINT 'VUOT QUA SO KHACH TOI DA'
 	END
 END
 GO
@@ -29,7 +29,7 @@ BEGIN
 	IF ((SELECT COUNT(*) FROM dbo.CT_PHIEUTHUEPHONG WHERE MaPhieuThuePhong = @MaPhieuThuePhong) >= (@SoLuongKhach + 1))
 	BEGIN	
 		ROLLBACK TRAN
-		PRINT 'ERROR!, VUOT QUA SO KHACH KHAI BAO TRONG PHIEU'
+		PRINT 'VUOT QUA SO KHACH KHAI BAO TRONG PHIEU'
 	END
 END
 GO
@@ -42,7 +42,7 @@ CREATE PROC USP_GET_CT_PHIEUTHUEPHONG_BY_MAPHIEUTHUEPHONG
 AS
 BEGIN
 	SELECT MaCTPTP AS [ID], TenKH AS [Tên khách hàng], LoaiKhach AS [Loại khách], CMND AS [CMND], DiaChi AS [Địa chỉ]
-	FROM CT_PHIEUTHUEPHONG
+	FROM CT_PHIEUTHUEPHONG inner join LOAIKHACH on CT_PHIEUTHUEPHONG.MaLoaiKhach = LOAIKHACH.MaLoaiKhach
 	WHERE MaPhieuThuePhong = @MaPhieuThuePhong
 END
 GO
@@ -95,16 +95,16 @@ AS
 		SELECT @SoKhachNuocNgoai = COUNT(*)
 		FROM CT_PHIEUTHUEPHONG
 		WHERE MaPhieuThuePhong = @MaPhieuThuePhong
-		AND LoaiKhach = 'Nuoc ngoai'
+		AND MaLoaiKhach = 2
 
 		SET @ThanhTien = @SoNgayThue * @DonGiaSan
 
-		IF ((SELECT COUNT(*) FROM PHUTHUKHACH WHERE SoLuongKhach >= @SoLuongKhach) > 0)
+		IF ((SELECT COUNT(*) FROM PHUTHUKHACH WHERE SoLuongKhach <= @SoLuongKhach) > 0)
 		BEGIN
 			SELECT Top 1 @PhuThu = PhuThu
 			FROM PHUTHUKHACH
-			WHERE SoLuongKhach >= @SoLuongKhach
-			ORDER BY SoLuongKhach ASC
+			WHERE SoLuongKhach <= @SoLuongKhach
+			ORDER BY SoLuongKhach DESC
 			SET @ThanhTien = @ThanhTien * @PhuThu
 		END	
 

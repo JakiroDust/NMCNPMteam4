@@ -39,7 +39,7 @@ namespace QuanLyKhachSan.DAO
 
         public bool ThemKhachHang(string maPhieuThuePhong, string tenKH, string loaiKhach, string CMND, string diaChi)
         {
-            string query = $"INSERT INTO dbo.CT_PHIEUTHUEPHONG (MaPhieuThuePhong, TenKH, LoaiKhach, CMND, DiaChi) VALUES ('{maPhieuThuePhong}', '{tenKH}', '{loaiKhach}', '{CMND}', '{diaChi}')";
+            string query = $"INSERT INTO dbo.CT_PHIEUTHUEPHONG (MaPhieuThuePhong, TenKH, MaLoaiKhach, CMND, DiaChi) VALUES ({maPhieuThuePhong}, '{tenKH}', (Select MaLoaiKhach from LOAIKHACH where LoaiKhach = '{loaiKhach}'), '{CMND}', '{diaChi}')";
             int result = DataProvider.Instance.ExecuteNonQuery(query);
 
             return result > 0;
@@ -52,7 +52,7 @@ namespace QuanLyKhachSan.DAO
         }
         public bool SuaKhachHang(string maCTPTP, string tenKH, string loaiKhach, string CMND, string diaChi)
         {
-            string query = $"update CT_PHIEUTHUEPHONG set TenKH = N'{tenKH}', LoaiKhach = N'{loaiKhach}', CMND = N'{CMND}', DiaChi = N'{diaChi}' Where MaCTPTP = N'{maCTPTP}'";
+            string query = $"update CT_PHIEUTHUEPHONG set TenKH = N'{tenKH}', MaLoaiKhach = (Select MaLoaiKhach from LOAIKHACH where LoaiKhach = '{loaiKhach}'), CMND = N'{CMND}', DiaChi = N'{diaChi}' Where MaCTPTP = N'{maCTPTP}'";
             int result = DataProvider.Instance.ExecuteNonQuery(query);
 
             return result > 0;
