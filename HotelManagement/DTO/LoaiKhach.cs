@@ -9,26 +9,22 @@ namespace QuanLyKhachSan.DTO
 {
     public class LoaiKhach
     {
-        private string maLoaiKhach;
         private string tenLoaiKhach;
-        private double phuThu;
+        private double heSo;
 
-        public string MaLoaiKhach { get => maLoaiKhach; set => maLoaiKhach = value; }
         public string TenLoaiKhach { get => tenLoaiKhach; set => tenLoaiKhach = value; }
-        public double PhuThu { get => phuThu; set => phuThu = value; }
+        public double HeSo { get => heSo; set => heSo = value; }
 
-        public LoaiKhach(string maLoaiKhach, string tenloaikhach, double phuThu)
+        public LoaiKhach(string tenloaikhach, double heso)
         {
-            this.MaLoaiKhach = maLoaiKhach;
             this.TenLoaiKhach= tenloaikhach;
-            this.PhuThu = phuThu;
+            this.HeSo= heso;
         }
 
         public LoaiKhach (DataRow rows)
         {
-            this.MaLoaiKhach = rows["MaLoaiKhach"].ToString();
             this.TenLoaiKhach = rows["LoaiKhach"].ToString();
-            this.PhuThu = (double)rows["PhuThu"];
+            this.HeSo = (double)rows["HeSo"];
         }
     }
 }

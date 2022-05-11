@@ -28,20 +28,20 @@ namespace QuanLyKhachSan
             Thread.CurrentThread.CurrentCulture = culture;
             LapHoaDon();
         }
-        private static frmThanhToan instance;
-        public static frmThanhToan GetInstance
-        {
-            get
+            private static frmThanhToan instance;
+            public static frmThanhToan GetInstance
             {
-                if (instance == null || instance.IsDisposed)
+                get
                 {
-                    instance = new frmThanhToan();
+                    if (instance == null || instance.IsDisposed)
+                    {
+                        instance = new frmThanhToan();
+                    }
+                    return instance;
                 }
-                return instance;
             }
-        }
 
-        private void LapHoaDon()
+            private void LapHoaDon()
         {
             if (HoaDonDAO.Instance.LapHoaDon())
             {
@@ -115,6 +115,31 @@ namespace QuanLyKhachSan
                 if (!HoaDonDAO.Instance.XoaHoaDonTheoMaHD(hoaDon.MaHoaDon))
                     MessageBox.Show("Co loi xay ra");   
             }
+        }
+
+        private void lvCTHoaDon_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tbTen_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel8_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void panel6_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void frmThanhToan_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

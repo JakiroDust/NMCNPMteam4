@@ -50,6 +50,8 @@
             // 
             // dgv
             // 
+            this.dgv.AllowUserToAddRows = false;
+            this.dgv.AllowUserToDeleteRows = false;
             this.dgv.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -181,6 +183,7 @@
             this.tbPhong.Name = "tbPhong";
             this.tbPhong.Size = new System.Drawing.Size(100, 27);
             this.tbPhong.TabIndex = 0;
+            this.tbPhong.TextChanged += new System.EventHandler(this.tbPhong_TextChanged);
             // 
             // panel1
             // 
@@ -230,7 +233,7 @@
             this.Controls.Add(this.panel2);
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "frmNhapPhong";
-            this.Text = "Form1";
+            this.Text = "Quản lý phòng";
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

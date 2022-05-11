@@ -31,8 +31,8 @@ select @P3=PHONG.MaPhong from PHONG where PHONG.TenPhong='3'
 select @P4=PHONG.MaPhong from PHONG where PHONG.TenPhong='4'
 select @P5=PHONG.MaPhong from PHONG where PHONG.TenPhong='5'
 select @P6=PHONG.MaPhong from PHONG where PHONG.TenPhong='6'
-INSERT INTO LOAIKHACH (LoaiKhach,PhuThu) SELECT 'Nội địa',1;
-INSERT INTO LOAIKHACH (LoaiKhach,PhuThu) SELECT 'Nước ngoài',1.5;
+INSERT INTO LOAIKHACH (LoaiKhach,HeSo) SELECT 'KHÁCH THƯỜNG',1;
+INSERT INTO LOAIKHACH (LoaiKhach,HeSo) SELECT 'NGOẠI QUỐC',1;
 Declare @hd1 int,@ptp1 int,@ptp2 int, @ptp3 int,@ptp4 int,@ptp5 int,@ptp6 int
 INSERT INTO PHIEUTHUEPHONG (MaPhong,SoLuongKhach,NgayBDThue,NgayKTThue,DonGiaSan) select @P1,3,'10/10/2002','6/11/2002',15000;
 INSERT INTO PHIEUTHUEPHONG (MaPhong,SoLuongKhach,NgayBDThue,NgayKTThue,DonGiaSan) select @P6,3,'10/10/2002','6/11/2002',25000 ;

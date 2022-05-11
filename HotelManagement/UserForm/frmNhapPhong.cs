@@ -129,6 +129,9 @@ namespace QuanLyKhachSan
 
         private void dgv_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            if (dgv.CurrentRow == null)
+                return;
+
             int i;
             i = dgv.CurrentRow.Index;
             temp = int.Parse(dgv.Rows[i].Cells[0].Value.ToString());
@@ -158,6 +161,11 @@ namespace QuanLyKhachSan
         }
 
         private void dgv_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void tbPhong_TextChanged(object sender, EventArgs e)
         {
 
         }

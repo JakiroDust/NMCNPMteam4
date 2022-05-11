@@ -11,7 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using QuanLyKhachSan.DAO;
-
+using QuanLyKhachSan.UserForm;
 namespace QuanLyKhachSan
 {
     public partial class FormMainMenu : Form
@@ -32,6 +32,8 @@ namespace QuanLyKhachSan
             ControlBox = false;
             DoubleBuffered = true;
             MaximizedBounds = Screen.FromHandle(Handle).WorkingArea;
+          ///  WindowState = FormWindowState.Maximized;
+
         }
 
         private void ActivateButton(object senderBtn, Color color)
@@ -112,14 +114,14 @@ namespace QuanLyKhachSan
 
             catch(IndexOutOfRangeException errr)
             {
-                MessageBox.Show("Mời bạn tạo loại phòng trước");
+                MessageBox.Show("Mời bạn tạo loại phòng trước\nMenu->Cài đặt");
             }
             }
 
         private void btnOrder_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, RgbColors.Color2);
-            OpenChildForm(SearchRoom.GetInstance);
+            OpenChildForm(new frmTimPhong());
         }
 
         private void btnProduct_Click(object sender, EventArgs e)
@@ -137,7 +139,7 @@ namespace QuanLyKhachSan
         private void btnMarketing_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, RgbColors.Color5);
-            OpenChildForm(ReportSale.GetInstance);
+            OpenChildForm(new frmThongKe());
         }
 
         private void btnSetting_Click(object sender, EventArgs e)
@@ -196,6 +198,22 @@ namespace QuanLyKhachSan
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void iconButton1_Click(object sender, EventArgs e)
+        {
+            ActivateButton(sender, RgbColors.Color6);
+            OpenChildForm(new frmChinhThamSo());
+        }
+
+        private void lblTitleChildForm_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void FormMainMenu_Load(object sender, EventArgs e)
         {
 
         }

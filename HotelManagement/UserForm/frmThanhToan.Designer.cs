@@ -36,7 +36,7 @@
             this.columnHeader3 = new System.Windows.Forms.ColumnHeader();
             this.columnHeader4 = new System.Windows.Forms.ColumnHeader();
             this.panel8 = new System.Windows.Forms.Panel();
-            this.btnLapHoaDon = new System.Windows.Forms.Button();
+            this.btLapHoaDon = new System.Windows.Forms.Button();
             this.tbSDT = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
             this.tbDiaChi = new System.Windows.Forms.TextBox();
@@ -85,6 +85,7 @@
             this.lvCTHoaDon.TabIndex = 4;
             this.lvCTHoaDon.UseCompatibleStateImageBehavior = false;
             this.lvCTHoaDon.View = System.Windows.Forms.View.Details;
+            this.lvCTHoaDon.SelectedIndexChanged += new System.EventHandler(this.lvCTHoaDon_SelectedIndexChanged);
             // 
             // ColumnHeader
             // 
@@ -116,7 +117,7 @@
             // 
             // panel8
             // 
-            this.panel8.Controls.Add(this.btnLapHoaDon);
+            this.panel8.Controls.Add(this.btLapHoaDon);
             this.panel8.Controls.Add(this.tbSDT);
             this.panel8.Controls.Add(this.label13);
             this.panel8.Controls.Add(this.tbDiaChi);
@@ -129,17 +130,18 @@
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(835, 230);
             this.panel8.TabIndex = 3;
+            this.panel8.Paint += new System.Windows.Forms.PaintEventHandler(this.panel8_Paint);
             // 
-            // btnLapHoaDon
+            // btLapHoaDon
             // 
-            this.btnLapHoaDon.Location = new System.Drawing.Point(343, 158);
-            this.btnLapHoaDon.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.btnLapHoaDon.Name = "btnLapHoaDon";
-            this.btnLapHoaDon.Size = new System.Drawing.Size(144, 52);
-            this.btnLapHoaDon.TabIndex = 2;
-            this.btnLapHoaDon.Text = "Lập hóa đơn";
-            this.btnLapHoaDon.UseVisualStyleBackColor = true;
-            this.btnLapHoaDon.Click += new System.EventHandler(this.btLapHoaDon_Click);
+            this.btLapHoaDon.Location = new System.Drawing.Point(343, 158);
+            this.btLapHoaDon.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btLapHoaDon.Name = "btLapHoaDon";
+            this.btLapHoaDon.Size = new System.Drawing.Size(144, 52);
+            this.btLapHoaDon.TabIndex = 2;
+            this.btLapHoaDon.Text = "Nhập thông tin";
+            this.btLapHoaDon.UseVisualStyleBackColor = true;
+            this.btLapHoaDon.Click += new System.EventHandler(this.btLapHoaDon_Click);
             // 
             // tbSDT
             // 
@@ -174,6 +176,7 @@
             this.tbTen.Name = "tbTen";
             this.tbTen.Size = new System.Drawing.Size(184, 27);
             this.tbTen.TabIndex = 0;
+            this.tbTen.TextChanged += new System.EventHandler(this.tbTen_TextChanged);
             // 
             // label10
             // 
@@ -245,6 +248,7 @@
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(835, 102);
             this.panel6.TabIndex = 2;
+            this.panel6.Paint += new System.Windows.Forms.PaintEventHandler(this.panel6_Paint);
             // 
             // label8
             // 
@@ -266,6 +270,7 @@
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "frmThanhToan";
             this.Text = "frmThanhToan";
+            this.Load += new System.EventHandler(this.frmThanhToan_Load);
             this.panel4.ResumeLayout(false);
             this.panel8.ResumeLayout(false);
             this.panel8.PerformLayout();
@@ -288,7 +293,7 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.ListView lvCTHoaDon;
         private System.Windows.Forms.Panel panel8;
-        private System.Windows.Forms.Button btnLapHoaDon;
+        private System.Windows.Forms.Button btLapHoaDon;
         private System.Windows.Forms.TextBox tbSDT;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.TextBox tbDiaChi;

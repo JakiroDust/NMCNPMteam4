@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMainMenu));
             this.panelMenu = new System.Windows.Forms.Panel();
+            this.iconButton1 = new FontAwesome.Sharp.IconButton();
             this.btnMarketing = new FontAwesome.Sharp.IconButton();
             this.btnProduct = new FontAwesome.Sharp.IconButton();
             this.btnOrder = new FontAwesome.Sharp.IconButton();
@@ -57,6 +58,7 @@
             // panelMenu
             // 
             this.panelMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(25)))), ((int)(((byte)(62)))));
+            this.panelMenu.Controls.Add(this.iconButton1);
             this.panelMenu.Controls.Add(this.btnMarketing);
             this.panelMenu.Controls.Add(this.btnProduct);
             this.panelMenu.Controls.Add(this.btnOrder);
@@ -68,6 +70,30 @@
             this.panelMenu.Name = "panelMenu";
             this.panelMenu.Size = new System.Drawing.Size(293, 761);
             this.panelMenu.TabIndex = 0;
+            // 
+            // iconButton1
+            // 
+            this.iconButton1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.iconButton1.FlatAppearance.BorderSize = 0;
+            this.iconButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.iconButton1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.iconButton1.ForeColor = System.Drawing.Color.White;
+            this.iconButton1.IconChar = FontAwesome.Sharp.IconChar.Book;
+            this.iconButton1.IconColor = System.Drawing.Color.BlanchedAlmond;
+            this.iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconButton1.IconSize = 32;
+            this.iconButton1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.iconButton1.Location = new System.Drawing.Point(0, 433);
+            this.iconButton1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.iconButton1.Name = "iconButton1";
+            this.iconButton1.Padding = new System.Windows.Forms.Padding(13, 0, 27, 0);
+            this.iconButton1.Size = new System.Drawing.Size(293, 62);
+            this.iconButton1.TabIndex = 6;
+            this.iconButton1.Text = "Cài đặt";
+            this.iconButton1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.iconButton1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.iconButton1.UseVisualStyleBackColor = true;
+            this.iconButton1.Click += new System.EventHandler(this.iconButton1_Click);
             // 
             // btnMarketing
             // 
@@ -86,7 +112,7 @@
             this.btnMarketing.Name = "btnMarketing";
             this.btnMarketing.Padding = new System.Windows.Forms.Padding(13, 0, 27, 0);
             this.btnMarketing.Size = new System.Drawing.Size(293, 62);
-            this.btnMarketing.TabIndex = 6;
+            this.btnMarketing.TabIndex = 5;
             this.btnMarketing.Text = "Doanh thu";
             this.btnMarketing.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnMarketing.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -250,6 +276,7 @@
             this.lblTitleChildForm.Size = new System.Drawing.Size(54, 20);
             this.lblTitleChildForm.TabIndex = 1;
             this.lblTitleChildForm.Text = "Home";
+            this.lblTitleChildForm.Click += new System.EventHandler(this.lblTitleChildForm_Click);
             // 
             // iconCurrentChildForm
             // 
@@ -312,6 +339,7 @@
             this.Name = "FormMainMenu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FlatUI Example";
+            this.Load += new System.EventHandler(this.FormMainMenu_Load);
             this.Resize += new System.EventHandler(this.FormMainMenu_Resize);
             this.panelMenu.ResumeLayout(false);
             this.panelLogo.ResumeLayout(false);
@@ -343,5 +371,6 @@
         private System.Windows.Forms.Button btnMaximize;
         private System.Windows.Forms.Button btnMinimize;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private FontAwesome.Sharp.IconButton iconButton1;
     }
 }

@@ -27,8 +27,8 @@ namespace QuanLyKhachSan
         #region Method
         void LoadDanhSachPhong()
         {
-            PhongDAO.Instance.CapNhatDanhSachPhong();
             flpRoom.Controls.Clear();
+            PhongDAO.Instance.CapNhatDanhSachPhong();
             List<Phong> roomList = PhongDAO.Instance.LoadDanhSachPhong();
 
             foreach (Phong item in roomList)
@@ -98,6 +98,11 @@ namespace QuanLyKhachSan
 
         private void btnLapPhieu_Click(object sender, EventArgs e)
         {
+            if(tbMaPhong.Text=="")
+            {
+                MessageBox.Show("Chưa chọn phòng");
+                return;
+            }    
             try
             {
                 if (tbMaPhieu.Text == string.Empty && tbSoLuongKhach.Text != string.Empty)
@@ -131,10 +136,17 @@ namespace QuanLyKhachSan
                 MessageBox.Show("Vui lòng lập phiếu trước tiên!");
             }
             else
-            {
-                frmCT_PhieuThuePhong frm = new frmCT_PhieuThuePhong(tbMaPhong.Text, tbMaPhieu.Text);
-                frm.ShowDialog();
-                CTPhieuThuePhong();
+            { DataTable check = DataProvider.Instance.ExecuteQuery("select * from LOAIKHACH");
+                if(check.Rows.Count==0)
+                {
+                    MessageBox.Show("Vui lòng tạo loại khách trước.\n Cài đặt -> Loại khách");
+                }    
+            else
+                {
+                    frmCT_PhieuThuePhong frm = new frmCT_PhieuThuePhong(tbMaPhong.Text, tbMaPhieu.Text);
+                    frm.ShowDialog();
+                    CTPhieuThuePhong();
+                }
             }
         }
 
@@ -166,5 +178,15 @@ namespace QuanLyKhachSan
             dtpEnd.MinDate = dtpStart.Value;
         }
         #endregion
+
+        private void tbMaPhieu_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tbSoLuongKhach_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

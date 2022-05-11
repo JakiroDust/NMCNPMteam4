@@ -30,7 +30,7 @@ namespace QuanLyKhachSan.DAO
             if (maPhieu == string.Empty)
                 maPhieu = "null";
 
-            string query = $"EXEC USP_GET_CT_PHIEUTHUEPHONG_BY_MAPHIEUTHUEPHONG @MaPhieuThuePhong = {maPhieu}";
+            string query = $"select MaCTPTP as 'ID',TenKH as'Tên khách hàng',LoaiKhach as 'Loại khách',CMND,DiaChi as 'Địa chỉ' from CT_PHIEUTHUEPHONG,LOAIKHACH where MaPhieuThuePhong={maPhieu} and LOAIKHACH.MaLoaiKhach=CT_PHIEUTHUEPHONG.MaLoaiKhach";
 
             DataTable data = DataProvider.Instance.ExecuteQuery(query);
 
@@ -39,7 +39,7 @@ namespace QuanLyKhachSan.DAO
 
         public bool ThemKhachHang(string maPhieuThuePhong, string tenKH, string loaiKhach, string CMND, string diaChi)
         {
-            string query = $"INSERT INTO dbo.CT_PHIEUTHUEPHONG (MaPhieuThuePhong, TenKH, MaLoaiKhach, CMND, DiaChi) VALUES ({maPhieuThuePhong}, '{tenKH}', (Select MaLoaiKhach from LOAIKHACH where LoaiKhach = '{loaiKhach}'), '{CMND}', '{diaChi}')";
+            string query = $"INSERT INTO dbo.CT_PHIEUTHUEPHONG (MaPhieuThuePhong, TenKH, MaLoaiKhach, CMND, DiaChi) VALUES ('{maPhieuThuePhong}', N'{tenKH}', '{loaiKhach}', N'{CMND}', N'{diaChi}')";
             int result = DataProvider.Instance.ExecuteNonQuery(query);
 
             return result > 0;
@@ -52,7 +52,7 @@ namespace QuanLyKhachSan.DAO
         }
         public bool SuaKhachHang(string maCTPTP, string tenKH, string loaiKhach, string CMND, string diaChi)
         {
-            string query = $"update CT_PHIEUTHUEPHONG set TenKH = N'{tenKH}', MaLoaiKhach = (Select MaLoaiKhach from LOAIKHACH where LoaiKhach = '{loaiKhach}'), CMND = N'{CMND}', DiaChi = N'{diaChi}' Where MaCTPTP = N'{maCTPTP}'";
+            string query = $"update CT_PHIEUTHUEPHONG set TenKH = N'{tenKH}', MaLoaiKhach = {loaiKhach}, CMND = N'{CMND}', DiaChi = N'{diaChi}' Where MaCTPTP = N'{maCTPTP}'";
             int result = DataProvider.Instance.ExecuteNonQuery(query);
 
             return result > 0;
