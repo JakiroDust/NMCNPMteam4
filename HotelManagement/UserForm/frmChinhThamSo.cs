@@ -18,6 +18,7 @@ namespace QuanLyKhachSan.UserForm
             getThamSo();
             getLoaiPhong();
             getPhuThu();
+            getLoaiKhach();
         }
         private void getThamSo()
         {
@@ -116,7 +117,13 @@ namespace QuanLyKhachSan.UserForm
         }
         private void dgvLoaiPhong_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-
+            if (dgvLoaiPhong.CurrentRow == null)
+                return;
+            int i;
+            i = dgvLoaiPhong.CurrentRow.Index;
+            tbTenLoaiPhong.Text = dgvLoaiPhong.Rows[i].Cells[1].Value.ToString();
+            tbDonGiaLoaiPhong.Text = dgvLoaiPhong.Rows[i].Cells[2].Value.ToString();
+            tbMaLoaiPhong.Text = dgvLoaiPhong.Rows[i].Cells[0].Value.ToString();
         }
 
         private void tbTenLoaiPhong_TextChanged(object sender, EventArgs e)
@@ -240,7 +247,7 @@ namespace QuanLyKhachSan.UserForm
             {
                 DataProvider.Instance.ExecuteNonQuery($"Delete from LOAIPHONG where MaLoaiPhong='{dgvLoaiPhong.CurrentRow.Cells[0].Value.ToString()}'");
                 getLoaiPhong();
-                resetLoaiPhong();
+                BoChonLoaiPhong();
                 MessageBox.Show("Xóa thành công");
             }
             else
@@ -254,7 +261,7 @@ namespace QuanLyKhachSan.UserForm
         {
 
         }
-        void resetLoaiPhong()
+        void BoChonLoaiPhong()
         {
             tbTenLoaiPhong.Text = "";
             tbDonGiaLoaiPhong.Text = "";
@@ -262,7 +269,7 @@ namespace QuanLyKhachSan.UserForm
         }
         private void button4_Click(object sender, EventArgs e)
         {
-            resetLoaiPhong();
+            BoChonLoaiPhong();
         }
 
         private void button5_Click(object sender, EventArgs e)
@@ -272,6 +279,7 @@ namespace QuanLyKhachSan.UserForm
             {
                 LoaiPhongDAO.Instance.ResetLoaiPhong();
                 getLoaiPhong();
+                BoChonLoaiPhong();
             }
         }
 
@@ -295,9 +303,10 @@ namespace QuanLyKhachSan.UserForm
             {
                 PhuThuDao.Instance.ResetPhuThu();
                 getPhuThu();
+                BoChonPhuThu();
             }
         }
-        private void ResetPhuThu()
+        private void BoChonPhuThu()
         {
             tbMocPhuThu.Text = "";
             tbHeSoPhuThu.Text = "";
@@ -305,13 +314,20 @@ namespace QuanLyKhachSan.UserForm
         }
         private void btnBoChonPhuThu_Click(object sender, EventArgs e)
         {
-            ResetPhuThu();
+            BoChonPhuThu();
 
         }
 
         private void dgvPhuThu_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-
+            if(dgvPhuThu.CurrentRow!=null)
+            {
+                int i;
+                i = dgvPhuThu.CurrentRow.Index;
+                tbMocPhuThu.Text = dgvPhuThu.Rows[i].Cells[1].Value.ToString();
+                tbHeSoPhuThu.Text = dgvPhuThu.Rows[i].Cells[2].Value.ToString();
+                tbMaPhuThu.Text = dgvPhuThu.Rows[i].Cells[0].Value.ToString();
+            }
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -340,6 +356,7 @@ namespace QuanLyKhachSan.UserForm
 
             if (tbHeSoPhuThu.Text == "")
                 temp += "Hệ số phụ thu không được để trống.\n";
+
             if (!float.TryParse(tbHeSoPhuThu.Text, out float outputt))
                 temp += "Hệ số phụ thu phải là số nguyên và lớn hơn 0";
             else
@@ -394,17 +411,6 @@ namespace QuanLyKhachSan.UserForm
            /// tb
         }
 
-        private void dgvLoaiPhong_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (dgvLoaiPhong.CurrentRow == null)
-                return;
-            int i;
-            i = dgvLoaiPhong.CurrentRow.Index;
-            tbTenLoaiPhong.Text = dgvLoaiPhong.Rows[i].Cells[1].Value.ToString();
-            tbDonGiaLoaiPhong.Text = dgvLoaiPhong.Rows[i].Cells[2].Value.ToString();
-            tbMaLoaiPhong.Text = dgvLoaiPhong.Rows[i].Cells[0].Value.ToString();
-        }
-
         private void button3_Click(object sender, EventArgs e)
         {
             if(tbMaPhuThu.Text=="")
@@ -416,7 +422,7 @@ namespace QuanLyKhachSan.UserForm
             {
                 PhuThuDao.Instance.UpdatePhuThu(tbMaPhuThu.Text,tbMocPhuThu.Text,tbHeSoPhuThu.Text);
                     getPhuThu();
-                ResetPhuThu();
+                BoChonPhuThu();
                     MessageBox.Show("Cập nhật phụ thu thành công.");
             }    
         }
@@ -437,7 +443,7 @@ namespace QuanLyKhachSan.UserForm
             {
                 PhuThuDao.Instance.DeletePhuThu(tbMaPhuThu.Text);
                 getPhuThu();
-                ResetPhuThu();
+                BoChonPhuThu();
                 MessageBox.Show("Đã xóa thành công.");
                
 
@@ -447,6 +453,161 @@ namespace QuanLyKhachSan.UserForm
         private void tbMaPhuThu_TextChanged(object sender, EventArgs e)
         {
 
+        }
+        private void getLoaiKhachfromdgv()
+        {
+            if (dgvLoaiKhach.CurrentRow == null)
+                return;
+            int i;
+            i = dgvLoaiKhach.CurrentRow.Index;
+            tbLoaiKhach.Text = dgvLoaiKhach.Rows[i].Cells["Loại khách"].Value.ToString();
+            tbHeSoLoaiKhach.Text = dgvLoaiKhach.Rows[i].Cells["Hệ số"].Value.ToString();
+            tbMaLoaiKhach.Text = dgvLoaiKhach.Rows[i].Cells["ID"].Value.ToString();
+        }
+        private void dgvLoaiKhach_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            getLoaiKhachfromdgv();
+        }
+        private void getLoaiKhach()
+        {
+            dgvLoaiKhach.DataSource = LoaiKhachDAO.Instance.LoadDanhSachLoaiKhachv2();
+            dgvLoaiKhach.Columns["ID"].Visible = false;
+            BoChonLoaiKhach();
+        }
+        private bool checkDieuKienLoaiKhach(int specialcase=0)
+        {
+            string temp = "";
+            if (tbLoaiKhach.Text == "")
+                temp += "Mục loại khách không được để trống.\n";
+            if (tbHeSoLoaiKhach.Text == "")
+                temp += "Mục hệ số không được để trống.\n";
+            if (!float.TryParse(tbHeSoLoaiKhach.Text, out float outputt))
+                temp += "Hệ số phải là số nguyên dương";
+            else
+            if (outputt < 0)
+                temp += "Hệ số phải là số nguyên dương";
+            if (temp != "")
+            {
+                MessageBox.Show(temp);
+                return false;
+            }
+            String query = "Select MaLoaiKhach,LoaiKhach from LOAIKHACH";
+            DataTable a = DataProvider.Instance.ExecuteQuery(query);
+            switch (specialcase)
+            {
+                case 1:
+                    {
+                        for (int i = 0; i < a.Rows.Count; i++)
+                            if (tbLoaiKhach.Text.Equals(a.Rows[i]["LoaiKhach"]))
+                                if (a.Rows[i][0] == tbMaLoaiKhach.Text)
+                                {
+                                    MessageBox.Show("Đã có loại khách :" + tbLoaiKhach.Text);
+                                    return false;
+                                }
+                        return true;
+                    }
+                default:
+                    for (int i = 0; i < a.Rows.Count; i++)
+                    {
+                        if (tbLoaiKhach.Text.Equals(a.Rows[i]["LoaiKhach"]))
+                        {
+                            MessageBox.Show("Đã có loại khách :" + tbLoaiKhach.Text);
+                            return false;
+                        }
+                    }
+                    return true;
+            }
+    
+        }    
+        void InsertLoaiKhach()
+        {
+            LoaiKhachDAO.Instance.InsertLoaiKhach(tbLoaiKhach.Text, tbHeSoLoaiKhach.Text);
+        }    
+        private void btnThemLoaiKhach_Click(object sender, EventArgs e)
+        {
+            if(checkDieuKienLoaiKhach())
+            {
+                InsertLoaiKhach();
+                getLoaiKhach();
+            }    
+        }
+        void BoChonLoaiKhach()
+        {
+            tbMaLoaiKhach.Text = "";
+            tbLoaiKhach.Text = "";
+            tbHeSoLoaiKhach.Text = "";
+        }
+        private void tbBoChonLoaiKhach_Click(object sender, EventArgs e)
+        {
+            BoChonLoaiKhach();
+        }
+
+        private void button2_Click_3(object sender, EventArgs e)
+        {
+            DialogResult dialogResult = MessageBox.Show("Bạn có chắc muốn reset phụ thu về ban đầu?\nWarn: Việc này sẽ không ảnh hưởng gì hết", "Reset về mặc định", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                LoaiKhachDAO.Instance.ResetLoaiKhach();
+                getLoaiKhach();
+            }
+
+        }
+
+        private void dgvLoaiKhach_Validated(object sender, EventArgs e)
+        {
+            getLoaiKhachfromdgv();
+        }
+        void UpdateLoaiKhach()
+        {
+            LoaiKhachDAO.Instance.UpdateLoaiKhach(tbMaLoaiKhach.Text, tbLoaiKhach.Text, tbHeSoLoaiKhach.Text);
+        }
+        private void btnSuaLoaiKhach_Click(object sender, EventArgs e)
+        {
+            if(tbMaLoaiKhach.Text=="")
+            {
+                MessageBox.Show("Mời bạn chọn Loại Khách trước");
+                return;
+            }    
+            if(checkDieuKienLoaiKhach(1))
+            {
+                UpdateLoaiKhach();
+                getLoaiKhach();
+            }    
+        }
+        private void DeleteLoaiKhach()
+        {
+            LoaiKhachDAO.Instance.DeleteLoaiKhach(tbMaLoaiKhach.Text);
+        }    
+        private void btnXoaLoaiKhach_Click(object sender, EventArgs e)
+        {
+            if (tbMaLoaiKhach.Text == "")
+            {
+                MessageBox.Show("Mời bạn chọn Loại Khách trước");
+                return;
+            }
+            DeleteLoaiKhach();
+            getLoaiKhach();
+            
+        }
+
+        private void dgvLoaiKhach_Sorted(object sender, EventArgs e)
+        {
+            BoChonLoaiKhach();
+        }
+
+        private void dgvThamSo_Sorted(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dgvPhuThu_Sorted(object sender, EventArgs e)
+        {
+            BoChonPhuThu();
+        }
+
+        private void dgvLoaiPhong_Sorted(object sender, EventArgs e)
+        {
+            BoChonLoaiPhong();
         }
     }
     }

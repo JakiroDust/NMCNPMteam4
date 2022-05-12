@@ -2,6 +2,7 @@
 using System;
 using System.Data;
 using System.Windows.Forms;
+using QuanLyKhachSan.DAO;
 namespace QuanLyKhachSan
 {
     public partial class frmTimPhong : Form
@@ -82,7 +83,7 @@ namespace QuanLyKhachSan
         }
         private void btFindRoom_Click(object sender, EventArgs e)
         {
-
+            PhongDAO.Instance.CapNhatDanhSachPhong();
             findRoom();
         }
 
