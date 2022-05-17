@@ -64,15 +64,24 @@ namespace QuanLyKhachSan
             dgv.DataSource = DataProvider.Instance.ExecuteQuery(query);
             dgv.Columns[0].Visible = false;
         }
-        private Boolean checkDuplicate()
+        private Boolean checkDuplicate(int specialcase=0)
         {
-            String query = "Select TenPhong from PHONG";
+            String query = "Select * from PHONG";
             DataTable a = new DataTable();
             a = DataProvider.Instance.ExecuteQuery(query);
+            if(specialcase==0)
             for (int i = 0; i < a.Rows.Count; i++)
             {
                 if (tbPhong.Text.Equals(a.Rows[i]["TenPhong"])) return false;
             }
+            if(specialcase==1)
+                for (int i = 0; i < a.Rows.Count; i++)
+                {
+                    if (tbPhong.Text.Equals(a.Rows[i]["TenPhong"]))
+                    {
+                        if (temp!=int.Parse(a.Rows[i]["MaPhong"].ToString())) return false;
+                    }
+                }
             return true;
         }
         private void btnThem_Click(object sender, EventArgs e)
@@ -114,7 +123,7 @@ namespace QuanLyKhachSan
             {
                 MessageBox.Show("Sửa Thất Bại!!. Phòng không được để trống");
             }
-            else if (!checkDuplicate())
+            else if (!checkDuplicate(1))
             {
                 MessageBox.Show("Sửa Thất Bại!!. Tên phòng bị trùng");
             }
