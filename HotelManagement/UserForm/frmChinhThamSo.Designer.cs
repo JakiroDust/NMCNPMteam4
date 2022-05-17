@@ -283,12 +283,14 @@ namespace QuanLyKhachSan.UserForm
             // 
             // button5
             // 
+            this.button5.Enabled = false;
             this.button5.Location = new System.Drawing.Point(291, 70);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(152, 29);
             this.button5.TabIndex = 15;
             this.button5.Text = "Reset về mặc định";
             this.button5.UseVisualStyleBackColor = true;
+            this.button5.Visible = false;
             this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // btnBoChonLoaiPhong
@@ -484,12 +486,14 @@ namespace QuanLyKhachSan.UserForm
             // 
             // button4
             // 
+            this.button4.Enabled = false;
             this.button4.Location = new System.Drawing.Point(315, 70);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(152, 29);
             this.button4.TabIndex = 22;
             this.button4.Text = "Reset về mặc định";
             this.button4.UseVisualStyleBackColor = true;
+            this.button4.Visible = false;
             this.button4.Click += new System.EventHandler(this.button4_Click_1);
             // 
             // btnBoChonPhuThu
@@ -655,12 +659,14 @@ namespace QuanLyKhachSan.UserForm
             // 
             // button2
             // 
+            this.button2.Enabled = false;
             this.button2.Location = new System.Drawing.Point(315, 70);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(152, 29);
             this.button2.TabIndex = 22;
             this.button2.Text = "Reset về mặc định";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Visible = false;
             this.button2.Click += new System.EventHandler(this.button2_Click_3);
             // 
             // tbBoChonLoaiKhach

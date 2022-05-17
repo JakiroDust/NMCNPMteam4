@@ -28,8 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.Label maLoaiPhongLabel;
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.panel6 = new System.Windows.Forms.Panel();
             this.flpRoom = new System.Windows.Forms.FlowLayoutPanel();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.cbTinhTrang = new System.Windows.Forms.ComboBox();
+            this.cbLoaiPhong = new System.Windows.Forms.ComboBox();
+            this.label6 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.dgvCTPhieuThuePhong = new System.Windows.Forms.DataGridView();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -51,7 +58,11 @@
             this.btnThanhToan = new System.Windows.Forms.Button();
             this.btnSua = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
+            maLoaiPhongLabel = new System.Windows.Forms.Label();
             this.tabPage1.SuspendLayout();
+            this.panel4.SuspendLayout();
+            this.panel6.SuspendLayout();
+            this.panel5.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCTPhieuThuePhong)).BeginInit();
             this.panel3.SuspendLayout();
@@ -59,9 +70,20 @@
             this.tabControl1.SuspendLayout();
             this.SuspendLayout();
             // 
+            // maLoaiPhongLabel
+            // 
+            maLoaiPhongLabel.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            maLoaiPhongLabel.AutoSize = true;
+            maLoaiPhongLabel.Location = new System.Drawing.Point(160, 6);
+            maLoaiPhongLabel.Name = "maLoaiPhongLabel";
+            maLoaiPhongLabel.Size = new System.Drawing.Size(84, 20);
+            maLoaiPhongLabel.TabIndex = 14;
+            maLoaiPhongLabel.Text = "Loại phòng";
+            maLoaiPhongLabel.Click += new System.EventHandler(this.maLoaiPhongLabel_Click);
+            // 
             // tabPage1
             // 
-            this.tabPage1.Controls.Add(this.flpRoom);
+            this.tabPage1.Controls.Add(this.panel4);
             this.tabPage1.Controls.Add(this.panel2);
             this.tabPage1.Location = new System.Drawing.Point(4, 29);
             this.tabPage1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -72,15 +94,85 @@
             this.tabPage1.Text = "Lập phiếu thuê phòng";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
+            // panel4
+            // 
+            this.panel4.Controls.Add(this.panel6);
+            this.panel4.Controls.Add(this.panel5);
+            this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel4.Location = new System.Drawing.Point(3, 4);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(627, 741);
+            this.panel4.TabIndex = 0;
+            // 
+            // panel6
+            // 
+            this.panel6.Controls.Add(this.flpRoom);
+            this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel6.Location = new System.Drawing.Point(0, 32);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(627, 709);
+            this.panel6.TabIndex = 2;
+            // 
             // flpRoom
             // 
             this.flpRoom.AutoScroll = true;
             this.flpRoom.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flpRoom.Location = new System.Drawing.Point(3, 4);
+            this.flpRoom.Location = new System.Drawing.Point(0, 0);
             this.flpRoom.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.flpRoom.Name = "flpRoom";
-            this.flpRoom.Size = new System.Drawing.Size(627, 741);
+            this.flpRoom.Size = new System.Drawing.Size(627, 709);
             this.flpRoom.TabIndex = 0;
+            // 
+            // panel5
+            // 
+            this.panel5.Controls.Add(this.cbTinhTrang);
+            this.panel5.Controls.Add(this.cbLoaiPhong);
+            this.panel5.Controls.Add(this.label6);
+            this.panel5.Controls.Add(maLoaiPhongLabel);
+            this.panel5.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel5.Location = new System.Drawing.Point(0, 0);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(627, 32);
+            this.panel5.TabIndex = 1;
+            // 
+            // cbTinhTrang
+            // 
+            this.cbTinhTrang.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.cbTinhTrang.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbTinhTrang.FormattingEnabled = true;
+            this.cbTinhTrang.Items.AddRange(new object[] {
+            "",
+            "Trống",
+            "Đầy"});
+            this.cbTinhTrang.Location = new System.Drawing.Point(411, 4);
+            this.cbTinhTrang.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cbTinhTrang.Name = "cbTinhTrang";
+            this.cbTinhTrang.Size = new System.Drawing.Size(56, 28);
+            this.cbTinhTrang.TabIndex = 13;
+            this.cbTinhTrang.SelectedIndexChanged += new System.EventHandler(this.cbSearchRoomState_SelectedIndexChanged);
+            // 
+            // cbLoaiPhong
+            // 
+            this.cbLoaiPhong.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.cbLoaiPhong.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbLoaiPhong.FormattingEnabled = true;
+            this.cbLoaiPhong.Location = new System.Drawing.Point(245, 0);
+            this.cbLoaiPhong.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.cbLoaiPhong.Name = "cbLoaiPhong";
+            this.cbLoaiPhong.Size = new System.Drawing.Size(81, 28);
+            this.cbLoaiPhong.TabIndex = 15;
+            this.cbLoaiPhong.SelectedIndexChanged += new System.EventHandler(this.cbSearchRoomType_SelectedIndexChanged);
+            // 
+            // label6
+            // 
+            this.label6.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(332, 6);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(76, 20);
+            this.label6.TabIndex = 12;
+            this.label6.Text = "Tình trạng";
+            this.label6.Click += new System.EventHandler(this.label6_Click);
             // 
             // panel2
             // 
@@ -202,6 +294,7 @@
             this.tbMaPhong.ReadOnly = true;
             this.tbMaPhong.Size = new System.Drawing.Size(85, 27);
             this.tbMaPhong.TabIndex = 0;
+            this.tbMaPhong.TextChanged += new System.EventHandler(this.tbMaPhong_TextChanged);
             // 
             // label3
             // 
@@ -321,6 +414,10 @@
             this.Name = "frmLapPhieuThuePhong";
             this.Text = "Lập phiếu thuê phòng";
             this.tabPage1.ResumeLayout(false);
+            this.panel4.ResumeLayout(false);
+            this.panel6.ResumeLayout(false);
+            this.panel5.ResumeLayout(false);
+            this.panel5.PerformLayout();
             this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvCTPhieuThuePhong)).EndInit();
             this.panel3.ResumeLayout(false);
@@ -355,5 +452,11 @@
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.Button btnSua;
         private System.Windows.Forms.DataGridView dgvCTPhieuThuePhong;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Panel panel6;
+        private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.ComboBox cbTinhTrang;
+        private System.Windows.Forms.ComboBox cbLoaiPhong;
+        private System.Windows.Forms.Label label6;
     }
 }

@@ -77,6 +77,7 @@ namespace QuanLyKhachSan
         void btn_Click(object sender, EventArgs e)
         {
             string maPhong = ((sender as Button).Tag as Phong).MaPhong.ToString();
+            string tenPhong= ((sender as Button).Tag as Phong).MaPhong.ToString();
             PhieuThuePhong ptp = PhieuThuePhongDAO.Instance.LayPhieuThuePhongConHanTheoMaPhong(maPhong);
             tbMaPhong.Text = maPhong;
             if (ptp != null)
@@ -185,6 +186,31 @@ namespace QuanLyKhachSan
         }
 
         private void tbSoLuongKhach_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cbSearchRoomType_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cbSearchRoomState_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void maLoaiPhongLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tbMaPhong_TextChanged(object sender, EventArgs e)
         {
 
         }
