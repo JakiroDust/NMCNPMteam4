@@ -142,6 +142,7 @@ namespace QuanLyKhachSan
             this.cbSearchRoomState.Size = new System.Drawing.Size(56, 28);
             this.cbSearchRoomState.TabIndex = 10;
             this.cbSearchRoomState.SelectedIndexChanged += new System.EventHandler(this.cbSearchRoomState_SelectedIndexChanged);
+            this.cbSearchRoomState.Validated += new System.EventHandler(this.cbSearchRoomState_Validated);
             // 
             // cbSearchRoomType
             // 
@@ -173,7 +174,7 @@ namespace QuanLyKhachSan
             this.panel1.TabIndex = 12;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
-            // SearchRoom
+            // frmTimPhong
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -181,7 +182,7 @@ namespace QuanLyKhachSan
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.dgvRoomSearch);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.Name = "SearchRoom";
+            this.Name = "frmTimPhong";
             this.Text = "Danh sách các phòng";
             ((System.ComponentModel.ISupportInitialize)(this.dgvRoomSearch)).EndInit();
             this.panel1.ResumeLayout(false);

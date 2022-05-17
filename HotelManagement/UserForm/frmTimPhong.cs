@@ -121,7 +121,7 @@ namespace QuanLyKhachSan
 
         private void cbSearchRoomState_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+           //// MessageBox.Show(cbSearchRoomState.Text);
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
@@ -132,6 +132,11 @@ namespace QuanLyKhachSan
         private void checkedListBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void cbSearchRoomState_Validated(object sender, EventArgs e)
+        {
+            ///MessageBox.Show(cbSearchRoomState.Text);
         }
     }
 }

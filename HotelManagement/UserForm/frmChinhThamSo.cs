@@ -245,6 +245,7 @@ namespace QuanLyKhachSan.UserForm
             }
             if (CheckIfExistsLoaiPhong())
             {
+                DataProvider.Instance.ExecuteNonQuery($"exec FUNC_DELETE_CT_BAOCAODOANHTHUTHEOLOAIPHONG @MaLoaiPhong={dgvLoaiPhong.CurrentRow.Cells[0].Value.ToString()}");
                 DataProvider.Instance.ExecuteNonQuery($"Delete from LOAIPHONG where MaLoaiPhong='{dgvLoaiPhong.CurrentRow.Cells[0].Value.ToString()}'");
                 getLoaiPhong();
                 BoChonLoaiPhong();

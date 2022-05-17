@@ -30,7 +30,7 @@ namespace QuanLyKhachSan
         public frmThongKe()
         {
             InitializeComponent();
-            ReportSalebaseonType();
+            ReportSalebaseonType(NumsearchMonthreport.Text,NumsearchYearreport.Text);
         }
         public static frmThongKe GetInstance
         {
@@ -220,26 +220,18 @@ namespace QuanLyKhachSan
             if(NumsearchYearreport.Value==DateTime.Now.Year)
             NumsearchMonthreport.Maximum = DateTime.Now.Month;
         }
-        private void ReportSalebaseonType()
+        private void ReportSalebaseonType(string nmonth,string nyear)
         {
-            dgvReport.DataSource = DataProvider.Instance.ExecuteQuery($"declare @temp int;select @temp=MaBaoCaoDoanhThuTheoLoaiPhong from BAOCAODOANHTHUTHEOLOAIPHONG where  Thang={NumsearchMonthreport.Text} and Nam={NumsearchYearreport.Text};select TenLoaiPhong as 'Loại Phòng',TongDoanhThu  as 'Doanh Thu',TiLe*100 as 'Tỉ Lệ (%)' from CT_BAOCAODOANHTHUTHEOLOAIPHONG,LOAIPHONG where MaBaoCaoDoanhThuTheoLoaiPhong=@temp and CT_BAOCAODOANHTHUTHEOLOAIPHONG.MaLoaiPhong=LOAIPHONG.MaLoaiPhong;");
-            Object getTotalSale = DataProvider.Instance.ExecuteScalar($"select TongTatCaDoanhThu from BAOCAODOANHTHUTHEOLOAIPHONG where Thang={NumsearchMonthreport.Text} and Nam={NumsearchYearreport.Text}");
+            dgvReport.DataSource = DataProvider.Instance.ExecuteQuery($"declare @temp int;select @temp=MaBaoCaoDoanhThuTheoLoaiPhong from BAOCAODOANHTHUTHEOLOAIPHONG where  Thang={nmonth} and Nam={nyear};select TenLoaiPhong as 'Loại Phòng',TongDoanhThu  as 'Doanh Thu',TiLe*100 as 'Tỉ Lệ (%)' from CT_BAOCAODOANHTHUTHEOLOAIPHONG,LOAIPHONG where MaBaoCaoDoanhThuTheoLoaiPhong=@temp and CT_BAOCAODOANHTHUTHEOLOAIPHONG.MaLoaiPhong=LOAIPHONG.MaLoaiPhong;");
+            Object getTotalSale = DataProvider.Instance.ExecuteScalar($"select TongTatCaDoanhThu from BAOCAODOANHTHUTHEOLOAIPHONG where Thang={nmonth} and Nam={nyear}");
             float TotalSale = Convert.ToSingle(getTotalSale);
-            lbTongDoanhThu.Text = $" {TotalSale.ToString()} VNĐ của tháng {NumsearchMonthreport.Text}/{NumsearchYearreport.Text}";
-            year = int.Parse(NumsearchYearreport.Text);
-            month = int.Parse(NumsearchMonthreport.Text);
+            lbTongDoanhThu.Text = $" {TotalSale.ToString()} VNĐ của tháng {nmonth}/{nyear}";
+            year = int.Parse(nmonth);
+            month = int.Parse(nyear);
         }
         private void button1_Click_3(object sender, EventArgs e)
         {
-            if (NumsearchMonthreport.Text == "")
-            {
-                NumsearchMonthreport.Text = NumsearchMonthreport.Minimum.ToString();
-            }
-            if (NumsearchYearreport.Text == "")
-            {
-                NumsearchYearreport.Text = NumsearchYearreport.Minimum.ToString();
-            }
-            ReportSalebaseonType();
+
 
         }
         private void dgvReport_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
@@ -269,8 +261,32 @@ namespace QuanLyKhachSan
 
         }
 
+        private void NumsearchYearreport_ValueChanged(object sender, EventArgs e)
+        {
+            string text = (sender as NumericUpDown).Value.ToString() as string;
+            if (NumsearchMonthreport.Text == "")
+            {
+                NumsearchMonthreport.Text = NumsearchMonthreport.Minimum.ToString();
+            }
+            if (text== "")
+            {
+                NumsearchYearreport.Text = NumsearchYearreport.Minimum.ToString();
+            }
+            ReportSalebaseonType(NumsearchMonthreport.Text,text);
+        }
+
         private void searchMonthreport_ValueChanged_1(object sender, EventArgs e)
         {
+            string text = (sender as NumericUpDown).Value.ToString() as string;
+            if (text == "")
+            {
+                NumsearchMonthreport.Text = NumsearchMonthreport.Minimum.ToString();
+            }
+            if (NumsearchYearreport.Text == "")
+            {
+                NumsearchYearreport.Text = NumsearchYearreport.Minimum.ToString();
+            }
+            ReportSalebaseonType(text, NumsearchYearreport.Text);
         }
     }
 }    
