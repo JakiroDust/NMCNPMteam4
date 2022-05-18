@@ -21,6 +21,7 @@ namespace QuanLyKhachSan
         {
             InitializeComponent();
             LoadDanhSachPhong();
+            cbLoaiPhong_Load();
         }
 
 
@@ -71,6 +72,58 @@ namespace QuanLyKhachSan
                 MessageBox.Show("Xóa phiếu không thành công!");
             return false;
         }
+
+        void FiltflpRoom(string type, string state)
+        {
+            foreach(Control c in flpRoom.Controls)
+            {
+                c.Visible = true;
+            }
+            if(type!="")
+            foreach (Control c in flpRoom.Controls)
+            {
+                    if(!c.Text.Contains($"Loại phòng: {type}"))
+                    c.Visible = false;
+            }
+    switch(state)
+            {
+                case "Trống":
+                    foreach (Control c in flpRoom.Controls)
+                    {
+                        if (c.BackColor!=Color.Aqua)
+                            c.Visible = false;
+                    }
+                    break;
+                case "Đầy":
+                    foreach (Control c in flpRoom.Controls)
+                    {
+                        if (c.BackColor != Color.LightPink)
+                            c.Visible = false;
+                    }
+                    break;
+                default:
+                    break;
+
+            }    
+
+        }
+
+        private void cbLoaiPhong_Load()
+        {
+            DataTable target = DataProvider.Instance.ExecuteQuery("select TenLoaiPhong from LOAIPHONG order by TenLoaiPhong asc");
+
+            target.Rows.InsertAt(target.NewRow(), 0);/// ADD a blank row
+            cbLoaiPhong.DataSource = target;
+            cbLoaiPhong.DisplayMember = "TenLoaiPhong";
+            cbLoaiPhong.SelectedIndex = -1;
+
+        }
+
+        private void loadbtnSelectedRoom(string Text,Color clr)
+        {
+            btnSelectedRoom.Text = Text;
+            btnSelectedRoom.BackColor = clr;
+        }
         #endregion
 
         #region Event
@@ -95,6 +148,7 @@ namespace QuanLyKhachSan
                 dtpStart.Value = DateTime.Now;
                 dtpEnd.Value = DateTime.Now;
             }
+            loadbtnSelectedRoom((sender as Button).Text, (sender as Button).BackColor);
             CTPhieuThuePhong();
         }
 
@@ -193,11 +247,14 @@ namespace QuanLyKhachSan
 
         private void cbSearchRoomType_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            string str = (sender as ComboBox).Text;
+            FiltflpRoom(str, cbTinhTrang.Text);
         }
 
         private void cbSearchRoomState_SelectedIndexChanged(object sender, EventArgs e)
         {
+            string str = (sender as ComboBox).Text;
+            FiltflpRoom(cbLoaiPhong.Text,str);
 
         }
 
@@ -217,6 +274,11 @@ namespace QuanLyKhachSan
         }
 
         private void flpRoom_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void dgvCTPhieuThuePhong_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }

@@ -40,6 +40,8 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.dgvCTPhieuThuePhong = new System.Windows.Forms.DataGridView();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.tbTenPhong = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
             this.btnXoaPhieu = new System.Windows.Forms.Button();
             this.dtpEnd = new System.Windows.Forms.DateTimePicker();
             this.btnLapPhieu = new System.Windows.Forms.Button();
@@ -58,8 +60,7 @@
             this.btnThanhToan = new System.Windows.Forms.Button();
             this.btnSua = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.label8 = new System.Windows.Forms.Label();
-            this.tbTenPhong = new System.Windows.Forms.TextBox();
+            this.btnSelectedRoom = new System.Windows.Forms.Button();
             maLoaiPhongLabel = new System.Windows.Forms.Label();
             this.tabPage1.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -150,7 +151,7 @@
             this.cbTinhTrang.Location = new System.Drawing.Point(411, 4);
             this.cbTinhTrang.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbTinhTrang.Name = "cbTinhTrang";
-            this.cbTinhTrang.Size = new System.Drawing.Size(56, 28);
+            this.cbTinhTrang.Size = new System.Drawing.Size(72, 28);
             this.cbTinhTrang.TabIndex = 13;
             this.cbTinhTrang.SelectedIndexChanged += new System.EventHandler(this.cbSearchRoomState_SelectedIndexChanged);
             // 
@@ -159,7 +160,7 @@
             this.cbLoaiPhong.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.cbLoaiPhong.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbLoaiPhong.FormattingEnabled = true;
-            this.cbLoaiPhong.Location = new System.Drawing.Point(245, 0);
+            this.cbLoaiPhong.Location = new System.Drawing.Point(245, 3);
             this.cbLoaiPhong.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.cbLoaiPhong.Name = "cbLoaiPhong";
             this.cbLoaiPhong.Size = new System.Drawing.Size(81, 28);
@@ -204,9 +205,11 @@
             this.dgvCTPhieuThuePhong.RowTemplate.Height = 24;
             this.dgvCTPhieuThuePhong.Size = new System.Drawing.Size(547, 285);
             this.dgvCTPhieuThuePhong.TabIndex = 4;
+            this.dgvCTPhieuThuePhong.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCTPhieuThuePhong_CellContentClick);
             // 
             // panel3
             // 
+            this.panel3.Controls.Add(this.btnSelectedRoom);
             this.panel3.Controls.Add(this.tbTenPhong);
             this.panel3.Controls.Add(this.label8);
             this.panel3.Controls.Add(this.btnXoaPhieu);
@@ -229,6 +232,24 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(547, 341);
             this.panel3.TabIndex = 1;
+            // 
+            // tbTenPhong
+            // 
+            this.tbTenPhong.Location = new System.Drawing.Point(72, 138);
+            this.tbTenPhong.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.tbTenPhong.Name = "tbTenPhong";
+            this.tbTenPhong.ReadOnly = true;
+            this.tbTenPhong.Size = new System.Drawing.Size(85, 27);
+            this.tbTenPhong.TabIndex = 11;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(75, 114);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(79, 20);
+            this.label8.TabIndex = 10;
+            this.label8.Text = "Tên phòng";
             // 
             // btnXoaPhieu
             // 
@@ -407,23 +428,15 @@
             this.tabControl1.TabIndex = 0;
             this.tabControl1.Tag = "";
             // 
-            // label8
+            // btnSelectedRoom
             // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(75, 114);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(79, 20);
-            this.label8.TabIndex = 10;
-            this.label8.Text = "Tên phòng";
-            // 
-            // tbTenPhong
-            // 
-            this.tbTenPhong.Location = new System.Drawing.Point(72, 138);
-            this.tbTenPhong.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.tbTenPhong.Name = "tbTenPhong";
-            this.tbTenPhong.ReadOnly = true;
-            this.tbTenPhong.Size = new System.Drawing.Size(85, 27);
-            this.tbTenPhong.TabIndex = 11;
+            this.btnSelectedRoom.Enabled = false;
+            this.btnSelectedRoom.Location = new System.Drawing.Point(63, 47);
+            this.btnSelectedRoom.Name = "btnSelectedRoom";
+            this.btnSelectedRoom.Size = new System.Drawing.Size(120, 120);
+            this.btnSelectedRoom.TabIndex = 12;
+            this.btnSelectedRoom.Text = "Chưa chọn phòng";
+            this.btnSelectedRoom.UseVisualStyleBackColor = true;
             // 
             // frmLapPhieuThuePhong
             // 
@@ -481,5 +494,6 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox tbTenPhong;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Button btnSelectedRoom;
     }
 }
