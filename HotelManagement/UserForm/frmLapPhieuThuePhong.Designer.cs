@@ -58,6 +58,8 @@
             this.btnThanhToan = new System.Windows.Forms.Button();
             this.btnSua = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.label8 = new System.Windows.Forms.Label();
+            this.tbTenPhong = new System.Windows.Forms.TextBox();
             maLoaiPhongLabel = new System.Windows.Forms.Label();
             this.tabPage1.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -122,6 +124,7 @@
             this.flpRoom.Name = "flpRoom";
             this.flpRoom.Size = new System.Drawing.Size(627, 709);
             this.flpRoom.TabIndex = 0;
+            this.flpRoom.Paint += new System.Windows.Forms.PaintEventHandler(this.flpRoom_Paint);
             // 
             // panel5
             // 
@@ -204,6 +207,8 @@
             // 
             // panel3
             // 
+            this.panel3.Controls.Add(this.tbTenPhong);
+            this.panel3.Controls.Add(this.label8);
             this.panel3.Controls.Add(this.btnXoaPhieu);
             this.panel3.Controls.Add(this.dtpEnd);
             this.panel3.Controls.Add(this.btnLapPhieu);
@@ -402,6 +407,24 @@
             this.tabControl1.TabIndex = 0;
             this.tabControl1.Tag = "";
             // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(75, 114);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(79, 20);
+            this.label8.TabIndex = 10;
+            this.label8.Text = "Tên phòng";
+            // 
+            // tbTenPhong
+            // 
+            this.tbTenPhong.Location = new System.Drawing.Point(72, 138);
+            this.tbTenPhong.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.tbTenPhong.Name = "tbTenPhong";
+            this.tbTenPhong.ReadOnly = true;
+            this.tbTenPhong.Size = new System.Drawing.Size(85, 27);
+            this.tbTenPhong.TabIndex = 11;
+            // 
             // frmLapPhieuThuePhong
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -456,5 +479,7 @@
         private System.Windows.Forms.ComboBox cbTinhTrang;
         private System.Windows.Forms.ComboBox cbLoaiPhong;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox tbTenPhong;
+        private System.Windows.Forms.Label label8;
     }
 }

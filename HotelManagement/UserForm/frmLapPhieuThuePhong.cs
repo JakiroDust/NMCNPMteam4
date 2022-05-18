@@ -35,7 +35,7 @@ namespace QuanLyKhachSan
             {
                 Button btn = new Button() { Width = PhongDAO.RoomWidth, Height = PhongDAO.RoomHeight};
                 LoaiPhong loaiphong = LoaiPhongDAO.Instance.LayThongTinLoaiPhongTheoMaLoaiPhong(item.MaLoaiPhong);
-                btn.Text = item.MaPhong + Environment.NewLine + "Tên phòng: " + item.TenPhong + Environment.NewLine + "Đơn giá: " + loaiphong.DonGia.ToString();
+                btn.Text = "Tên phòng: " + item.TenPhong + Environment.NewLine + "Đơn giá: " + loaiphong.DonGia.ToString()+ Environment.NewLine +"Loại phòng: "+loaiphong.TenLoaiPhong;
                 btn.Click += btn_Click;
                 btn.Tag = item;
 
@@ -80,6 +80,7 @@ namespace QuanLyKhachSan
             string tenPhong= ((sender as Button).Tag as Phong).TenPhong.ToString();
             PhieuThuePhong ptp = PhieuThuePhongDAO.Instance.LayPhieuThuePhongConHanTheoMaPhong(maPhong);
             tbMaPhong.Text = maPhong;
+            tbTenPhong.Text = tenPhong;
             if (ptp != null)
             {
                 tbMaPhieu.Text = ptp.MaPhieuThuePhong.ToString();
@@ -144,7 +145,7 @@ namespace QuanLyKhachSan
                 }    
             else
                 {
-                    frmCT_PhieuThuePhong frm = new frmCT_PhieuThuePhong(tbMaPhong.Text, tbMaPhieu.Text);
+                    frmCT_PhieuThuePhong frm = new frmCT_PhieuThuePhong(tbMaPhong.Text,tbTenPhong.Text, tbMaPhieu.Text);
                     frm.ShowDialog();
                     CTPhieuThuePhong();
                 }
@@ -211,6 +212,11 @@ namespace QuanLyKhachSan
         }
 
         private void tbMaPhong_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void flpRoom_Paint(object sender, PaintEventArgs e)
         {
 
         }

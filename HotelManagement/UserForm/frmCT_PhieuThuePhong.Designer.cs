@@ -54,6 +54,8 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.tbTenPhong = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDanhSachKhachHang)).BeginInit();
@@ -124,6 +126,8 @@
             // 
             // panel3
             // 
+            this.panel3.Controls.Add(this.tbTenPhong);
+            this.panel3.Controls.Add(this.label10);
             this.panel3.Controls.Add(this.tbSoKhachToiDa);
             this.panel3.Controls.Add(this.label9);
             this.panel3.Controls.Add(this.btnXoa);
@@ -154,7 +158,7 @@
             // 
             // tbSoKhachToiDa
             // 
-            this.tbSoKhachToiDa.Location = new System.Drawing.Point(157, 84);
+            this.tbSoKhachToiDa.Location = new System.Drawing.Point(310, 15);
             this.tbSoKhachToiDa.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tbSoKhachToiDa.Name = "tbSoKhachToiDa";
             this.tbSoKhachToiDa.ReadOnly = true;
@@ -166,7 +170,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(157, 38);
+            this.label9.Location = new System.Drawing.Point(197, 18);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(111, 20);
             this.label9.TabIndex = 6;
@@ -261,16 +265,17 @@
             // 
             // tbMaPhong
             // 
-            this.tbMaPhong.Location = new System.Drawing.Point(33, 84);
+            this.tbMaPhong.Location = new System.Drawing.Point(90, 15);
             this.tbMaPhong.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tbMaPhong.Name = "tbMaPhong";
             this.tbMaPhong.ReadOnly = true;
             this.tbMaPhong.Size = new System.Drawing.Size(99, 27);
             this.tbMaPhong.TabIndex = 1;
+            this.tbMaPhong.TextChanged += new System.EventHandler(this.tbMaPhong_TextChanged);
             // 
             // tbMaPhieu
             // 
-            this.tbMaPhieu.Location = new System.Drawing.Point(295, 84);
+            this.tbMaPhieu.Location = new System.Drawing.Point(312, 60);
             this.tbMaPhieu.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tbMaPhieu.Name = "tbMaPhieu";
             this.tbMaPhieu.ReadOnly = true;
@@ -325,7 +330,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(314, 38);
+            this.label7.Location = new System.Drawing.Point(199, 60);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(71, 20);
             this.label7.TabIndex = 0;
@@ -334,7 +339,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(45, 38);
+            this.label6.Location = new System.Drawing.Point(7, 18);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(77, 20);
             this.label6.TabIndex = 0;
@@ -349,6 +354,25 @@
             this.label2.Size = new System.Drawing.Size(114, 20);
             this.label2.TabIndex = 0;
             this.label2.Text = "Tên khách hàng:";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(7, 67);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(78, 20);
+            this.label10.TabIndex = 8;
+            this.label10.Text = "Tên Phòng";
+            // 
+            // tbTenPhong
+            // 
+            this.tbTenPhong.Location = new System.Drawing.Point(90, 64);
+            this.tbTenPhong.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.tbTenPhong.Name = "tbTenPhong";
+            this.tbTenPhong.ReadOnly = true;
+            this.tbTenPhong.Size = new System.Drawing.Size(99, 27);
+            this.tbTenPhong.TabIndex = 9;
+            this.tbTenPhong.TextChanged += new System.EventHandler(this.tbTenPhong_TextChanged);
             // 
             // frmCT_PhieuThuePhong
             // 
@@ -399,5 +423,7 @@
         private System.Windows.Forms.Button btnXoa;
         private System.Windows.Forms.TextBox tbSoKhachToiDa;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.TextBox tbTenPhong;
+        private System.Windows.Forms.Label label10;
     }
 }

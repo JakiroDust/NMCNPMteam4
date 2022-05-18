@@ -16,7 +16,7 @@ namespace QuanLyKhachSan
     {
         readonly BindingSource CTPTP = new BindingSource();
 
-        public frmCT_PhieuThuePhong(string maPhong, string maPhieu)
+        public frmCT_PhieuThuePhong(string maPhong,string tenPhong, string maPhieu)
         {
 
             InitializeComponent();
@@ -26,6 +26,7 @@ namespace QuanLyKhachSan
             LoadCTPhieuThuePhong();
             tbMaPhong.Text = maPhong;
             tbMaPhieu.Text = maPhieu;
+            tbTenPhong.Text = tenPhong;
             LoadCTPhieuThuePhong();
             LoadDanhSachLoaiKhachVaoComboBox(cbLoaiKhach);
             ThemBindingVaoDanhSach();
@@ -178,6 +179,16 @@ namespace QuanLyKhachSan
         }
 
         private void tbMaPhieu_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tbTenPhong_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tbMaPhong_TextChanged(object sender, EventArgs e)
         {
 
         }
