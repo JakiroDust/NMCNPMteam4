@@ -23,8 +23,8 @@ namespace QuanLyKhachSan.DAO
             private set => instance = value;
         }
 
-        public static int RoomWidth = 100;
-        public static int RoomHeight = 100;
+        public static int RoomWidth = 120;
+        public static int RoomHeight = 120;
 
         private PhongDAO() { }
 

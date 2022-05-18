@@ -35,7 +35,7 @@ namespace QuanLyKhachSan
             {
                 Button btn = new Button() { Width = PhongDAO.RoomWidth, Height = PhongDAO.RoomHeight};
                 LoaiPhong loaiphong = LoaiPhongDAO.Instance.LayThongTinLoaiPhongTheoMaLoaiPhong(item.MaLoaiPhong);
-                btn.Text = item.MaPhong + Environment.NewLine + "Loại phòng: " + loaiphong.TenLoaiPhong + Environment.NewLine + "Đơn giá: " + loaiphong.DonGia.ToString();
+                btn.Text = item.MaPhong + Environment.NewLine + "Tên phòng: " + item.TenPhong + Environment.NewLine + "Đơn giá: " + loaiphong.DonGia.ToString();
                 btn.Click += btn_Click;
                 btn.Tag = item;
 
@@ -178,15 +178,5 @@ namespace QuanLyKhachSan
             dtpEnd.MinDate = dtpStart.Value;
         }
         #endregion
-
-        private void tbMaPhieu_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void tbSoLuongKhach_TextChanged(object sender, EventArgs e)
-        {
-
-        }
     }
 }

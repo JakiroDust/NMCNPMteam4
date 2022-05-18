@@ -182,7 +182,6 @@
             this.tbSoLuongKhach.Name = "tbSoLuongKhach";
             this.tbSoLuongKhach.Size = new System.Drawing.Size(85, 27);
             this.tbSoLuongKhach.TabIndex = 3;
-            this.tbSoLuongKhach.TextChanged += new System.EventHandler(this.tbSoLuongKhach_TextChanged);
             // 
             // tbMaPhieu
             // 
@@ -192,7 +191,6 @@
             this.tbMaPhieu.ReadOnly = true;
             this.tbMaPhieu.Size = new System.Drawing.Size(85, 27);
             this.tbMaPhieu.TabIndex = 3;
-            this.tbMaPhieu.TextChanged += new System.EventHandler(this.tbMaPhieu_TextChanged);
             // 
             // tbMaPhong
             // 
