@@ -76,6 +76,8 @@ namespace QuanLyKhachSan
         private void OpenChildForm(Form childForm)
         {
             //open only form
+            _currentChildForm?.Close();
+            //Reset();
             _currentChildForm = childForm;
             //End
             childForm.TopLevel = false;

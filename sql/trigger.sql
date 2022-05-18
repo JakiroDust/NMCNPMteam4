@@ -310,3 +310,25 @@ declare @ThanhTien money, @MaBaoCao int
 select @ThanhTien=TongTatCaDoanhThu, @MaBaoCao=MaBaoCaoDoanhThuTheoLoaiPhong from BAOCAODOANHTHUTHEOLOAIPHONG
 if @ThanhTien<=0
 delete from BAOCAODOANHTHUTHEOLOAIPHONG where BAOCAODOANHTHUTHEOLOAIPHONG.MaBaoCaoDoanhThuTheoLoaiPhong=@MaBaoCao
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+go
+CREATE or alter proc FUNC_DELETE_CT_BAOCAODOANHTHUTHEOLOAIPHONG(@MaLoaiPhong int)
+as
+begin
+while exists 
+(
+	select top 1 * 
+	from CT_BAOCAODOANHTHUTHEOLOAIPHONG 
+	where MaLoaiPhong =@MaLoaiPhong
+) 
+begin 
+	WITH  q AS
+	(
+	SELECT TOP 1 *
+	FROm CT_BAOCAODOANHTHUTHEOLOAIPHONG
+	where MaLoaiPhong=@MaLoaiPhong
+	)
+	DELETE
+	FROM    q
+end
+end

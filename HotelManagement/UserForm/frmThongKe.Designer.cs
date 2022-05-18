@@ -38,7 +38,6 @@ namespace QuanLyKhachSan
             this.NumsearchYearreport = new System.Windows.Forms.NumericUpDown();
             this.NumsearchMonthreport = new System.Windows.Forms.NumericUpDown();
             this.label1 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.dgvReport = new System.Windows.Forms.DataGridView();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -53,12 +52,12 @@ namespace QuanLyKhachSan
             // 
             // exportReport
             // 
-            this.exportReport.Location = new System.Drawing.Point(464, 30);
+            this.exportReport.Location = new System.Drawing.Point(348, 30);
             this.exportReport.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.exportReport.Name = "exportReport";
             this.exportReport.Size = new System.Drawing.Size(94, 29);
             this.exportReport.TabIndex = 2;
-            this.exportReport.Text = "Xuất";
+            this.exportReport.Text = "Xuất ra PDF";
             this.exportReport.UseVisualStyleBackColor = true;
             this.exportReport.Click += new System.EventHandler(this.exportReport_Click);
             // 
@@ -84,7 +83,7 @@ namespace QuanLyKhachSan
             0,
             0,
             0});
-            this.NumsearchYearreport.ValueChanged += new System.EventHandler(this.searchMonthreport_ValueChanged_1);
+            this.NumsearchYearreport.ValueChanged += new System.EventHandler(this.NumsearchYearreport_ValueChanged);
             // 
             // NumsearchMonthreport
             // 
@@ -119,24 +118,12 @@ namespace QuanLyKhachSan
             this.label1.TabIndex = 2;
             this.label1.Text = "Tháng";
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(348, 30);
-            this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(115, 29);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "Tạo báo cáo";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click_3);
-            // 
             // panel1
             // 
             this.panel1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.panel1.Controls.Add(this.exportReport);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.NumsearchYearreport);
-            this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.NumsearchMonthreport);
             this.panel1.Location = new System.Drawing.Point(0, 24);
             this.panel1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -243,7 +230,6 @@ namespace QuanLyKhachSan
         private NumericUpDown NumsearchYearreport;
         private NumericUpDown NumsearchMonthreport;
         private Label label1;
-        private Button button1;
         private Panel panel1;
         private DataGridView dgvReport;
         private Panel panel2;
