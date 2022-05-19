@@ -158,7 +158,7 @@ namespace QuanLyKhachSan.UserForm
             this.dgvThamSo.RowTemplate.Height = 29;
             this.dgvThamSo.Size = new System.Drawing.Size(786, 312);
             this.dgvThamSo.TabIndex = 0;
-            this.dgvThamSo.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvThamSo_CellClick);
+            this.dgvThamSo.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             this.dgvThamSo.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             this.dgvThamSo.Sorted += new System.EventHandler(this.dgvThamSo_Sorted);
             // 

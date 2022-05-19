@@ -395,10 +395,6 @@ namespace QuanLyKhachSan.UserForm
             }
             return true;
         }
-        private void dgvThamSo_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
 
         private void dgvPhuThu_CellClick(object sender, DataGridViewCellEventArgs e)
         {

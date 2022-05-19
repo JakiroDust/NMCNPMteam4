@@ -30,11 +30,11 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMainMenu));
             this.panelMenu = new System.Windows.Forms.Panel();
-            this.iconButton1 = new FontAwesome.Sharp.IconButton();
-            this.btnMarketing = new FontAwesome.Sharp.IconButton();
-            this.btnProduct = new FontAwesome.Sharp.IconButton();
-            this.btnOrder = new FontAwesome.Sharp.IconButton();
-            this.btnDashboard = new FontAwesome.Sharp.IconButton();
+            this.btnCaiDat = new FontAwesome.Sharp.IconButton();
+            this.btnDoanhThu = new FontAwesome.Sharp.IconButton();
+            this.btnPhieuThuePhong = new FontAwesome.Sharp.IconButton();
+            this.btnDanhSachPhong = new FontAwesome.Sharp.IconButton();
+            this.btnQuanLyPhong = new FontAwesome.Sharp.IconButton();
             this.panelLogo = new System.Windows.Forms.Panel();
             this.btnHome = new System.Windows.Forms.PictureBox();
             this.panelTitleBar = new System.Windows.Forms.Panel();
@@ -45,24 +45,24 @@
             this.iconCurrentChildForm = new FontAwesome.Sharp.IconPictureBox();
             this.panelShadow = new System.Windows.Forms.Panel();
             this.panelDesktop = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pbKhachSan = new System.Windows.Forms.PictureBox();
             this.panelMenu.SuspendLayout();
             this.panelLogo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnHome)).BeginInit();
             this.panelTitleBar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iconCurrentChildForm)).BeginInit();
             this.panelDesktop.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbKhachSan)).BeginInit();
             this.SuspendLayout();
             // 
             // panelMenu
             // 
             this.panelMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(25)))), ((int)(((byte)(62)))));
-            this.panelMenu.Controls.Add(this.iconButton1);
-            this.panelMenu.Controls.Add(this.btnMarketing);
-            this.panelMenu.Controls.Add(this.btnProduct);
-            this.panelMenu.Controls.Add(this.btnOrder);
-            this.panelMenu.Controls.Add(this.btnDashboard);
+            this.panelMenu.Controls.Add(this.btnCaiDat);
+            this.panelMenu.Controls.Add(this.btnDoanhThu);
+            this.panelMenu.Controls.Add(this.btnPhieuThuePhong);
+            this.panelMenu.Controls.Add(this.btnDanhSachPhong);
+            this.panelMenu.Controls.Add(this.btnQuanLyPhong);
             this.panelMenu.Controls.Add(this.panelLogo);
             this.panelMenu.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelMenu.Location = new System.Drawing.Point(0, 0);
@@ -71,125 +71,125 @@
             this.panelMenu.Size = new System.Drawing.Size(293, 761);
             this.panelMenu.TabIndex = 0;
             // 
-            // iconButton1
+            // btnCaiDat
             // 
-            this.iconButton1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.iconButton1.FlatAppearance.BorderSize = 0;
-            this.iconButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.iconButton1.ForeColor = System.Drawing.Color.White;
-            this.iconButton1.IconChar = FontAwesome.Sharp.IconChar.Book;
-            this.iconButton1.IconColor = System.Drawing.Color.BlanchedAlmond;
-            this.iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton1.IconSize = 32;
-            this.iconButton1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButton1.Location = new System.Drawing.Point(0, 433);
-            this.iconButton1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.iconButton1.Name = "iconButton1";
-            this.iconButton1.Padding = new System.Windows.Forms.Padding(13, 0, 27, 0);
-            this.iconButton1.Size = new System.Drawing.Size(293, 62);
-            this.iconButton1.TabIndex = 6;
-            this.iconButton1.Text = "Cài đặt";
-            this.iconButton1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButton1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.iconButton1.UseVisualStyleBackColor = true;
-            this.iconButton1.Click += new System.EventHandler(this.iconButton1_Click);
+            this.btnCaiDat.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnCaiDat.FlatAppearance.BorderSize = 0;
+            this.btnCaiDat.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCaiDat.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnCaiDat.ForeColor = System.Drawing.Color.White;
+            this.btnCaiDat.IconChar = FontAwesome.Sharp.IconChar.Book;
+            this.btnCaiDat.IconColor = System.Drawing.Color.BlanchedAlmond;
+            this.btnCaiDat.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnCaiDat.IconSize = 32;
+            this.btnCaiDat.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCaiDat.Location = new System.Drawing.Point(0, 433);
+            this.btnCaiDat.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnCaiDat.Name = "btnCaiDat";
+            this.btnCaiDat.Padding = new System.Windows.Forms.Padding(13, 0, 27, 0);
+            this.btnCaiDat.Size = new System.Drawing.Size(293, 62);
+            this.btnCaiDat.TabIndex = 6;
+            this.btnCaiDat.Text = "Cài đặt";
+            this.btnCaiDat.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCaiDat.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnCaiDat.UseVisualStyleBackColor = true;
+            this.btnCaiDat.Click += new System.EventHandler(this.iconButton1_Click);
             // 
-            // btnMarketing
+            // btnDoanhThu
             // 
-            this.btnMarketing.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnMarketing.FlatAppearance.BorderSize = 0;
-            this.btnMarketing.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMarketing.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnMarketing.ForeColor = System.Drawing.Color.White;
-            this.btnMarketing.IconChar = FontAwesome.Sharp.IconChar.FileExcel;
-            this.btnMarketing.IconColor = System.Drawing.Color.BlanchedAlmond;
-            this.btnMarketing.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnMarketing.IconSize = 32;
-            this.btnMarketing.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnMarketing.Location = new System.Drawing.Point(0, 371);
-            this.btnMarketing.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.btnMarketing.Name = "btnMarketing";
-            this.btnMarketing.Padding = new System.Windows.Forms.Padding(13, 0, 27, 0);
-            this.btnMarketing.Size = new System.Drawing.Size(293, 62);
-            this.btnMarketing.TabIndex = 5;
-            this.btnMarketing.Text = "Doanh thu";
-            this.btnMarketing.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnMarketing.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnMarketing.UseVisualStyleBackColor = true;
-            this.btnMarketing.Click += new System.EventHandler(this.btnMarketing_Click);
+            this.btnDoanhThu.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnDoanhThu.FlatAppearance.BorderSize = 0;
+            this.btnDoanhThu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDoanhThu.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnDoanhThu.ForeColor = System.Drawing.Color.White;
+            this.btnDoanhThu.IconChar = FontAwesome.Sharp.IconChar.FileExcel;
+            this.btnDoanhThu.IconColor = System.Drawing.Color.BlanchedAlmond;
+            this.btnDoanhThu.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnDoanhThu.IconSize = 32;
+            this.btnDoanhThu.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnDoanhThu.Location = new System.Drawing.Point(0, 371);
+            this.btnDoanhThu.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnDoanhThu.Name = "btnDoanhThu";
+            this.btnDoanhThu.Padding = new System.Windows.Forms.Padding(13, 0, 27, 0);
+            this.btnDoanhThu.Size = new System.Drawing.Size(293, 62);
+            this.btnDoanhThu.TabIndex = 5;
+            this.btnDoanhThu.Text = "Doanh thu";
+            this.btnDoanhThu.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnDoanhThu.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnDoanhThu.UseVisualStyleBackColor = true;
+            this.btnDoanhThu.Click += new System.EventHandler(this.btnMarketing_Click);
             // 
-            // btnProduct
+            // btnPhieuThuePhong
             // 
-            this.btnProduct.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnProduct.FlatAppearance.BorderSize = 0;
-            this.btnProduct.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnProduct.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnProduct.ForeColor = System.Drawing.Color.White;
-            this.btnProduct.IconChar = FontAwesome.Sharp.IconChar.Accusoft;
-            this.btnProduct.IconColor = System.Drawing.Color.BlanchedAlmond;
-            this.btnProduct.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnProduct.IconSize = 32;
-            this.btnProduct.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnProduct.Location = new System.Drawing.Point(0, 309);
-            this.btnProduct.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.btnProduct.Name = "btnProduct";
-            this.btnProduct.Padding = new System.Windows.Forms.Padding(13, 0, 27, 0);
-            this.btnProduct.Size = new System.Drawing.Size(293, 62);
-            this.btnProduct.TabIndex = 4;
-            this.btnProduct.Text = "Phiếu thuê phòng";
-            this.btnProduct.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnProduct.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnProduct.UseVisualStyleBackColor = true;
-            this.btnProduct.Click += new System.EventHandler(this.btnProduct_Click);
+            this.btnPhieuThuePhong.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnPhieuThuePhong.FlatAppearance.BorderSize = 0;
+            this.btnPhieuThuePhong.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPhieuThuePhong.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnPhieuThuePhong.ForeColor = System.Drawing.Color.White;
+            this.btnPhieuThuePhong.IconChar = FontAwesome.Sharp.IconChar.Accusoft;
+            this.btnPhieuThuePhong.IconColor = System.Drawing.Color.BlanchedAlmond;
+            this.btnPhieuThuePhong.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnPhieuThuePhong.IconSize = 32;
+            this.btnPhieuThuePhong.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnPhieuThuePhong.Location = new System.Drawing.Point(0, 309);
+            this.btnPhieuThuePhong.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnPhieuThuePhong.Name = "btnPhieuThuePhong";
+            this.btnPhieuThuePhong.Padding = new System.Windows.Forms.Padding(13, 0, 27, 0);
+            this.btnPhieuThuePhong.Size = new System.Drawing.Size(293, 62);
+            this.btnPhieuThuePhong.TabIndex = 4;
+            this.btnPhieuThuePhong.Text = "Phiếu thuê phòng";
+            this.btnPhieuThuePhong.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnPhieuThuePhong.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnPhieuThuePhong.UseVisualStyleBackColor = true;
+            this.btnPhieuThuePhong.Click += new System.EventHandler(this.btnProduct_Click);
             // 
-            // btnOrder
+            // btnDanhSachPhong
             // 
-            this.btnOrder.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnOrder.FlatAppearance.BorderSize = 0;
-            this.btnOrder.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnOrder.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnOrder.ForeColor = System.Drawing.Color.White;
-            this.btnOrder.IconChar = FontAwesome.Sharp.IconChar.Windows;
-            this.btnOrder.IconColor = System.Drawing.Color.BlanchedAlmond;
-            this.btnOrder.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnOrder.IconSize = 32;
-            this.btnOrder.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnOrder.Location = new System.Drawing.Point(0, 247);
-            this.btnOrder.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.btnOrder.Name = "btnOrder";
-            this.btnOrder.Padding = new System.Windows.Forms.Padding(13, 0, 27, 0);
-            this.btnOrder.Size = new System.Drawing.Size(293, 62);
-            this.btnOrder.TabIndex = 3;
-            this.btnOrder.Text = "Danh sách phòng";
-            this.btnOrder.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnOrder.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnOrder.UseVisualStyleBackColor = true;
-            this.btnOrder.Click += new System.EventHandler(this.btnOrder_Click);
+            this.btnDanhSachPhong.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnDanhSachPhong.FlatAppearance.BorderSize = 0;
+            this.btnDanhSachPhong.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDanhSachPhong.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnDanhSachPhong.ForeColor = System.Drawing.Color.White;
+            this.btnDanhSachPhong.IconChar = FontAwesome.Sharp.IconChar.Windows;
+            this.btnDanhSachPhong.IconColor = System.Drawing.Color.BlanchedAlmond;
+            this.btnDanhSachPhong.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnDanhSachPhong.IconSize = 32;
+            this.btnDanhSachPhong.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnDanhSachPhong.Location = new System.Drawing.Point(0, 247);
+            this.btnDanhSachPhong.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnDanhSachPhong.Name = "btnDanhSachPhong";
+            this.btnDanhSachPhong.Padding = new System.Windows.Forms.Padding(13, 0, 27, 0);
+            this.btnDanhSachPhong.Size = new System.Drawing.Size(293, 62);
+            this.btnDanhSachPhong.TabIndex = 3;
+            this.btnDanhSachPhong.Text = "Danh sách phòng";
+            this.btnDanhSachPhong.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnDanhSachPhong.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnDanhSachPhong.UseVisualStyleBackColor = true;
+            this.btnDanhSachPhong.Click += new System.EventHandler(this.btnOrder_Click);
             // 
-            // btnDashboard
+            // btnQuanLyPhong
             // 
-            this.btnDashboard.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnDashboard.FlatAppearance.BorderSize = 0;
-            this.btnDashboard.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDashboard.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnDashboard.ForeColor = System.Drawing.Color.White;
-            this.btnDashboard.IconChar = FontAwesome.Sharp.IconChar.Calculator;
-            this.btnDashboard.IconColor = System.Drawing.Color.BlanchedAlmond;
-            this.btnDashboard.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnDashboard.IconSize = 32;
-            this.btnDashboard.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDashboard.Location = new System.Drawing.Point(0, 185);
-            this.btnDashboard.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.btnDashboard.Name = "btnDashboard";
-            this.btnDashboard.Padding = new System.Windows.Forms.Padding(13, 0, 27, 0);
-            this.btnDashboard.Size = new System.Drawing.Size(293, 62);
-            this.btnDashboard.TabIndex = 2;
-            this.btnDashboard.Text = "Quản lý Phòng";
-            this.btnDashboard.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDashboard.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnDashboard.UseVisualStyleBackColor = true;
-            this.btnDashboard.Click += new System.EventHandler(this.btnDashboard_Click);
+            this.btnQuanLyPhong.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnQuanLyPhong.FlatAppearance.BorderSize = 0;
+            this.btnQuanLyPhong.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnQuanLyPhong.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnQuanLyPhong.ForeColor = System.Drawing.Color.White;
+            this.btnQuanLyPhong.IconChar = FontAwesome.Sharp.IconChar.Calculator;
+            this.btnQuanLyPhong.IconColor = System.Drawing.Color.BlanchedAlmond;
+            this.btnQuanLyPhong.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnQuanLyPhong.IconSize = 32;
+            this.btnQuanLyPhong.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnQuanLyPhong.Location = new System.Drawing.Point(0, 185);
+            this.btnQuanLyPhong.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnQuanLyPhong.Name = "btnQuanLyPhong";
+            this.btnQuanLyPhong.Padding = new System.Windows.Forms.Padding(13, 0, 27, 0);
+            this.btnQuanLyPhong.Size = new System.Drawing.Size(293, 62);
+            this.btnQuanLyPhong.TabIndex = 2;
+            this.btnQuanLyPhong.Text = "Quản lý Phòng";
+            this.btnQuanLyPhong.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnQuanLyPhong.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnQuanLyPhong.UseVisualStyleBackColor = true;
+            this.btnQuanLyPhong.Click += new System.EventHandler(this.btnDashboard_Click);
             // 
             // panelLogo
             // 
@@ -305,7 +305,7 @@
             // panelDesktop
             // 
             this.panelDesktop.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(33)))), ((int)(((byte)(74)))));
-            this.panelDesktop.Controls.Add(this.pictureBox1);
+            this.panelDesktop.Controls.Add(this.pbKhachSan);
             this.panelDesktop.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelDesktop.Location = new System.Drawing.Point(293, 130);
             this.panelDesktop.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -313,18 +313,18 @@
             this.panelDesktop.Size = new System.Drawing.Size(1033, 631);
             this.panelDesktop.TabIndex = 3;
             // 
-            // pictureBox1
+            // pbKhachSan
             // 
-            this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(-103, 0);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(1200, 646);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 1;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            this.pbKhachSan.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.pbKhachSan.Image = ((System.Drawing.Image)(resources.GetObject("pbKhachSan.Image")));
+            this.pbKhachSan.Location = new System.Drawing.Point(-103, 0);
+            this.pbKhachSan.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.pbKhachSan.Name = "pbKhachSan";
+            this.pbKhachSan.Size = new System.Drawing.Size(1200, 646);
+            this.pbKhachSan.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbKhachSan.TabIndex = 1;
+            this.pbKhachSan.TabStop = false;
+            this.pbKhachSan.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // FormMainMenu
             // 
@@ -348,7 +348,7 @@
             this.panelTitleBar.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iconCurrentChildForm)).EndInit();
             this.panelDesktop.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbKhachSan)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -357,10 +357,10 @@
 
         private System.Windows.Forms.Panel panelMenu;
         private System.Windows.Forms.Panel panelLogo;
-        private FontAwesome.Sharp.IconButton btnDashboard;
-        private FontAwesome.Sharp.IconButton btnMarketing;
-        private FontAwesome.Sharp.IconButton btnProduct;
-        private FontAwesome.Sharp.IconButton btnOrder;
+        private FontAwesome.Sharp.IconButton btnQuanLyPhong;
+        private FontAwesome.Sharp.IconButton btnDoanhThu;
+        private FontAwesome.Sharp.IconButton btnPhieuThuePhong;
+        private FontAwesome.Sharp.IconButton btnDanhSachPhong;
         private System.Windows.Forms.PictureBox btnHome;
         private System.Windows.Forms.Panel panelTitleBar;
         private FontAwesome.Sharp.IconPictureBox iconCurrentChildForm;
@@ -370,7 +370,7 @@
         private System.Windows.Forms.Button btnExit;
         private System.Windows.Forms.Button btnMaximize;
         private System.Windows.Forms.Button btnMinimize;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private FontAwesome.Sharp.IconButton iconButton1;
+        private System.Windows.Forms.PictureBox pbKhachSan;
+        private FontAwesome.Sharp.IconButton btnCaiDat;
     }
 }

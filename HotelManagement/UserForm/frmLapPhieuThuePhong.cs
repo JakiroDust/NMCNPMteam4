@@ -121,8 +121,8 @@ namespace QuanLyKhachSan
 
         private void loadbtnSelectedRoom(string Text,Color clr)
         {
-            btnSelectedRoom.Text = Text;
-            btnSelectedRoom.BackColor = clr;
+            btnPhongDangChon.Text = Text;
+            btnPhongDangChon.BackColor = clr;
         }
         #endregion
 

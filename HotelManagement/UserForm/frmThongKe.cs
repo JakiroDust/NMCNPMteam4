@@ -30,7 +30,7 @@ namespace QuanLyKhachSan
         public frmThongKe()
         {
             InitializeComponent();
-            ReportSalebaseonType(NumsearchMonthreport.Text,NumsearchYearreport.Text);
+            ReportSalebaseonType(nudThang.Text,nudNam.Text);
         }
         public static frmThongKe GetInstance
         {
@@ -123,12 +123,12 @@ namespace QuanLyKhachSan
                     {
                         try
                         {
-                            PdfPTable pdfTable = new PdfPTable(dgvReport.Columns.Count);
+                            PdfPTable pdfTable = new PdfPTable(dgvBaoCao.Columns.Count);
                             pdfTable.DefaultCell.Padding = 3;
                             pdfTable.WidthPercentage = 100;
                             pdfTable.HorizontalAlignment = Element.ALIGN_LEFT;
 
-                            foreach (DataGridViewColumn column in dgvReport.Columns)
+                            foreach (DataGridViewColumn column in dgvBaoCao.Columns)
                             {
                                 Phrase b=new Phrase();
                                 b.Font = arial;
@@ -137,7 +137,7 @@ namespace QuanLyKhachSan
                                 pdfTable.AddCell(cell);
                             }
 
-                            foreach (DataGridViewRow row in dgvReport.Rows)
+                            foreach (DataGridViewRow row in dgvBaoCao.Rows)
                             {
                                 foreach (DataGridViewCell cell in row.Cells)
                                 {
@@ -151,7 +151,7 @@ namespace QuanLyKhachSan
                                 PdfWriter.GetInstance(pdfDoc, stream);
                                 pdfDoc.Open();
                                 pdfDoc.Add(new Phrase("Tổng doanh thu :" + lbTongDoanhThu.Text, arial));
-                                if(dgvReport.Rows.Count!=0)
+                                if(dgvBaoCao.Rows.Count!=0)
                                 pdfDoc.Add(pdfTable);
                                 pdfDoc.Close();
                                 stream.Close();
@@ -217,12 +217,12 @@ namespace QuanLyKhachSan
 
         private void searchYearreport_ValueChanged(object sender, EventArgs e)
         {
-            if(NumsearchYearreport.Value==DateTime.Now.Year)
-            NumsearchMonthreport.Maximum = DateTime.Now.Month;
+            if(nudNam.Value==DateTime.Now.Year)
+            nudThang.Maximum = DateTime.Now.Month;
         }
         private void ReportSalebaseonType(string nmonth,string nyear)
         {
-            dgvReport.DataSource = DataProvider.Instance.ExecuteQuery($"declare @temp int;select @temp=MaBaoCaoDoanhThuTheoLoaiPhong from BAOCAODOANHTHUTHEOLOAIPHONG where  Thang={nmonth} and Nam={nyear};select TenLoaiPhong as 'Loại Phòng',TongDoanhThu  as 'Doanh Thu',TiLe*100 as 'Tỉ Lệ (%)' from CT_BAOCAODOANHTHUTHEOLOAIPHONG,LOAIPHONG where MaBaoCaoDoanhThuTheoLoaiPhong=@temp and CT_BAOCAODOANHTHUTHEOLOAIPHONG.MaLoaiPhong=LOAIPHONG.MaLoaiPhong;");
+            dgvBaoCao.DataSource = DataProvider.Instance.ExecuteQuery($"declare @temp int;select @temp=MaBaoCaoDoanhThuTheoLoaiPhong from BAOCAODOANHTHUTHEOLOAIPHONG where  Thang={nmonth} and Nam={nyear};select TenLoaiPhong as 'Loại Phòng',TongDoanhThu  as 'Doanh Thu',TiLe*100 as 'Tỉ Lệ (%)' from CT_BAOCAODOANHTHUTHEOLOAIPHONG,LOAIPHONG where MaBaoCaoDoanhThuTheoLoaiPhong=@temp and CT_BAOCAODOANHTHUTHEOLOAIPHONG.MaLoaiPhong=LOAIPHONG.MaLoaiPhong;");
             Object getTotalSale = DataProvider.Instance.ExecuteScalar($"select TongTatCaDoanhThu from BAOCAODOANHTHUTHEOLOAIPHONG where Thang={nmonth} and Nam={nyear}");
             float TotalSale = Convert.ToSingle(getTotalSale);
             lbTongDoanhThu.Text = $" {TotalSale.ToString()} VNĐ của tháng {nmonth}/{nyear}";
@@ -264,15 +264,15 @@ namespace QuanLyKhachSan
         private void NumsearchYearreport_ValueChanged(object sender, EventArgs e)
         {
             string text = (sender as NumericUpDown).Value.ToString() as string;
-            if (NumsearchMonthreport.Text == "")
+            if (nudThang.Text == "")
             {
-                NumsearchMonthreport.Text = NumsearchMonthreport.Minimum.ToString();
+                nudThang.Text = nudThang.Minimum.ToString();
             }
             if (text== "")
             {
-                NumsearchYearreport.Text = NumsearchYearreport.Minimum.ToString();
+                nudNam.Text = nudNam.Minimum.ToString();
             }
-            ReportSalebaseonType(NumsearchMonthreport.Text,text);
+            ReportSalebaseonType(nudThang.Text,text);
         }
 
         private void searchMonthreport_ValueChanged_1(object sender, EventArgs e)
@@ -280,13 +280,13 @@ namespace QuanLyKhachSan
             string text = (sender as NumericUpDown).Value.ToString() as string;
             if (text == "")
             {
-                NumsearchMonthreport.Text = NumsearchMonthreport.Minimum.ToString();
+                nudThang.Text = nudThang.Minimum.ToString();
             }
-            if (NumsearchYearreport.Text == "")
+            if (nudNam.Text == "")
             {
-                NumsearchYearreport.Text = NumsearchYearreport.Minimum.ToString();
+                nudNam.Text = nudNam.Minimum.ToString();
             }
-            ReportSalebaseonType(text, NumsearchYearreport.Text);
+            ReportSalebaseonType(text, nudNam.Text);
         }
     }
 }    

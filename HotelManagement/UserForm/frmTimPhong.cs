@@ -30,9 +30,9 @@ namespace QuanLyKhachSan
         private void RefreshSearchBar()
         {
             ///  cbSearchRoomType.Text = string.Empty;
-            cbSearchRoomState.Text = string.Empty;
-            cbSearchRoomType.Text = string.Empty;
-            tbSearchRoomCode.Text = string.Empty;
+            cbTinhTrang.Text = string.Empty;
+            cbLoaiPhong.Text = string.Empty;
+            tbPhong.Text = string.Empty;
         }
         private void button2_Click(object sender, EventArgs e)
         {
@@ -57,29 +57,29 @@ namespace QuanLyKhachSan
         }
         private void findRoom()
         {
-            dgvRoomSearch.DataSource = getRoom();
-            int count = Convert.ToInt32(tbSearchRoomCode.Text != "") + Convert.ToInt32(cbSearchRoomState.Text != "") + Convert.ToInt32(cbSearchRoomType.Text != "");
+            dgvPhong.DataSource = getRoom();
+            int count = Convert.ToInt32(tbPhong.Text != "") + Convert.ToInt32(cbTinhTrang.Text != "") + Convert.ToInt32(cbLoaiPhong.Text != "");
             string rowfilter = "";
             if (count == 0)
                 return;
-            if (tbSearchRoomCode.Text != "")
+            if (tbPhong.Text != "")
             {
                 count--;
-                rowfilter = "[Phòng] like '" + tbSearchRoomCode.Text + "'";
+                rowfilter = "[Phòng] like '" + tbPhong.Text + "'";
                 if (count != 0) rowfilter = rowfilter + " and ";
             }
-            if (cbSearchRoomType.Text != "")
+            if (cbLoaiPhong.Text != "")
             {
                 count--;
-                rowfilter = rowfilter + " [Loại Phòng] ='" + cbSearchRoomType.Text + "'"; ;
+                rowfilter = rowfilter + " [Loại Phòng] ='" + cbLoaiPhong.Text + "'"; ;
                 if (count != 0) rowfilter = rowfilter + " and ";
             }
             // 
-            if (cbSearchRoomState.Text != "")
+            if (cbTinhTrang.Text != "")
             {
-                rowfilter = rowfilter + " [Tình Trạng] ='" + cbSearchRoomState.Text + "'";
+                rowfilter = rowfilter + " [Tình Trạng] ='" + cbTinhTrang.Text + "'";
             }
-             (dgvRoomSearch.DataSource as DataTable).DefaultView.RowFilter = rowfilter;
+             (dgvPhong.DataSource as DataTable).DefaultView.RowFilter = rowfilter;
         }
         private void btFindRoom_Click(object sender, EventArgs e)
         {
@@ -103,9 +103,9 @@ namespace QuanLyKhachSan
             DataTable target = DataProvider.Instance.ExecuteQuery("select TenLoaiPhong from LOAIPHONG order by TenLoaiPhong asc");
 
             target.Rows.InsertAt(target.NewRow(), 0);/// ADD a blank row
-            cbSearchRoomType.DataSource = target;
-            cbSearchRoomType.DisplayMember = "TenLoaiPhong";
-            cbSearchRoomType.SelectedIndex = -1;
+            cbLoaiPhong.DataSource = target;
+            cbLoaiPhong.DisplayMember = "TenLoaiPhong";
+            cbLoaiPhong.SelectedIndex = -1;
 
         }
         private void cbSearchRoomType_SelectedIndexChanged(object sender, EventArgs e)
@@ -137,6 +137,11 @@ namespace QuanLyKhachSan
         private void cbSearchRoomState_Validated(object sender, EventArgs e)
         {
             ///MessageBox.Show(cbSearchRoomState.Text);
+        }
+
+        private void lbPhong_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

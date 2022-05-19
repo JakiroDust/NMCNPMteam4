@@ -40,6 +40,7 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.dgvCTPhieuThuePhong = new System.Windows.Forms.DataGridView();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.btnPhongDangChon = new System.Windows.Forms.Button();
             this.tbTenPhong = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.btnXoaPhieu = new System.Windows.Forms.Button();
@@ -60,7 +61,6 @@
             this.btnThanhToan = new System.Windows.Forms.Button();
             this.btnSua = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.btnSelectedRoom = new System.Windows.Forms.Button();
             maLoaiPhongLabel = new System.Windows.Forms.Label();
             this.tabPage1.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -119,6 +119,7 @@
             // flpRoom
             // 
             this.flpRoom.AutoScroll = true;
+            this.flpRoom.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.flpRoom.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flpRoom.Location = new System.Drawing.Point(0, 0);
             this.flpRoom.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -209,7 +210,7 @@
             // 
             // panel3
             // 
-            this.panel3.Controls.Add(this.btnSelectedRoom);
+            this.panel3.Controls.Add(this.btnPhongDangChon);
             this.panel3.Controls.Add(this.tbTenPhong);
             this.panel3.Controls.Add(this.label8);
             this.panel3.Controls.Add(this.btnXoaPhieu);
@@ -232,6 +233,16 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(547, 341);
             this.panel3.TabIndex = 1;
+            // 
+            // btnPhongDangChon
+            // 
+            this.btnPhongDangChon.Enabled = false;
+            this.btnPhongDangChon.Location = new System.Drawing.Point(63, 47);
+            this.btnPhongDangChon.Name = "btnPhongDangChon";
+            this.btnPhongDangChon.Size = new System.Drawing.Size(120, 120);
+            this.btnPhongDangChon.TabIndex = 12;
+            this.btnPhongDangChon.Text = "Chưa chọn phòng";
+            this.btnPhongDangChon.UseVisualStyleBackColor = true;
             // 
             // tbTenPhong
             // 
@@ -428,16 +439,6 @@
             this.tabControl1.TabIndex = 0;
             this.tabControl1.Tag = "";
             // 
-            // btnSelectedRoom
-            // 
-            this.btnSelectedRoom.Enabled = false;
-            this.btnSelectedRoom.Location = new System.Drawing.Point(63, 47);
-            this.btnSelectedRoom.Name = "btnSelectedRoom";
-            this.btnSelectedRoom.Size = new System.Drawing.Size(120, 120);
-            this.btnSelectedRoom.TabIndex = 12;
-            this.btnSelectedRoom.Text = "Chưa chọn phòng";
-            this.btnSelectedRoom.UseVisualStyleBackColor = true;
-            // 
             // frmLapPhieuThuePhong
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -494,6 +495,6 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox tbTenPhong;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Button btnSelectedRoom;
+        private System.Windows.Forms.Button btnPhongDangChon;
     }
 }
