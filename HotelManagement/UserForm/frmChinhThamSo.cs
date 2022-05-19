@@ -481,7 +481,7 @@ namespace QuanLyKhachSan.UserForm
             if (!float.TryParse(tbHeSoLoaiKhach.Text, out float outputt))
                 temp += "Hệ số phải là số nguyên dương";
             else
-            if (outputt < 0)
+            if (outputt <= 0)
                 temp += "Hệ số phải là số nguyên dương";
             if (temp != "")
             {

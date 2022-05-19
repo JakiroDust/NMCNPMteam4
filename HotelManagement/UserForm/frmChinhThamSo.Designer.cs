@@ -33,7 +33,7 @@ namespace QuanLyKhachSan.UserForm
             this.tab1 = new System.Windows.Forms.TabPage();
             this.panel4 = new System.Windows.Forms.Panel();
             this.dgvThamSo = new System.Windows.Forms.DataGridView();
-            this.panel2 = new System.Windows.Forms.Panel();
+            this.panelMenu = new System.Windows.Forms.Panel();
             this.btnSuaThamSo = new System.Windows.Forms.Button();
             this.tbHeSo = new System.Windows.Forms.TextBox();
             this.tbTenThamSo = new System.Windows.Forms.TextBox();
@@ -43,7 +43,6 @@ namespace QuanLyKhachSan.UserForm
             this.panel5 = new System.Windows.Forms.Panel();
             this.dgvLoaiPhong = new System.Windows.Forms.DataGridView();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.button5 = new System.Windows.Forms.Button();
             this.btnBoChonLoaiPhong = new System.Windows.Forms.Button();
             this.tbMaLoaiPhong = new System.Windows.Forms.TextBox();
             this.lbMaLoaiPhong = new System.Windows.Forms.Label();
@@ -62,7 +61,6 @@ namespace QuanLyKhachSan.UserForm
             this.panel1 = new System.Windows.Forms.Panel();
             this.tbMaPhuThu = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.button4 = new System.Windows.Forms.Button();
             this.btnBoChonPhuThu = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.btnThemPhuThu = new System.Windows.Forms.Button();
@@ -78,7 +76,6 @@ namespace QuanLyKhachSan.UserForm
             this.panel8 = new System.Windows.Forms.Panel();
             this.tbMaLoaiKhach = new System.Windows.Forms.TextBox();
             this.lbMaLoaiKhach = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
             this.tbBoChonLoaiKhach = new System.Windows.Forms.Button();
             this.btnXoaLoaiKhach = new System.Windows.Forms.Button();
             this.btnThemLoaiKhach = new System.Windows.Forms.Button();
@@ -91,7 +88,7 @@ namespace QuanLyKhachSan.UserForm
             this.tab1.SuspendLayout();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvThamSo)).BeginInit();
-            this.panel2.SuspendLayout();
+            this.panelMenu.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLoaiPhong)).BeginInit();
@@ -123,7 +120,7 @@ namespace QuanLyKhachSan.UserForm
             // tab1
             // 
             this.tab1.Controls.Add(this.panel4);
-            this.tab1.Controls.Add(this.panel2);
+            this.tab1.Controls.Add(this.panelMenu);
             this.tab1.Location = new System.Drawing.Point(4, 29);
             this.tab1.Name = "tab1";
             this.tab1.Padding = new System.Windows.Forms.Padding(3);
@@ -162,19 +159,19 @@ namespace QuanLyKhachSan.UserForm
             this.dgvThamSo.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             this.dgvThamSo.Sorted += new System.EventHandler(this.dgvThamSo_Sorted);
             // 
-            // panel2
+            // panelMenu
             // 
-            this.panel2.Controls.Add(this.btnSuaThamSo);
-            this.panel2.Controls.Add(this.tbHeSo);
-            this.panel2.Controls.Add(this.tbTenThamSo);
-            this.panel2.Controls.Add(this.lbHeSo);
-            this.panel2.Controls.Add(this.lbThamSo);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel2.Location = new System.Drawing.Point(3, 3);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(786, 99);
-            this.panel2.TabIndex = 1;
-            this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
+            this.panelMenu.Controls.Add(this.btnSuaThamSo);
+            this.panelMenu.Controls.Add(this.tbHeSo);
+            this.panelMenu.Controls.Add(this.tbTenThamSo);
+            this.panelMenu.Controls.Add(this.lbHeSo);
+            this.panelMenu.Controls.Add(this.lbThamSo);
+            this.panelMenu.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelMenu.Location = new System.Drawing.Point(3, 3);
+            this.panelMenu.Name = "panelMenu";
+            this.panelMenu.Size = new System.Drawing.Size(786, 99);
+            this.panelMenu.TabIndex = 1;
+            this.panelMenu.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
             // btnSuaThamSo
             // 
@@ -264,7 +261,6 @@ namespace QuanLyKhachSan.UserForm
             // 
             // panel3
             // 
-            this.panel3.Controls.Add(this.button5);
             this.panel3.Controls.Add(this.btnBoChonLoaiPhong);
             this.panel3.Controls.Add(this.tbMaLoaiPhong);
             this.panel3.Controls.Add(this.lbMaLoaiPhong);
@@ -280,18 +276,6 @@ namespace QuanLyKhachSan.UserForm
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(786, 99);
             this.panel3.TabIndex = 1;
-            // 
-            // button5
-            // 
-            this.button5.Enabled = false;
-            this.button5.Location = new System.Drawing.Point(291, 70);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(152, 29);
-            this.button5.TabIndex = 15;
-            this.button5.Text = "Reset về mặc định";
-            this.button5.UseVisualStyleBackColor = true;
-            this.button5.Visible = false;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // btnBoChonLoaiPhong
             // 
@@ -450,7 +434,6 @@ namespace QuanLyKhachSan.UserForm
             this.panel1.AutoSize = true;
             this.panel1.Controls.Add(this.tbMaPhuThu);
             this.panel1.Controls.Add(this.label5);
-            this.panel1.Controls.Add(this.button4);
             this.panel1.Controls.Add(this.btnBoChonPhuThu);
             this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.btnThemPhuThu);
@@ -483,18 +466,6 @@ namespace QuanLyKhachSan.UserForm
             this.label5.Size = new System.Drawing.Size(30, 20);
             this.label5.TabIndex = 23;
             this.label5.Text = "Mã";
-            // 
-            // button4
-            // 
-            this.button4.Enabled = false;
-            this.button4.Location = new System.Drawing.Point(315, 70);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(152, 29);
-            this.button4.TabIndex = 22;
-            this.button4.Text = "Reset về mặc định";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Visible = false;
-            this.button4.Click += new System.EventHandler(this.button4_Click_1);
             // 
             // btnBoChonPhuThu
             // 
@@ -625,7 +596,6 @@ namespace QuanLyKhachSan.UserForm
             this.panel8.AutoSize = true;
             this.panel8.Controls.Add(this.tbMaLoaiKhach);
             this.panel8.Controls.Add(this.lbMaLoaiKhach);
-            this.panel8.Controls.Add(this.button2);
             this.panel8.Controls.Add(this.tbBoChonLoaiKhach);
             this.panel8.Controls.Add(this.btnXoaLoaiKhach);
             this.panel8.Controls.Add(this.btnThemLoaiKhach);
@@ -656,18 +626,6 @@ namespace QuanLyKhachSan.UserForm
             this.lbMaLoaiKhach.Size = new System.Drawing.Size(101, 20);
             this.lbMaLoaiKhach.TabIndex = 23;
             this.lbMaLoaiKhach.Text = "Mã loại khách";
-            // 
-            // button2
-            // 
-            this.button2.Enabled = false;
-            this.button2.Location = new System.Drawing.Point(315, 70);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(152, 29);
-            this.button2.TabIndex = 22;
-            this.button2.Text = "Reset về mặc định";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Visible = false;
-            this.button2.Click += new System.EventHandler(this.button2_Click_3);
             // 
             // tbBoChonLoaiKhach
             // 
@@ -753,8 +711,8 @@ namespace QuanLyKhachSan.UserForm
             this.tab1.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvThamSo)).EndInit();
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
+            this.panelMenu.ResumeLayout(false);
+            this.panelMenu.PerformLayout();
             this.tabPage2.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvLoaiPhong)).EndInit();
@@ -787,7 +745,7 @@ namespace QuanLyKhachSan.UserForm
         private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.DataGridView dgvThamSo;
-        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel panelMenu;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel6;
@@ -816,10 +774,8 @@ namespace QuanLyKhachSan.UserForm
         private System.Windows.Forms.TextBox tbMaLoaiPhong;
         private System.Windows.Forms.Label lbMaLoaiPhong;
         private System.Windows.Forms.Button btnBoChonLoaiPhong;
-        private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.Label lbChuThichPhuThu;
-        private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button btnBoChonPhuThu;
         private System.Windows.Forms.TextBox tbMaPhuThu;
         private System.Windows.Forms.Label label5;
@@ -828,7 +784,6 @@ namespace QuanLyKhachSan.UserForm
         private System.Windows.Forms.Panel panel8;
         private System.Windows.Forms.TextBox tbMaLoaiKhach;
         private System.Windows.Forms.Label lbMaLoaiKhach;
-        private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button tbBoChonLoaiKhach;
         private System.Windows.Forms.Button btnXoaLoaiKhach;
         private System.Windows.Forms.Button btnThemLoaiKhach;
