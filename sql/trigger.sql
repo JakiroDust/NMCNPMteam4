@@ -332,3 +332,36 @@ begin
 	FROM    q
 end
 end
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+go
+CREATE or alter proc FUNC_DELETE_CT_BAOCAODOANHTHUTHEOLOAIPHONG_PHONG(@TenPhong nvarchar(20))
+as
+begin
+declare @MaPhong int
+select @MaPhong=MaPhong from PHONG where TenPhong=@TenPhong
+while exists 
+(
+	select top 1 * 
+	from PHIEUTHUEPHONG 
+	where MaPhong=@MaPhong
+) 
+begin
+	declare @MaPhieuThuePhong int
+	select @MaPhieuThuePhong=MaPhieuThuePhong
+	from
+	(
+	select
+	top 1 * 
+	from PHIEUTHUEPHONG 
+	where MaPhong=@MaPhong
+	) a
+	UPDATE
+	CT_HOADON
+	SET
+	ThanhTien=0
+	WHERE
+	MaPhieuThuePhong=@MaPhieuThuePhong
+	delete from PHIEUTHUEPHONG where MaPhieuThuePhong=@MaPhieuThuePhong
+end
+end
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/

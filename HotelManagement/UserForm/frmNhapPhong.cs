@@ -39,11 +39,20 @@ namespace QuanLyKhachSan
             else
             cbLoaiPhong.SelectedIndex = 0;
         }
-        public void insertPhong()
+        public bool insertPhong()
         {
-            //string query = "insert into PHONG(TenPhong,TenLoaiPhong,GhiChu) values ('" + tbPhong.Text + "','" + cbLoaiPhong.Text + "', '" + tbGhiChu.Text + "')";
-            string query = "declare @temp int; select @temp=MaLoaiPhong from LOAIPHONG where TenLoaiPhong='" + cbLoaiPhong.Text + "'; insert into PHONG(TenPhong, MaLoaiPhong, GhiChu) values('" + tbPhong.Text + "', @temp , '" + tbGhiChu.Text + "') ";
-            dgv.DataSource = DataProvider.Instance.ExecuteQuery(query);
+            try
+            {
+                //string query = "insert into PHONG(TenPhong,TenLoaiPhong,GhiChu) values ('" + tbPhong.Text + "','" + cbLoaiPhong.Text + "', '" + tbGhiChu.Text + "')";
+                string query = "declare @temp int; select @temp=MaLoaiPhong from LOAIPHONG where TenLoaiPhong='" + cbLoaiPhong.Text + "'; insert into PHONG(TenPhong, MaLoaiPhong, GhiChu) values('" + tbPhong.Text + "', @temp , '" + tbGhiChu.Text + "') ";
+                dgv.DataSource = DataProvider.Instance.ExecuteQuery(query);
+                return true;
+            }
+            catch(SqlException ex)
+            {
+                MessageBox.Show("Vượt quá số kí tự cho phép, vui lòng nhập ít hơn 10 kí tự cho tên và 200 kí tự cho ghi chú.");
+                return false;
+            }
         }
         public void updatePhong()
         {
@@ -54,7 +63,7 @@ namespace QuanLyKhachSan
         public void deletePhong()
         {
             string query = "delete from PHONG where TenPhong = '" + tbPhong.Text + "'";
-            
+            DataProvider.Instance.ExecuteNonQuery($"exec FUNC_DELETE_CT_BAOCAODOANHTHUTHEOLOAIPHONG_PHONG @TenPhong=N'{tbPhong.Text}'");
             dgv.DataSource = DataProvider.Instance.ExecuteQuery(query);
         }
         public void loadRoom()
@@ -96,8 +105,9 @@ namespace QuanLyKhachSan
             }
             else
             {
-                insertPhong();
+                if(insertPhong())
                 MessageBox.Show("Thêm Thành công");
+
                 loadRoom();
             }
         }

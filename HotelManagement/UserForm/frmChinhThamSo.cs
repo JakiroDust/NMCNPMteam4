@@ -162,6 +162,11 @@ namespace QuanLyKhachSan.UserForm
         {
             string temp = "";
             string ErrorRealValue = "Đơn giá phải là số thực và lớn hơn 0\n";
+            if(tbTenLoaiPhong.Text.Length>=20)
+            {
+                MessageBox.Show("Tên loại phòng phải bé hơn 19 kí tự.");
+                return false;
+            }    
             if (!float.TryParse(tbDonGiaLoaiPhong.Text, out float outputt))
 
                 temp += ErrorRealValue;
@@ -183,7 +188,6 @@ namespace QuanLyKhachSan.UserForm
         }
         void insertLoaiPhong()
         {
-
             if (CheckDieuKienLoaiPhong()) 
             {
                 DataProvider.Instance.ExecuteNonQuery($"INSERT INTO LOAIPHONG(TenLoaiPhong,DonGia) values('{tbTenLoaiPhong.Text}',{float.Parse(tbDonGiaLoaiPhong.Text).ToString().Replace(",",".")})");
@@ -357,12 +361,24 @@ namespace QuanLyKhachSan.UserForm
 
             if (tbHeSoPhuThu.Text == "")
                 temp += "Hệ số phụ thu không được để trống.\n";
-
-            if (!float.TryParse(tbHeSoPhuThu.Text, out float outputt))
-                temp += "Hệ số phụ thu phải là số nguyên và lớn hơn 0";
             else
-            if(outputt<=0)
-                temp += "Hệ số phụ thu phải là số nguyên và lớn hơn 0";
+            {
+                if (!float.TryParse(tbHeSoPhuThu.Text, out float outputt))
+                    temp += "Hệ số phụ thu phải là số nguyên và lớn hơn 0.\n";
+                else
+                if (outputt <= 0)
+                    temp += "Hệ số phụ thu phải là số nguyên và lớn hơn 0.\n";
+            }
+            if (!int.TryParse(tbMocPhuThu.Text, out int tbmocphuthu))
+            {
+                temp += "Mốc phụ thu phải là 1 số nguyên dương.\n";
+            }
+            else
+            if(tbmocphuthu<0)
+            {
+                temp += "Mốc phụ thu phải là 1 số nguyên dương.\n";
+            }    
+
             if (temp != "")
             {
                 MessageBox.Show(temp);
@@ -479,10 +495,12 @@ namespace QuanLyKhachSan.UserForm
             if (tbHeSoLoaiKhach.Text == "")
                 temp += "Mục hệ số không được để trống.\n";
             if (!float.TryParse(tbHeSoLoaiKhach.Text, out float outputt))
-                temp += "Hệ số phải là số nguyên dương";
+                temp += "Hệ số phải là số nguyên dương.\n";
             else
             if (outputt <= 0)
-                temp += "Hệ số phải là số nguyên dương";
+                temp += "Hệ số phải là số nguyên dương.\n";
+            if (tbLoaiKhach.Text.Length > 20)
+                temp += "Tên loại khách phải bé hơn hoặc bằng 19 kí tự.\n";
             if (temp != "")
             {
                 MessageBox.Show(temp);

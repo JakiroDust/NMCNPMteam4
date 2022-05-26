@@ -18,7 +18,7 @@ GO
 Create Table LOAIPHONG
 (
 	MaLoaiPhong  INT IDENTITY not null primary key,
-	TenLoaiPhong nVarchar(10) not null,
+	TenLoaiPhong nVarchar(20) not null,
 	DonGia MONEY
 )
 GO
