@@ -28,7 +28,7 @@ namespace QuanLyKhachSan.DAO
 
         public bool LapPhieuThuePhong(string maPhong, int soluongkhach, string ngayBDThue, string ngayKTThue, decimal dongiasan)
         {
-            string query = $"INSERT INTO dbo.PHIEUTHUEPHONG(MaPhong, SoLuongKhach, NgayBDThue, NgayKTThue, DonGiaSan) VALUES (N'{maPhong}', {soluongkhach}, N'{ngayBDThue}', N'{ngayKTThue}', {(int)dongiasan})";
+            string query = $"INSERT INTO dbo.PHIEUTHUEPHONG(MaPhong, SoLuongKhach, NgayBDThue, NgayKTThue, DonGiaSan) VALUES (N'{maPhong}', {soluongkhach}, convert(datetime,'{ngayBDThue}',101), convert(datetime,'{ngayKTThue}',101), {(int)dongiasan})";
             int result = DataProvider.Instance.ExecuteNonQuery(query);
 
             return result > 0;

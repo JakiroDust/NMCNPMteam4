@@ -34,6 +34,8 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.tbTenPhong = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
             this.tbSoKhachToiDa = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.btnXoa = new System.Windows.Forms.Button();
@@ -54,8 +56,6 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.tbTenPhong = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDanhSachKhachHang)).BeginInit();
@@ -155,6 +155,25 @@
             this.panel3.Size = new System.Drawing.Size(418, 549);
             this.panel3.TabIndex = 4;
             this.panel3.Paint += new System.Windows.Forms.PaintEventHandler(this.panel3_Paint);
+            // 
+            // tbTenPhong
+            // 
+            this.tbTenPhong.Location = new System.Drawing.Point(90, 64);
+            this.tbTenPhong.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.tbTenPhong.Name = "tbTenPhong";
+            this.tbTenPhong.ReadOnly = true;
+            this.tbTenPhong.Size = new System.Drawing.Size(99, 27);
+            this.tbTenPhong.TabIndex = 9;
+            this.tbTenPhong.TextChanged += new System.EventHandler(this.tbTenPhong_TextChanged);
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(7, 67);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(78, 20);
+            this.label10.TabIndex = 8;
+            this.label10.Text = "Tên Phòng";
             // 
             // tbSoKhachToiDa
             // 
@@ -355,25 +374,6 @@
             this.label2.TabIndex = 0;
             this.label2.Text = "Tên khách hàng:";
             // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(7, 67);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(78, 20);
-            this.label10.TabIndex = 8;
-            this.label10.Text = "Tên Phòng";
-            // 
-            // tbTenPhong
-            // 
-            this.tbTenPhong.Location = new System.Drawing.Point(90, 64);
-            this.tbTenPhong.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.tbTenPhong.Name = "tbTenPhong";
-            this.tbTenPhong.ReadOnly = true;
-            this.tbTenPhong.Size = new System.Drawing.Size(99, 27);
-            this.tbTenPhong.TabIndex = 9;
-            this.tbTenPhong.TextChanged += new System.EventHandler(this.tbTenPhong_TextChanged);
-            // 
             // frmCT_PhieuThuePhong
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -383,7 +383,6 @@
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "frmCT_PhieuThuePhong";
             this.Text = "frmSuaThanhVien";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.frmCT_PhieuThuePhong_Load);
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
