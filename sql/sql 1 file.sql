@@ -503,3 +503,15 @@ INSERT INTO LOAIKHACH (LoaiKhach,HeSo) SELECT 'KHÁCH THƯỜNG',1;
 INSERT INTO LOAIKHACH (LoaiKhach,HeSo) SELECT 'NGOẠI QUỐC',1.5;
 INSERT INTO THAMSO (TenThamSo,GiaTriThamSo) SELECT 'SoKhachToiDa',3;
 insert into PHUTHU(SoLuongKhach,PhuThu) select 3,1.25;
+select @A=LOAIPHONG.MaLoaiPhong from LOAIPHONG where LOAIPHONG.TenLoaiPhong='A'
+select @B=LOAIPHONG.MaLoaiPhong from LOAIPHONG where LOAIPHONG.TenLoaiPhong='B'
+select @C=LOAIPHONG.MaLoaiPhong from LOAIPHONG where LOAIPHONG.TenLoaiPhong='C'
+INSERT INTO PHONG (TenPhong,MaLoaiPhong,TinhTrang) SELECT 1,@A,1;
+INSERT INTO PHONG (TenPhong,MaLoaiPhong,TinhTrang) SELECT 2,@A,1;
+INSERT INTO PHONG (TenPhong,MaLoaiPhong,TinhTrang) SELECT 3,@A,1;
+INSERT INTO PHONG (TenPhong,MaLoaiPhong,TinhTrang) SELECT 4,@B,1;
+INSERT INTO PHONG (TenPhong,MaLoaiPhong,TinhTrang) SELECT 5,@B,1;
+INSERT INTO PHONG (TenPhong,MaLoaiPhong,TinhTrang) SELECT 6,@B,1;
+INSERT INTO PHONG (TenPhong,MaLoaiPhong,TinhTrang) SELECT 7,@C,1;
+INSERT INTO PHONG (TenPhong,MaLoaiPhong,TinhTrang) SELECT 8,@C,1;
+INSERT INTO PHONG (TenPhong,MaLoaiPhong,TinhTrang) SELECT 9,@C,1;
