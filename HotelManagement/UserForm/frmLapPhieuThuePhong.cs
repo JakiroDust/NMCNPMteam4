@@ -20,8 +20,9 @@ namespace QuanLyKhachSan
         public frmLapPhieuThuePhong()
         {
             InitializeComponent();
-            LoadDanhSachPhong();
             cbLoaiPhong_Load();
+            cbTinhTrang.SelectedIndex = 0;
+            LoadDanhSachPhong();
         }
 
 
@@ -79,7 +80,7 @@ namespace QuanLyKhachSan
             {
                 c.Visible = true;
             }
-            if(type!="")
+            if(type!="Tất cả")
             foreach (Control c in flpRoom.Controls)
             {
                     if(!c.Text.Contains($"Loại phòng: {type}"))
@@ -111,11 +112,12 @@ namespace QuanLyKhachSan
         private void cbLoaiPhong_Load()
         {
             DataTable target = DataProvider.Instance.ExecuteQuery("select TenLoaiPhong from LOAIPHONG order by TenLoaiPhong asc");
-
-            target.Rows.InsertAt(target.NewRow(), 0);/// ADD a blank row
+            DataRow a = target.NewRow();
+            a[0] = "Tất cả";
+            target.Rows.InsertAt(a, 0);/// ADD a blank row
             cbLoaiPhong.DataSource = target;
             cbLoaiPhong.DisplayMember = "TenLoaiPhong";
-            cbLoaiPhong.SelectedIndex = -1;
+            cbLoaiPhong.SelectedIndex = 0;
 
         }
 

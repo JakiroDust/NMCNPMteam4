@@ -146,7 +146,7 @@
             this.cbTinhTrang.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbTinhTrang.FormattingEnabled = true;
             this.cbTinhTrang.Items.AddRange(new object[] {
-            "",
+            "Tất cả",
             "Trống",
             "Đầy"});
             this.cbTinhTrang.Location = new System.Drawing.Point(411, 4);

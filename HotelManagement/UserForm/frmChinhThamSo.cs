@@ -99,7 +99,8 @@ namespace QuanLyKhachSan.UserForm
                     }
                 }    
                 DataProvider.Instance.ExecuteNonQuery($"update THAMSO set GiaTriThamSo={float.Parse(tbHeSo.Text)} where TenThamSo='{dgvThamSo.Rows[i].Cells[0].Value.ToString()}'");
-                getThamSo();            
+                getThamSo();
+                MessageBox.Show("Sửa thành công");
             }    
         }
         private void getLoaiPhong()
@@ -249,6 +250,9 @@ namespace QuanLyKhachSan.UserForm
             }
             if (CheckIfExistsLoaiPhong())
             {
+                DialogResult dialogResult = MessageBox.Show("Bạn có chắc muốn xóa loại phòng đang được chọn?", "Xác nhận", MessageBoxButtons.YesNo);
+                if (dialogResult == DialogResult.No)
+                    return;
                 DataProvider.Instance.ExecuteNonQuery($"exec FUNC_DELETE_CT_BAOCAODOANHTHUTHEOLOAIPHONG @MaLoaiPhong={dgvLoaiPhong.CurrentRow.Cells[0].Value.ToString()}");
                 DataProvider.Instance.ExecuteNonQuery($"Delete from LOAIPHONG where MaLoaiPhong='{dgvLoaiPhong.CurrentRow.Cells[0].Value.ToString()}'");
                 getLoaiPhong();
@@ -351,6 +355,7 @@ namespace QuanLyKhachSan.UserForm
             {
                 PhuThuDao.Instance.InsertPhuThu(tbMocPhuThu.Text, tbHeSoPhuThu.Text);
                 getPhuThu();
+                MessageBox.Show("Thêm thành công.");
             }
         }
         bool CheckDieuKienChoPhuThu(int specialcase=0)
@@ -454,6 +459,9 @@ namespace QuanLyKhachSan.UserForm
             }
             else
             {
+                DialogResult dialogResult = MessageBox.Show("Bạn có chắc muốn xóa mốc phụ thu này?", "Xác nhận", MessageBoxButtons.YesNo);
+                if (dialogResult == DialogResult.No)
+                    return;
                 PhuThuDao.Instance.DeletePhuThu(tbMaPhuThu.Text);
                 getPhuThu();
                 BoChonPhuThu();
@@ -544,6 +552,7 @@ namespace QuanLyKhachSan.UserForm
             {
                 InsertLoaiKhach();
                 getLoaiKhach();
+                MessageBox.Show("Thêm thành công");
             }    
         }
         void BoChonLoaiKhach()
@@ -587,6 +596,7 @@ namespace QuanLyKhachSan.UserForm
             {
                 UpdateLoaiKhach();
                 getLoaiKhach();
+                MessageBox.Show("Sửa thành công.");
             }    
         }
         private void DeleteLoaiKhach()
@@ -600,9 +610,13 @@ namespace QuanLyKhachSan.UserForm
                 MessageBox.Show("Mời bạn chọn Loại Khách trước");
                 return;
             }
-            DeleteLoaiKhach();
-            getLoaiKhach();
-            
+            DialogResult dialogResult = MessageBox.Show("Bạn có chắc là muốn xóa loại khách đang chọn?","Xác nhận", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                DeleteLoaiKhach();
+                getLoaiKhach();
+                MessageBox.Show("Đã xóa thành công");
+            }
         }
 
         private void dgvLoaiKhach_Sorted(object sender, EventArgs e)

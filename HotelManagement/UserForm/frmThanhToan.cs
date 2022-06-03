@@ -90,6 +90,7 @@ namespace QuanLyKhachSan
             else
             {
                 Close();
+                MessageBox.Show("Thanh toán thành công");
             }    
 
         }
