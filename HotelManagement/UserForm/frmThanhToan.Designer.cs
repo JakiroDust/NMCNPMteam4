@@ -139,7 +139,7 @@
             this.btLapHoaDon.Name = "btLapHoaDon";
             this.btLapHoaDon.Size = new System.Drawing.Size(144, 52);
             this.btLapHoaDon.TabIndex = 2;
-            this.btLapHoaDon.Text = "Nhập thông tin";
+            this.btLapHoaDon.Text = "Lưu thông tin";
             this.btLapHoaDon.UseVisualStyleBackColor = true;
             this.btLapHoaDon.Click += new System.EventHandler(this.btLapHoaDon_Click);
             // 

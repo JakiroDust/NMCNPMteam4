@@ -112,9 +112,9 @@ namespace QuanLyKhachSan
             this.btRefresh.Location = new System.Drawing.Point(655, 38);
             this.btRefresh.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btRefresh.Name = "btRefresh";
-            this.btRefresh.Size = new System.Drawing.Size(94, 29);
+            this.btRefresh.Size = new System.Drawing.Size(142, 29);
             this.btRefresh.TabIndex = 6;
-            this.btRefresh.Text = "Tải lại";
+            this.btRefresh.Text = "Bỏ chọn Filter";
             this.btRefresh.UseVisualStyleBackColor = true;
             this.btRefresh.Click += new System.EventHandler(this.button2_Click);
             // 

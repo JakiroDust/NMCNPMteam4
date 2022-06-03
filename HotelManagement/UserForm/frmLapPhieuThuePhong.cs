@@ -148,7 +148,7 @@ namespace QuanLyKhachSan
                 dtpStart.Value = DateTime.Now;
                 dtpEnd.Value = DateTime.Now;
             }
-            loadbtnSelectedRoom((sender as Button).Text, (sender as Button).BackColor);
+            loadbtnSelectedRoom((sender as Button).Text, Color.AliceBlue);
             CTPhieuThuePhong();
         }
 

@@ -44,7 +44,7 @@ namespace QuanLyKhachSan
             try
             {
                 //string query = "insert into PHONG(TenPhong,TenLoaiPhong,GhiChu) values ('" + tbPhong.Text + "','" + cbLoaiPhong.Text + "', '" + tbGhiChu.Text + "')";
-                string query = "declare @temp int; select @temp=MaLoaiPhong from LOAIPHONG where TenLoaiPhong='" + cbLoaiPhong.Text + "'; insert into PHONG(TenPhong, MaLoaiPhong, GhiChu) values('" + tbPhong.Text + "', @temp , '" + tbGhiChu.Text + "') ";
+                string query = "declare @temp int; select @temp=MaLoaiPhong from LOAIPHONG where TenLoaiPhong=N'" + cbLoaiPhong.Text + "'; insert into PHONG(TenPhong, MaLoaiPhong, GhiChu) values(N'" + tbPhong.Text + "', @temp , N'" + tbGhiChu.Text + "') ";
                 dgv.DataSource = DataProvider.Instance.ExecuteQuery(query);
                 return true;
             }

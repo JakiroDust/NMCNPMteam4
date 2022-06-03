@@ -421,9 +421,9 @@
             this.btnSua.Location = new System.Drawing.Point(91, 32);
             this.btnSua.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnSua.Name = "btnSua";
-            this.btnSua.Size = new System.Drawing.Size(75, 54);
+            this.btnSua.Size = new System.Drawing.Size(139, 54);
             this.btnSua.TabIndex = 0;
-            this.btnSua.Text = "Sửa";
+            this.btnSua.Text = "Lập thông tin khách hàng";
             this.btnSua.UseVisualStyleBackColor = true;
             this.btnSua.Click += new System.EventHandler(this.btnSua_Click);
             // 
