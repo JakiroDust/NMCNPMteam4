@@ -1,5 +1,8 @@
---TRIGGER--
+﻿--TRIGGER--
 /*Thang*/
+go
+USE QuanLyKhachSan
+Go
 CREATE TRIGGER INSERT_PHIEUTHUEPHONG
 ON dbo.PHIEUTHUEPHONG
 FOR INSERT, UPDATE
@@ -365,3 +368,4 @@ begin
 end
 end
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/**********/
